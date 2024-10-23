@@ -1,5 +1,5 @@
 /***************************************************************************************
-* Copyright (c) 2014-2024 Zihao Yu, Nanjing University
+* Copyright (c) 2014-2022 Zihao Yu, Nanjing University
 *
 * NEMU is licensed under Mulan PSL v2.
 * You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -12,7 +12,7 @@
 *
 * See the Mulan PSL v2 for more details.
 ***************************************************************************************/
-
+#include <stdlib.h>
 #include <cpu/cpu.h>
 #include <cpu/decode.h>
 #include <cpu/difftest.h>
@@ -24,12 +24,100 @@
  * You can modify this value as you want.
  */
 #define MAX_INST_TO_PRINT 10
-
+void checkWatchPoint();
 CPU_state cpu = {};
 uint64_t g_nr_guest_inst = 0;
 static uint64_t g_timer = 0; // unit: us
 static bool g_print_step = false;
 
+//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#define BUF 16
+#define inside 1024
+char iringbuf[BUF][inside];
+int a = 0;
+
+void printIB(){
+    for(int i = 0; i<=15; i++){
+        if(i == a-1){
+		printf("-->%d:%s\n",i,iringbuf[i]);
+	}
+	else printf("   %d:%s\n",i,iringbuf[i]);
+    }
+}
+// 大概想到两种第一种思想就是把内容部保存到文件中，每次输入满32行后删除前16行
+// 第二个就是这里用的是链表实现，单向循环链表
+// BUF保存的是链表长度
+/*#define BUF 16
+int a;//记录次数
+typedef struct IB{//链表存储反汇编的信息
+    int no;
+    char *val;
+    struct IB *prev;	
+    struct IB *next;
+}IB;
+
+IB *head = NULL;
+
+IB *createNode(){//创建节点
+    IB *newNode = (IB *)malloc(sizeof(IB));
+    if (newNode == NULL) {
+        printf("内存分配失败！\n");
+        return NULL;
+    }
+   // newNode->val = NULL;
+    newNode->next = NULL;
+    return newNode;
+}
+
+void CircularList() {//生成长度为16的循环链表
+    head = createNode();
+    if(head==NULL){
+        printf("ERROR!\n");
+	return;
+    }
+
+    IB *current = head;
+    for (int i = 1; i <= 16; i++) {
+	current->no = i;    
+        IB *newNode = createNode();
+        if (newNode == NULL) {
+		    printf("create node error\n");
+		    return; 
+	    }
+	current->next = newNode;  // 设置当前节点的后继节点的前驱指针为当前节点
+        newNode->prev = current;  // 设置新节点的前驱指针为当前节点
+        current = newNode;
+    }
+    current->next = head;
+    head->prev = current;
+}
+
+void printList(){
+    IB *print = head->prev;
+    for(int i = 0; i < 16; i++){
+        if(i==0) printf("-->%d:%s\n",print->no,print->val);
+        else printf("   %d:%s\n",print->no,print->val);
+        print = print->next; 
+    }
+}
+
+void freeList(){
+    IB *current = head;
+    IB *temp;
+    
+    if(current != NULL){
+      do {
+          temp = current;
+          current = current->next;
+          free(temp);
+      } while (current!= head);
+    }
+    else {
+      printf("Error!");
+      return;
+    }
+}
+*/
 void device_update();
 
 static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
@@ -38,9 +126,12 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
 #endif
   if (g_print_step) { IFDEF(CONFIG_ITRACE, puts(_this->logbuf)); }
   IFDEF(CONFIG_DIFFTEST, difftest_step(_this->pc, dnpc));
+  checkWatchPoint();
+     
 }
 
 static void exec_once(Decode *s, vaddr_t pc) {
+  //CircularList();
   s->pc = pc;
   s->snpc = pc;
   isa_exec_once(s);
@@ -50,12 +141,8 @@ static void exec_once(Decode *s, vaddr_t pc) {
   p += snprintf(p, sizeof(s->logbuf), FMT_WORD ":", s->pc);
   int ilen = s->snpc - s->pc;
   int i;
-  uint8_t *inst = (uint8_t *)&s->isa.inst;
-#ifdef CONFIG_ISA_x86
-  for (i = 0; i < ilen; i ++) {
-#else
+  uint8_t *inst = (uint8_t *)&s->isa.inst.val;
   for (i = ilen - 1; i >= 0; i --) {
-#endif
     p += snprintf(p, 4, " %02x", inst[i]);
   }
   int ilen_max = MUXDEF(CONFIG_ISA_x86, 8, 4);
@@ -65,9 +152,25 @@ static void exec_once(Decode *s, vaddr_t pc) {
   memset(p, ' ', space_len);
   p += space_len;
 
+#ifndef CONFIG_ISA_loongarch32r
   void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte);
   disassemble(p, s->logbuf + sizeof(s->logbuf) - p,
-      MUXDEF(CONFIG_ISA_x86, s->snpc, s->pc), (uint8_t *)&s->isa.inst, ilen);
+      MUXDEF(CONFIG_ISA_x86, s->snpc, s->pc), (uint8_t *)&s->isa.inst.val, ilen);
+#else
+  p[0] = '\0'; // the upstream llvm does not support loongarch32r
+#endif
+  if(a==16){
+	  a = 0;
+  }
+  
+  strcpy(iringbuf[a], s->logbuf);
+  a++;
+  /*head->val = malloc(strlen(s->logbuf)+1);
+  strcpy(head->val, s->logbuf);
+  printf("p:%s\ns->logbuf:%s\nhead->val:%s\nhead->no:%d\n",p,s->logbuf,head->val,head->no);
+  head = head->next;
+*/
+
 #endif
 }
 
@@ -91,8 +194,12 @@ static void statistic() {
   else Log("Finish running in less than 1 us and can not calculate the simulation frequency");
 }
 
-void assert_fail_msg() {
+void assert_fail_msg() {//输出错误信息
   isa_reg_display();
+  Log("-------------");
+  //printList();
+  //freeList();
+  printIB();
   statistic();
 }
 
@@ -100,7 +207,7 @@ void assert_fail_msg() {
 void cpu_exec(uint64_t n) {
   g_print_step = (n < MAX_INST_TO_PRINT);
   switch (nemu_state.state) {
-    case NEMU_END: case NEMU_ABORT: case NEMU_QUIT:
+    case NEMU_END: case NEMU_ABORT:
       printf("Program execution has ended. To restart the program, exit NEMU and run again.\n");
       return;
     default: nemu_state.state = NEMU_RUNNING;
