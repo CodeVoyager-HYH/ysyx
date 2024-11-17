@@ -12,8 +12,9 @@ BUILD_DIR = $(WORK_DIR)/build
 
 INC_PATH := $(WORK_DIR)/include $(INC_PATH)
 OBJ_DIR  = $(BUILD_DIR)/obj-$(NAME)$(SO)
+#OBJ_DIR = $(WORK_DIR)/build/obj-riscv32-nemu-interprete -so
 BINARY   = $(BUILD_DIR)/$(NAME)$(SO)
-
+#BINARY = $(WORK_DIR)/build/riscv32-nemu-interprete -so
 # Compilation flags
 ifeq ($(CC),clang)
 CXX := clang++
@@ -25,6 +26,9 @@ INCLUDES = $(addprefix -I, $(INC_PATH))
 CFLAGS  := -O2 -MMD -Wall -Werror $(INCLUDES) $(CFLAGS)
 LDFLAGS := -O2 $(LDFLAGS)
 
+#SRCS:%.c=$(OBJ_DIR)/%.o就是把SRCS下的所有.c文件保存为.o文件在相同目录下|
+#CXXSRC:%.cc=$(OBJ_DIR)/%.o同理就是把.cc文件保存为.o
+#这两个所有都赋值给OBJS
 OBJS = $(SRCS:%.c=$(OBJ_DIR)/%.o) $(CXXSRC:%.cc=$(OBJ_DIR)/%.o)
 
 # Compilation patterns
