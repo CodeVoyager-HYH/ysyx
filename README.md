@@ -8,4 +8,3 @@ bash init.sh subproject-name
 
 [lecture note]: https://ysyx.oscc.cc/docs/
 # difftest
-# npc

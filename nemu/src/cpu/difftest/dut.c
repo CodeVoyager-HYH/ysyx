@@ -96,10 +96,20 @@ static void checkregs(CPU_state *ref, vaddr_t pc) {
     nemu_state.state = NEMU_ABORT;
     nemu_state.halt_pc = pc;
     isa_reg_display();
+    printf("%s\n", ANSI_FMT(str([difftest]:Error), ANSI_FG_YELLOW));
+    printf("[difftest]REF\n");
+    //printf("inst = 0x%x\n",ref->inst);
+    printf("[difftest]ref_pc:0x%x                              dut_pc:0x%x\n", ref->pc, pc);
+    //printf("[difftest]inst:%s\n", dut.inst);
+    printf("-----------------REF----------------\n");
+    for(int i = 0; i < 32; i++){
+      printf("[difftest]REF-------gpr[%d]:0x%x\tDUT-------gpr[%d]:0x%x\n",i+1,ref->gpr[i],i+1,cpu.gpr[i]);
+     // printf("DUT-------gpr[%d]:0x%x\n\n",i+1,cpu_gpr[i]);
+    }
   }
 }
 
-void difftest_step(vaddr_t pc, vaddr_t npc) {
+void difftest_step(vaddr_t pc, vaddr_t npc) {//逐条指令进行比对
   CPU_state ref_r;
 
   if (skip_dut_nr_inst > 0) {

@@ -29,7 +29,7 @@ static const uint32_t img [] = {
 static void restart() {
   /* Set the initial program counter. */
   cpu.pc = RESET_VECTOR;
-
+  printf("cpu.pc = 0x%x\n",cpu.pc );
   /* The zero register is always 0. */
   cpu.gpr[0] = 0;
 }
@@ -37,6 +37,9 @@ static void restart() {
 void init_isa() {
   /* Load built-in image. */
   memcpy(guest_to_host(RESET_VECTOR), img, sizeof(img));
+char str[20];  // 定义一个足够大的字符数组来存储转换后的字符串
+sprintf(str, "%u", RESET_VECTOR);  // 将 RESET_VECTOR 转换为字符串并存储到 str 中
+//printf("%s", str);  // 输出转换后的字符串
 
   /* Initialize this virtual computer system. */
   restart();

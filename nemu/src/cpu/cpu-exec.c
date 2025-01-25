@@ -44,80 +44,7 @@ void printIB(){
 	else printf("   %d:%s\n",i,iringbuf[i]);
     }
 }
-// 大概想到两种第一种思想就是把内容部保存到文件中，每次输入满32行后删除前16行
-// 第二个就是这里用的是链表实现，单向循环链表
-// BUF保存的是链表长度
-/*#define BUF 16
-int a;//记录次数
-typedef struct IB{//链表存储反汇编的信息
-    int no;
-    char *val;
-    struct IB *prev;	
-    struct IB *next;
-}IB;
 
-IB *head = NULL;
-
-IB *createNode(){//创建节点
-    IB *newNode = (IB *)malloc(sizeof(IB));
-    if (newNode == NULL) {
-        printf("内存分配失败！\n");
-        return NULL;
-    }
-   // newNode->val = NULL;
-    newNode->next = NULL;
-    return newNode;
-}
-
-void CircularList() {//生成长度为16的循环链表
-    head = createNode();
-    if(head==NULL){
-        printf("ERROR!\n");
-	return;
-    }
-
-    IB *current = head;
-    for (int i = 1; i <= 16; i++) {
-	current->no = i;    
-        IB *newNode = createNode();
-        if (newNode == NULL) {
-		    printf("create node error\n");
-		    return; 
-	    }
-	current->next = newNode;  // 设置当前节点的后继节点的前驱指针为当前节点
-        newNode->prev = current;  // 设置新节点的前驱指针为当前节点
-        current = newNode;
-    }
-    current->next = head;
-    head->prev = current;
-}
-
-void printList(){
-    IB *print = head->prev;
-    for(int i = 0; i < 16; i++){
-        if(i==0) printf("-->%d:%s\n",print->no,print->val);
-        else printf("   %d:%s\n",print->no,print->val);
-        print = print->next; 
-    }
-}
-
-void freeList(){
-    IB *current = head;
-    IB *temp;
-    
-    if(current != NULL){
-      do {
-          temp = current;
-          current = current->next;
-          free(temp);
-      } while (current!= head);
-    }
-    else {
-      printf("Error!");
-      return;
-    }
-}
-*/
 void device_update();
 
 static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
@@ -132,6 +59,7 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
 
 static void exec_once(Decode *s, vaddr_t pc) {
   //CircularList();
+  printf("nemu_once_pc = 0x%x\n",pc);
   s->pc = pc;
   s->snpc = pc;
   isa_exec_once(s);
@@ -142,6 +70,7 @@ static void exec_once(Decode *s, vaddr_t pc) {
   int ilen = s->snpc - s->pc;
   int i;
   uint8_t *inst = (uint8_t *)&s->isa.inst.val;
+  //printf("inst: %u, isa.inst.val:%u  \n",*inst,s->isa.inst.val);
   for (i = ilen - 1; i >= 0; i --) {
     p += snprintf(p, 4, " %02x", inst[i]);
   }
@@ -154,6 +83,7 @@ static void exec_once(Decode *s, vaddr_t pc) {
 
 #ifndef CONFIG_ISA_loongarch32r
   void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte);
+  //Log("p = %d,logbuf = %s,pc = %d,code = %u \n",*p,s->logbuf,s->pc,*inst);
   disassemble(p, s->logbuf + sizeof(s->logbuf) - p,
       MUXDEF(CONFIG_ISA_x86, s->snpc, s->pc), (uint8_t *)&s->isa.inst.val, ilen);
 #else
@@ -173,11 +103,15 @@ static void exec_once(Decode *s, vaddr_t pc) {
 
 #endif
 }
-
+extern void isa_reg_display();
 static void execute(uint64_t n) {
   Decode s;
   for (;n > 0; n --) {
+    
+    isa_reg_display();
+    printf("cpu.pc = %x\n",cpu.pc);
     exec_once(&s, cpu.pc);
+    printf("nemu_exec_pc = 0x%x\n",cpu.pc);
     g_nr_guest_inst ++;
     trace_and_difftest(&s, cpu.pc);
     if (nemu_state.state != NEMU_RUNNING) break;
@@ -214,9 +148,7 @@ void cpu_exec(uint64_t n) {
   }
 
   uint64_t timer_start = get_time();
-
   execute(n);
-
   uint64_t timer_end = get_time();
   g_timer += timer_end - timer_start;
 

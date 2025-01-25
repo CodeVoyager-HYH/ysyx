@@ -89,7 +89,7 @@ static int parse_args(int argc, char *argv[]) {
       case 'l': log_file = optarg; break;
       case 'd': diff_so_file = optarg; break;
       case 'e': elf_file = optarg; break;
-      case 1: img_file = optarg; return 0;
+      case 1: img_file = optarg;printf("img_file = %s\n",img_file); return 0;
       default:
         printf("Usage: %s [OPTION...] IMAGE [args]\n\n", argv[0]);
         printf("\t-b,--batch              run with batch mode\n");
@@ -176,11 +176,11 @@ typedef struct {
     Elf32_Xword size;
 } Symbol;
 
-Symbol *s_table = NULL;  
-int func_num = 0;
+Symbol *s_table = NULL;  //储存符号表的函数信息
+int func_num = 0;//记录符号表中函数的个数
 void init_ftrace(const char *elf_file)
 {
-    
+    //==================================判断文件是否正确=================================
     if(elf_file == NULL){
       printf("elf_file == NULL\n");
       return;
@@ -196,39 +196,39 @@ void init_ftrace(const char *elf_file)
     }
 	
     Elf32_Ehdr edhr;
-	//读取elf头
+	  //读取elf头
     if(fread(&edhr, sizeof(Elf32_Ehdr), 1, fp) <= 0)
     {
         printf("fail to read the elf_head!\n");
         exit(0);
     }
-
+    //判断是不是一个elf文件
     if(edhr.e_ident[0] != 0x7f || edhr.e_ident[1] != 'E' || 
        edhr.e_ident[2] != 'L' ||edhr.e_ident[3] != 'F')
     {
         printf("The opened file isn't a elf file!\n");
         exit(0);
     }
-    
-    fseek(fp, edhr.e_shoff, SEEK_SET);
+    //移动到节头表
+    fseek(fp, edhr.e_shoff, SEEK_SET);// e_shoff节头表偏移量
 
     Elf32_Shdr shdr;
     char *string_table = NULL;
     //寻找字符串表
-    for(int i = 0; i < edhr.e_shnum; i++)
+    for(int i = 0; i < edhr.e_shnum; i++)// e_shnum节头表中的条目数量
     {
-        if(fread(&shdr, sizeof(Elf32_Shdr), 1, fp) <= 0)
+        if(fread(&shdr, sizeof(Elf32_Shdr), 1, fp) <= 0)//节头信息读取到shdr
         {
             printf("fail to read the shdr\n");
             exit(0);
         }
         
-        if(shdr.sh_type == SHT_STRTAB)
+        if(shdr.sh_type == SHT_STRTAB)//找到字符串表
         {
             //获取字符串表
             string_table = malloc(shdr.sh_size);
-            fseek(fp, shdr.sh_offset, SEEK_SET);
-            if(fread(string_table, shdr.sh_size, 1, fp) <= 0)
+            fseek(fp, shdr.sh_offset, SEEK_SET);//移动到在符号表的偏移位置
+            if(fread(string_table, shdr.sh_size, 1, fp) <= 0)//保存符号表的内容
             {
                 printf("fail to read the strtab\n");
                 exit(0);
@@ -236,8 +236,8 @@ void init_ftrace(const char *elf_file)
         }
     }
     
-    //寻找符号表
-    fseek(fp, edhr.e_shoff, SEEK_SET);
+    //===============================================寻找符号表
+    fseek(fp, edhr.e_shoff, SEEK_SET);//移动到节头表
     
     for(int i = 0; i < edhr.e_shnum; i++)
     {
@@ -247,13 +247,13 @@ void init_ftrace(const char *elf_file)
             exit(0);
         }
 
-        if(shdr.sh_type == SHT_SYMTAB)
-        {
+        if(shdr.sh_type == SHT_SYMTAB)//寻找到字符串表
+        { 
             fseek(fp, shdr.sh_offset, SEEK_SET);
 
             Elf32_Sym sym;
 
-            size_t sym_count = shdr.sh_size / shdr.sh_entsize;
+            size_t sym_count = shdr.sh_size / shdr.sh_entsize;//符号表中符号的数量
             s_table = malloc(sizeof(Symbol) * sym_count);
 
             for(size_t j = 0; j < sym_count; j++)
@@ -287,7 +287,7 @@ void call_func(word_t pc, word_t func_addr)
 {
     int i = 0;
     for(; i < func_num; i++)
-    {
+    {//用地址判断函数
         if(func_addr >= s_table[i].addr && func_addr < (s_table[i].addr + s_table[i].size))
         {
             break;
