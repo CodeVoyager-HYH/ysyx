@@ -38,11 +38,11 @@ static void timer_intr() {
 #endif
 
 void init_timer() {
-  rtc_port_base = (uint32_t *)new_space(8);
+  rtc_port_base = (uint32_t *)new_space(8);//八字节的mmio空间
 #ifdef CONFIG_HAS_PORT_IO
   add_pio_map ("rtc", CONFIG_RTC_PORT, rtc_port_base, 8, rtc_io_handler);
 #else
-  add_mmio_map("rtc", CONFIG_RTC_MMIO, rtc_port_base, 8, rtc_io_handler);
+  add_mmio_map("rtc", CONFIG_RTC_MMIO, rtc_port_base, 8, rtc_io_handler);//注册一个端口映射io的关系
 #endif
   IFNDEF(CONFIG_TARGET_AM, add_alarm_handle(timer_intr));
 }

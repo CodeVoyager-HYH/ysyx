@@ -58,8 +58,7 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
 }
 
 static void exec_once(Decode *s, vaddr_t pc) {
-  //CircularList();
-  printf("nemu_once_pc = 0x%x\n",pc);
+
   s->pc = pc;
   s->snpc = pc;
   isa_exec_once(s);
@@ -103,15 +102,16 @@ static void exec_once(Decode *s, vaddr_t pc) {
 
 #endif
 }
-extern void isa_reg_display();
+
+//extern void isa_reg_display();
 static void execute(uint64_t n) {
   Decode s;
   for (;n > 0; n --) {
     
-    isa_reg_display();
-    printf("cpu.pc = %x\n",cpu.pc);
+    //isa_reg_display();
+    //printf("cpu.pc = %x\n",cpu.pc);
     exec_once(&s, cpu.pc);
-    printf("nemu_exec_pc = 0x%x\n",cpu.pc);
+    //printf("nemu_exec_pc = 0x%x\n",cpu.pc);
     g_nr_guest_inst ++;
     trace_and_difftest(&s, cpu.pc);
     if (nemu_state.state != NEMU_RUNNING) break;
@@ -135,6 +135,7 @@ void assert_fail_msg() {//输出错误信息
   //freeList();
   printIB();
   statistic();
+  
 }
 
 /* Simulate how the CPU works. */

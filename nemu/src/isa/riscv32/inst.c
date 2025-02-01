@@ -121,17 +121,17 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000000 ????? ????? 110 ????? 01100 11", or     , R, R(rd) = src1 | src2);
   INSTPAT("0000000 00001 00000 000 00000 11100 11", ebreak , N, NEMUTRAP(s->pc, R(10))); 
   INSTPAT("??????? ????? ????? ??? ????? ????? ??", inv    , N, INV(s->pc)); 
-  printf("imm = 0x%x,pc = 0x%x\n",imm,cpu.pc);
+
   INSTPAT_END();//指示指令模式匹配的结束
   R(0) = 0; // reset $zero to 0
- printf("imm = 0x%x,pc = 0x%x\n",imm,cpu.pc);
+
   return 0;
 }
  
 
 int isa_exec_once(Decode *s) {
   s->isa.inst.val = inst_fetch(&s->snpc, 4);
-  printf("nemu_inst:0x%x\n",s->isa.inst.val);
+  //printf("nemu_inst:0x%x\n",s->isa.inst.val);
   return decode_exec(s);
 }
  

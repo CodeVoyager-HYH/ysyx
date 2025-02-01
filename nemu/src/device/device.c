@@ -33,7 +33,7 @@ void init_alarm();
 void send_key(uint8_t, bool);
 void vga_update_screen();
 
-void device_update() {
+void device_update() {//用于检查是否需要更新设备
   static uint64_t last = 0;
   uint64_t now = get_time();
   if (now - last < 1000000 / TIMER_HZ) {
@@ -75,7 +75,7 @@ void sdl_clear_event_queue() {
 
 void init_device() {
   IFDEF(CONFIG_TARGET_AM, ioe_init());
-  init_map();
+  init_map();//初始化io空间，p_space指向io
 
   IFDEF(CONFIG_HAS_SERIAL, init_serial());
   IFDEF(CONFIG_HAS_TIMER, init_timer());
