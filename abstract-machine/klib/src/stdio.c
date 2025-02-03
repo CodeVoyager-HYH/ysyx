@@ -22,15 +22,36 @@ int printf(const char *fmt, ...) {
 int vsprintf(char *out, const char *fmt, va_list ap) {
     //panic("Not implemented");
 	int count = 0;//字符数
+	int precision = 0;
   	while(*fmt != '\0'){
+		precision = 0;
 		if(*fmt == '%'){
 			fmt++;
+			while(*fmt >='0'&& *fmt<='9'){
+				precision = precision * 10 + (*fmt - '0');
+					fmt ++;
+			}
 			switch(*fmt){
 				case 'd':
 					int num = va_arg(ap, int); 
 					if(num == 0){
-						*out++ = '0';
-						count++;
+						int num_bit = 1;
+						if(num_bit >= precision){
+							*out++ = '0';
+							count++;
+						}
+						else{
+							int sub = precision - num_bit;
+							while (sub>0)
+							{
+								*out++ = '0';
+								count++;
+								sub--;
+							}
+
+							*out++ = '0';
+							count++;
+						}
 					}
 					else{
 						if(num < 0)
@@ -42,16 +63,36 @@ int vsprintf(char *out, const char *fmt, va_list ap) {
 						}
 
 						int bit = 1;//判断保存的数字的位数
-						while (num / bit >= 0)
+						int num_bit = 1;
+						while (num / bit >= 10)
 						{
 							bit *= 10;
+							num_bit++;
 						}
-						while (bit>0)
-						{
-							*out++ = num / bit + '0';
-							count++;
-							num %= bit; 
-        					bit /= 10; 
+						if(num_bit >= precision){
+							while (bit>0)
+							{
+								*out++ = num / bit + '0';
+								count++;
+								num %= bit; 
+        						bit /= 10; 
+							}
+						}
+						else{
+							int sub = precision - num_bit;
+							while (sub > 0)
+							{
+								*out++ = '0';
+								count++;
+								sub--;
+							}
+							while (bit>0)
+							{
+								*out++ = num / bit + '0';
+								count++;
+								num %= bit; 
+        						bit /= 10; 
+							}
 						}
 					}
 					break;
@@ -72,9 +113,10 @@ int vsprintf(char *out, const char *fmt, va_list ap) {
                     break;
 				default:	assert(0);	
 			}
-			*out++ = *fmt++;
+			fmt++;
 		}
 		else{
+			*out++ = *fmt++;
 			count++;
 		}
 	}
