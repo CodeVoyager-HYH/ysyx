@@ -134,7 +134,11 @@ config MTRACE
   bool "Enable mtrace"
   default n
 
-config IRINGBUF
+config DTRACE
+  bool "Enable dtrace"
+  default n
+
+  config IRINGBUF
   bool "Enable iringbuf"
   default y
 

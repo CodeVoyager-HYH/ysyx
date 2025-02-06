@@ -57,10 +57,10 @@ static void init_screen() {
 }
 
 static inline void update_screen() {
-  SDL_UpdateTexture(texture, NULL, vmem, SCREEN_W * sizeof(uint32_t));
-  SDL_RenderClear(renderer);
-  SDL_RenderCopy(renderer, texture, NULL, NULL);
-  SDL_RenderPresent(renderer);
+  SDL_UpdateTexture(texture, NULL, vmem, SCREEN_W * sizeof(uint32_t));//把Vmem的内容复制到texture
+  SDL_RenderClear(renderer);//清空渲染器
+  SDL_RenderCopy(renderer, texture, NULL, NULL);//把texture渲染到屏幕上
+  SDL_RenderPresent(renderer);//把渲染器的缓存区内容更新到内存上
 }
 #else
 static void init_screen() {}
@@ -74,6 +74,10 @@ static inline void update_screen() {
 void vga_update_screen() {
   // TODO: call `update_screen()` when the sync register is non-zero,
   // then zero out the sync register
+  if(vgactl_port_base[1]){//sync
+    IFDEF(CONFIG_VGA_SHOW_SCREEN,update_screen());
+    vgactl_port_base[1] = 0;
+  }
 }
 
 void init_vga() {

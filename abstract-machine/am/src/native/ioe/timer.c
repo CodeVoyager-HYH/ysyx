@@ -19,7 +19,7 @@ void __am_timer_rtc(AM_TIMER_RTC_T *rtc) {
   rtc->year   = tm->tm_year + 1900;
 }
 
-void (AM_TIMER_UPTIME_T *uptime) {
+void __am_timer_uptime(AM_TIMER_UPTIME_T *uptime) {
   struct timeval now;
   gettimeofday(&now, NULL);
   long seconds = now.tv_sec - boot_time.tv_sec;
