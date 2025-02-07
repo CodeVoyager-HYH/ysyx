@@ -33,25 +33,12 @@ extern "C" void get_npc(int npc){
     dut_npc = (uint32_t)npc;
 }
 
-// 单周期仿真
-void single_cycle(VerilatedContext* contextp) {
-    dut.clk = 0;
-    //get_pc(dut.pc);
-    dut.eval();
-    contextp->timeInc(1);  // 增加仿真时间
-    dut.clk = 1;
-    
-    dut.eval();
-    contextp->timeInc(1);  // 增加仿真时间
-}
 extern uint32_t cpu_exec(uint64_t n);
 extern void difftest_step();
 int main(int argc, char** argv, char** env) {
     // 启用跟踪功能
     Verilated::traceEverOn(true);
-    //VerilatedContext* 
     contextp = new VerilatedContext;
-    //VerilatedVcdC *
     m_trace = new VerilatedVcdC;  // 创建 VCD 跟踪对象
     contextp->commandArgs(argc, argv);
     
@@ -80,7 +67,7 @@ int main(int argc, char** argv, char** env) {
         // 获取指令
         contextp->timeInc(1);  // 增加仿真时间
         m_trace->dump(contextp->time());  // 写入波形数据
-        
+
         dut.clk = 1;
         dut.rst = 0;  // 解除复位
         sdb_mainloop();
@@ -88,29 +75,15 @@ int main(int argc, char** argv, char** env) {
         dut.eval();  // 评估电路状态
         contextp->timeInc(1);  // 增加仿真时间
         m_trace->dump(contextp->time());  // 写入波形数据
-      
-    //   dut.clk = 0;
-    //     dut.rst = 0;  // 解除复位
-    //     dut.eval();  // 评估电路状态
-    //     sdb_mainloop(); // 获取指令
-    //     //dut.ins = inst;
-    //     contextp->timeInc(1);  // 增加仿真时间
-    //     m_trace->dump(contextp->time());  // 写入波形数据
-        // 单周期循环
-        //single_cycle(contextp);
+
         //ebreak退出---------------------------------
-        if(global_judge == OK){
+        if(npc_state.state == NPC_QUIT){
             set_npc_state(NPC_END, dut_pc, cpu_gpr[10]);
             state_judge();
             m_trace->close(); 
             exit(0);
         }
-        // else if(global_judge != OK){
-        //     set_npc_state(NPC_END, dut_pc, cpu_gpr[10]);
-        //     state_judge();
-        //     m_trace->close(); 
-        //     exit(1);
-        // }
+
         if(npc_state.state == NPC_QUIT){
             m_trace->close();
             Log("%s", ANSI_FMT("EXIT SUCCESS !", ANSI_FG_GREEN));
@@ -119,6 +92,13 @@ int main(int argc, char** argv, char** env) {
 
     }
 
-    m_trace->close();  // 关闭波形文件
-    return 0;
+    m_trace->close();  // 关闭波形文件void single_cycle(VerilatedContext* contextp) {
+    dut.clk = 0;
+    //get_pc(dut.pc);
+    dut.eval();
+    contextp->timeInc(1);  // 增加仿真时间
+    dut.clk = 1;
+    
+    dut.eval();
+    contextp->timeInc(1);  // 增加仿真时间
 }

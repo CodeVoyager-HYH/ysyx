@@ -14,9 +14,9 @@ module ysyx_24080014_memory(
 wire [31:0] tem;
 wire [31:0] read_tem;
 always @(*) begin
-    if(ReadWr) $display("(npc vsrc)read_addr:%x,read_data:%x\nrmask:%d,read_data = %x",read_addr,read_tem,rmask,read_data);
+    //if(ReadWr) $display("(npc vsrc)read_addr:%x,read_data:%x\nrmask:%d,read_data = %x",read_addr,read_tem,rmask,read_data);
     if(StoreWr) begin
-        $display("(npc vsrc)mem_rd = %x, store_data = 0x%x, wmask = %d",mem_rd, store_data, wmask);
+        //$display("(npc vsrc)mem_rd = %x, store_data = 0x%x, wmask = %d",mem_rd, store_data, wmask);
         rtl_pmem_write(mem_rd, store_data, wmask);
     end
 end 

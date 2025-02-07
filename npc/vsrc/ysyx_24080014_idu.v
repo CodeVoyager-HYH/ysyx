@@ -201,9 +201,9 @@ assign func12 = inst[31:20];
                            (func7 == `sra)?`shamt_sra:((func7 ==`srl)?`shamt_srl:`shamt_common):
                         (func3 == `logic_shift)?
                            ((func7 == `sll)? `shamt_sll:`shamt_common):`shamt_common:`shamt_common;
-   always @(*) begin
-      $display("shamt_ctl = %d",shamt_ctl);
-   end                        
+   // always @(*) begin
+   //    $display("shamt_ctl = %d",shamt_ctl);
+   // end                        
   assign rmask = (opcode == `Load)?
                         ((func3 == `lw)? 3'b100 : 
                         (func3 == `lh)? 3'b010 :

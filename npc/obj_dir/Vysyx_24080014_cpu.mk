@@ -46,10 +46,15 @@ VM_USER_CLASSES = \
 	addr \
 	difftest \
 	disasm \
+	exec \
 	expr \
 	init \
+	inst_rel \
+	log \
 	main \
 	memory \
+	mointer \
+	sdb \
 	time \
 	watchpoint \
 
@@ -73,13 +78,23 @@ difftest.o: /home/hyh/ysyx-workbench/npc/csrc/difftest.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 disasm.o: /home/hyh/ysyx-workbench/npc/csrc/disasm.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+exec.o: /home/hyh/ysyx-workbench/npc/csrc/exec.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 expr.o: /home/hyh/ysyx-workbench/npc/csrc/expr.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 init.o: /home/hyh/ysyx-workbench/npc/csrc/init.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+inst_rel.o: /home/hyh/ysyx-workbench/npc/csrc/inst_rel.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+log.o: /home/hyh/ysyx-workbench/npc/csrc/log.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main.o: /home/hyh/ysyx-workbench/npc/csrc/main.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 memory.o: /home/hyh/ysyx-workbench/npc/csrc/memory.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+mointer.o: /home/hyh/ysyx-workbench/npc/csrc/mointer.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+sdb.o: /home/hyh/ysyx-workbench/npc/csrc/sdb.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 time.o: /home/hyh/ysyx-workbench/npc/csrc/time.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<

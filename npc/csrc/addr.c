@@ -5,6 +5,7 @@ extern Vysyx_24080014_cpu dut;
 extern uint32_t dut_npc;
 extern uint32_t dut_pc;
 uint8_t pmem[PMEM_MSIZE] = {};
+static uint64_t timer = 0;
 
 uint8_t* guest_to_host(uint32_t paddr) { return pmem + paddr - 0x80000000; }
 uint32_t host_to_guest(uint8_t *haddr) { return haddr - pmem + 0x80000000; }
@@ -61,7 +62,7 @@ void init_mem() {
 
 word_t paddr_read(paddr_t addr, int len) { 
   if (likely(in_pmem(addr))) return pmem_read(addr, len);
-  //IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
+  IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
   out_of_bound(addr);
   return 0;
 }
@@ -78,21 +79,23 @@ uint32_t _pmem_read(uint32_t addr, int len) {
 
 extern "C" int rtl_pmem_read(int raddr,int *rdata){
   extern uint32_t inst;
-  uint8_t *vaddr = guest_to_host(2147484020);//物理地址转换
-  Log("=======================inst = %x=========================================addr:%x\n\n",inst,*vaddr);
   raddr = raddr & ~0x3u;  //字节对齐
+  // if(raddr == 0xa0000048){
+  //   timer = get_time()
+  //   return (uint32_t)timer;
+  // }
   if (raddr>=PMEM_START && raddr<=PMEM_END){
     *rdata = _pmem_read(raddr,4);
-    Log("radrr = %x,rdata=%x\n",raddr,*rdata);
+    IFDEF(DEBUG,Log("radrr = %x,rdata=%x\n",raddr,*rdata));
 #ifdef CONFIG_MTRACE	
-    Log("(npc csrc)read data = %x , read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = 4",*rdata,raddr, dut_pc);	
+    IFDEF(DEBUG,Log("(npc csrc)read data = %x , read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = 4",*rdata,raddr, dut_pc));	
 
 #endif 
     return *rdata;
   }
   else //avoid latch.
     *rdata = 0;
-    printf("rdata:%x\n",*rdata);
+    IFDEF(DEBUG,printf("rdata:%x\n",*rdata));
     return *rdata;
 }
 
@@ -101,6 +104,11 @@ extern "C" void rtl_pmem_write(int waddr, int wdata, char wmask) {//waddr写入�
   // `wmask`中每比特表示`wdata`中1个字节的掩码,
   // 如`wmask = 0x3`代表只写入最低2个字节, 内存中的其它字节保持不变
   waddr = waddr & ~0x3u;//地址对齐
+  if(waddr == 0xa00003f8) {
+    uint8_t ch = (uint8_t)(wdata & 0xff);
+    putc(ch,stderr);
+		return;
+	}
   IFDEF(CONFIG_MTRACE,Log("(npc csrc)write init addr : 0x%x ,write_data : %x ,pc = 0x%x ",waddr,wdata,dut_pc));
   uint8_t *vaddr = guest_to_host(waddr);//物理地址转换
 	uint8_t *iaddr;
@@ -110,7 +118,7 @@ extern "C" void rtl_pmem_write(int waddr, int wdata, char wmask) {//waddr写入�
 		if(wmask & (1 << i)){
 			iaddr = vaddr + i;//修改地址
 			*iaddr = (wdata >> (j * 8)) & 0xFF;//写入
-      Log("wirte : %x",*iaddr);
+      IFDEF(DEBUG,Log("wirte : %x",*iaddr));
 			j++;
 		}
 	}

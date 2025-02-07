@@ -11,6 +11,13 @@
 #include <elf.h>
 #include "Vysyx_24080014_cpu__Dpi.h"
 #include <verilated_dpi.h>
+#include <getopt.h>
+#include <readline/readline.h>
+#include <readline/history.h>
+#include "verilated_vcd_c.h"  // 用于波形输出
+#include "Vysyx_24080014_cpu.h"  // 顶层模块
+#include "verilated.h"
+
 //#include "Log.h"
 #include "macro.h"
 #define OK 1
@@ -31,15 +38,15 @@
 #define FMT_PADDR MUXDEF(PMEM64, "0x%016" PRIx64, "0x%08" PRIx32)
 //===========================konfig=======================================
 #define ITRACE_COND 1
-#define IRINGBUF 1//IRINGBUF
+#define IRINGBUF 0//IRINGBUF
 //--------------------------config--------------------------------------------------
 #define CONFIG_MBASE 0x80000000
 #define CONFIG_MSIZE 0x8000000
 //TRACE
-#define CONFIG_ITRACE 1
-#define CONFIG_MTRACE 1 //mtrace
-#define CONFIG_FTRACE 1
-#define CONFIG_TRACE 1
+#define CONFIG_ITRACE 0
+#define CONFIG_MTRACE 0 //mtrace
+#define CONFIG_FTRACE 0
+#define CONFIG_TRACE 0
 
 #define CONFIG_ISA_riscv 1
 #define CONFIG_ITRACE_COND "true"
@@ -69,25 +76,25 @@
 #define CONFIG_PMEM_GARRAY 1
 //-------------------------difftest------------------------------------------------
 
-#define CONFIG_DIFFTEST_REF_NAME "spike"
-#define CONFIG_DIFFTEST_REF_SPIKE 1
-#define CONFIG_DIFFTEST 1
-#define CONFIG_ISA_riscv 1
-#define CONFIG_TRACE_END 10000
-#define CONFIG_MBASE 0x80000000
-#define CONFIG_TIMER_GETTIMEOFDAY 1
-#define CONFIG_ENGINE_INTERPRETER 1
-#define CONFIG_CC_OPT "-O2"
-#define CONFIG_RT_CHECK 1
-#define CONFIG_ITRACE_COND "true"
-#define CONFIG_CC "gcc"
-#define CONFIG_DIFFTEST_REF_PATH "tools/spike-diff"
-#define CONFIG_CC_DEBUG 1
-#define CONFIG_TRACE_START 0
-#define CONFIG_CC_GCC 1
-#define CONFIG_TRACE 1
-#define CONFIG_ISA "riscv32"
-#define CONFIG_PMEM_GARRAY 1
+// #define CONFIG_DIFFTEST_REF_NAME "spike"
+// #define CONFIG_DIFFTEST_REF_SPIKE 1
+// #define CONFIG_DIFFTEST 1
+// #define CONFIG_ISA_riscv 1
+// #define CONFIG_TRACE_END 10000
+// #define CONFIG_MBASE 0x80000000
+// #define CONFIG_TIMER_GETTIMEOFDAY 1
+// #define CONFIG_ENGINE_INTERPRETER 1
+// #define CONFIG_CC_OPT "-O2"
+// #define CONFIG_RT_CHECK 1
+// #define CONFIG_ITRACE_COND "true"
+// #define CONFIG_CC "gcc"
+// #define CONFIG_DIFFTEST_REF_PATH "tools/spike-diff"
+// #define CONFIG_CC_DEBUG 1
+// #define CONFIG_TRACE_START 0
+// #define CONFIG_CC_GCC 1
+// #define CONFIG_TRACE 1
+// #define CONFIG_ISA "riscv32"
+// #define CONFIG_PMEM_GARRAY 1
 
 //====================================================================================
 extern uint32_t* cpu_gpr;

@@ -93,14 +93,9 @@ extern "C" void npctrap(){
   right_judge = OK;
   cpu_gpr10 = cpu_gpr[10];
   npc_state.state = NPC_QUIT;
-  //set_npc_state(NPC_END, dut_pc, cpu_gpr[10]);
   if(cpu_gpr[10] != 0)  right_judge = ERROR;
-  // exit(0);
 }
 
-// extern "C" void get_npc(int next_pc){
-//   npc = (uint32_t)next_pc;
-// }
 //---------------------------------打印寄存器------------------------------
 const char *regs[] = {
   "$0", "ra", "sp", "gp", "tp", "t0", "t1", "t2",
@@ -182,27 +177,6 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
     }
     return flag;
 }
-
-// void checkregs(CPU_state *ref, vaddr_t pc) {
-//   if (!isa_difftest_checkregs(ref, pc)) {
-//     npc_state.state = NPC_ABORT;
-//     npc_state.halt_pc = pc;
-//     printf("%s\n", ANSI_FMT(str([difftest]), ANSI_FG_YELLOW ANSI_BG_RED));
-//     printf("[difftest]REF\n");
-//     printf("[difftest]ref_pc:0x%x\tdut_pc:0x%x\n", ref->pc,dut_pc);
-//     printf("[difftest]inst:0x%x\n",inst);
-//     printf("-----------------REF----------------\n");
-//     for(int i = 0; i < 32; i++){
-//       printf("[difftest]REF-------gpr[%d]:0x%x\tDUT-------gpr[%d]:0x%x\n",i+1,ref->gpr[i],i+1,cpu_gpr[i]);
-//       isa_reg_display();
-//       assert(0);
-//      // printf("DUT-------gpr[%d]:0x%x\n\n",i+1,cpu_gpr[i]);
-//     }
-//     //isa_reg_display();
-//   //assert(0);
-//   }
-
-// }
 
 extern "C" int change_npc(int next_pc){
   if(diff_pc_change) {

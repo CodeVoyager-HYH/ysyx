@@ -37,7 +37,7 @@ always @(posedge clk) begin
 end
 
 always @(*) begin
-    $display("(NPCC)rd_addr = %d,rd_data = %d,a5 = %x",rd,rd_data,general_register[15]);
+    //$display("(NPCC)rd_addr = %d,rd_data = %d,a5 = %x",rd,rd_data,general_register[15]);
     set_gpr_ptr(general_register);
 end
 endmodule

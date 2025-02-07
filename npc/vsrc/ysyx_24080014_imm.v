@@ -31,5 +31,5 @@ assign imm = (imm_type == `I_type)?immI:
              (imm_type == `S_type)?immS:
              (imm_type == `B_type)?immB: 32'b0;
 
-always @(*) $display("imm = %x,imm_type = %d,inst:%x",imm,imm_type,inst);
+//always @(*) $display("imm = %x,imm_type = %d,inst:%x",imm,imm_type,inst);
 endmodule

@@ -12,7 +12,7 @@ static uint64_t get_time_internal() {
     uint64_t us = now.tv_sec * 1000000 + now.tv_usec;
     return us;
 }
-uint64_t get_time() {
+uint64_t get_time() {//获取开机的时间长度
     if (boot_time == 0) boot_time = get_time_internal();
     uint64_t now = get_time_internal();
     return now - boot_time;

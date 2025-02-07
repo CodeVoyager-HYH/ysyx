@@ -23,7 +23,6 @@
 static int is_batch_mode = false;
 void init_regex();
 void init_wp_pool();
-void watching();
 void watchpoint_create(char *args, int32_t res);
 void free_wp(int no);
 void watchpoint_print();

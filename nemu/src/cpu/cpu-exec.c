@@ -30,7 +30,6 @@ uint64_t g_nr_guest_inst = 0;
 static uint64_t g_timer = 0; // unit: us
 static bool g_print_step = false;
 
-//+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #define BUF 16
 #define inside 1024
 char iringbuf[BUF][inside];
@@ -94,11 +93,6 @@ static void exec_once(Decode *s, vaddr_t pc) {
   
   strcpy(iringbuf[a], s->logbuf);
   a++;
-  /*head->val = malloc(strlen(s->logbuf)+1);
-  strcpy(head->val, s->logbuf);
-  printf("p:%s\ns->logbuf:%s\nhead->val:%s\nhead->no:%d\n",p,s->logbuf,head->val,head->no);
-  head = head->next;
-*/
 
 #endif
 }
@@ -107,11 +101,7 @@ static void exec_once(Decode *s, vaddr_t pc) {
 static void execute(uint64_t n) {
   Decode s;
   for (;n > 0; n --) {
-    
-    //isa_reg_display();
-    //printf("cpu.pc = %x\n",cpu.pc);
     exec_once(&s, cpu.pc);
-    //printf("nemu_exec_pc = 0x%x\n",cpu.pc);
     g_nr_guest_inst ++;
     trace_and_difftest(&s, cpu.pc);
     if (nemu_state.state != NEMU_RUNNING) break;
@@ -131,8 +121,6 @@ static void statistic() {
 void assert_fail_msg() {//输出错误信息
   isa_reg_display();
   Log("-------------");
-  //printList();
-  //freeList();
   printIB();
   statistic();
   
