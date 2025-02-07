@@ -9,6 +9,7 @@
 #include <inttypes.h>
 #include <string.h>
 #include <elf.h>
+#include "../include/generated/autoconf.h"
 #include "Vysyx_24080014_cpu__Dpi.h"
 #include <verilated_dpi.h>
 #include <getopt.h>
@@ -39,63 +40,6 @@
 //===========================konfig=======================================
 #define ITRACE_COND 1
 #define IRINGBUF 0//IRINGBUF
-//--------------------------config--------------------------------------------------
-#define CONFIG_MBASE 0x80000000
-#define CONFIG_MSIZE 0x8000000
-//TRACE
-#define CONFIG_ITRACE 0
-#define CONFIG_MTRACE 0 //mtrace
-#define CONFIG_FTRACE 0
-#define CONFIG_TRACE 0
-
-#define CONFIG_ISA_riscv 1
-#define CONFIG_ITRACE_COND "true"
-#define CONFIG_TRACE_START 0
-#define CONFIG_TRACE_END 10000
-#define CONFIG_TARGET_NATIVE_ELF 1
-//#define CONFIG_DIFFTEST_REF_NAME "none"
-#define CONFIG_ENGINE "interpreter"
-#define CONFIG_WATCHPOINT 1
-#define CONFIG_PC_RESET_OFFSET 0x0
-#define CONFIG_CC_O2 1
-#define CONFIG_MODE_SYSTEM 1
-#define CONFIG_MEM_RANDOM 1
-#define CONFIG_ISA_riscv 1
-#define CONFIG_TARGET_SHARE 1
-#define CONFIG_TRACE_END 10000
-#define CONFIG_TIMER_GETTIMEOFDAY 1
-#define CONFIG_ENGINE_INTERPRETER 1
-#define CONFIG_CC_OPT "-O2"
-#define CONFIG_RT_CHECK 1
-#define CONFIG_CC "gcc"
-//#define CONFIG_DIFFTEST_REF_PATH "none"
-#define CONFIG_CC_DEBUG 1
-#define CONFIG_TRACE_START 0
-#define CONFIG_CC_GCC 1
-#define CONFIG_ISA "riscv32"
-#define CONFIG_PMEM_GARRAY 1
-//-------------------------difftest------------------------------------------------
-
-// #define CONFIG_DIFFTEST_REF_NAME "spike"
-// #define CONFIG_DIFFTEST_REF_SPIKE 1
-// #define CONFIG_DIFFTEST 1
-// #define CONFIG_ISA_riscv 1
-// #define CONFIG_TRACE_END 10000
-// #define CONFIG_MBASE 0x80000000
-// #define CONFIG_TIMER_GETTIMEOFDAY 1
-// #define CONFIG_ENGINE_INTERPRETER 1
-// #define CONFIG_CC_OPT "-O2"
-// #define CONFIG_RT_CHECK 1
-// #define CONFIG_ITRACE_COND "true"
-// #define CONFIG_CC "gcc"
-// #define CONFIG_DIFFTEST_REF_PATH "tools/spike-diff"
-// #define CONFIG_CC_DEBUG 1
-// #define CONFIG_TRACE_START 0
-// #define CONFIG_CC_GCC 1
-// #define CONFIG_TRACE 1
-// #define CONFIG_ISA "riscv32"
-// #define CONFIG_PMEM_GARRAY 1
-
 //====================================================================================
 extern uint32_t* cpu_gpr;
 extern uint32_t dut_pc;
@@ -123,9 +67,8 @@ word_t expr(char *e, bool *success);
 void watchpoint_print();
 void free_wp(int no);
 word_t expr(char *e, bool *success);
-void vaddr_write(uint32_t addr, int len, uint32_t data);
 static uint32_t pmem_read(uint32_t addr, int len);
-uint32_t vaddr_ifetch(uint32_t addr, int len) ;
+
 void sdb_mainloop();
 word_t paddr_read(paddr_t addr, int len);
 uint32_t fetch_ins();
@@ -143,27 +86,9 @@ static inline void host_write(void *addr, int len, uint32_t data) {
 
 
 //---------------------------------------------isa.h
-
-
-#if defined(CONFIG_ISA_mips32)
-#define ISA_QEMU_BIN "qemu-system-mipsel"
-#define ISA_QEMU_ARGS "-machine", "mipssim",\
-  "-kernel", NEMU_HOME "/resource/mips-elf/mips.dummy",
-#elif defined(CONFIG_ISA_riscv) && !defined(CONFIG_RV64)
 #define ISA_QEMU_BIN "qemu-system-riscv32"
 #define ISA_QEMU_ARGS "-bios", "none",
-#elif defined(CONFIG_ISA_riscv) && defined(CONFIG_RV64)
-#define ISA_QEMU_BIN "qemu-system-riscv64"
-#define ISA_QEMU_ARGS 
-#elif defined(CONFIG_ISA_x86)
-#define ISA_QEMU_BIN "qemu-system-i386"
-#define ISA_QEMU_ARGS
-#elif defined(CONFIG_ISA_loongarch32r)
-#define ISA_QEMU_BIN "qemu-system-loongarch32"
-#define ISA_QEMU_ARGS "-M","ls3a5k32",
-#else
-#error Unsupport ISA
-#endif
+
 
 union isa_gdb_regs {
   struct {

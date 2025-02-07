@@ -45,6 +45,8 @@ VM_USER_LDLIBS = \
 VM_USER_CLASSES = \
 	difftest \
 	exec \
+	map \
+	time \
 	init \
 	main \
 	addr \
@@ -62,7 +64,9 @@ VM_USER_DIR = \
 	/home/hyh/ysyx-workbench/npc/csrc \
 	/home/hyh/ysyx-workbench/npc/csrc/cpu \
 	/home/hyh/ysyx-workbench/npc/csrc/cpu/difftest \
-	/home/hyh/ysyx-workbench/npc/csrc/isa-riscv \
+	/home/hyh/ysyx-workbench/npc/csrc/device \
+	/home/hyh/ysyx-workbench/npc/csrc/device/io \
+	/home/hyh/ysyx-workbench/npc/csrc/isa/riscv32 \
 	/home/hyh/ysyx-workbench/npc/csrc/memory \
 	/home/hyh/ysyx-workbench/npc/csrc/moniter \
 	/home/hyh/ysyx-workbench/npc/csrc/moniter/sdb \
@@ -82,7 +86,11 @@ difftest.o: /home/hyh/ysyx-workbench/npc/csrc/cpu/difftest/difftest.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 exec.o: /home/hyh/ysyx-workbench/npc/csrc/cpu/exec.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-init.o: /home/hyh/ysyx-workbench/npc/csrc/isa-riscv/init.c
+map.o: /home/hyh/ysyx-workbench/npc/csrc/device/io/map.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+time.o: /home/hyh/ysyx-workbench/npc/csrc/device/time.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+init.o: /home/hyh/ysyx-workbench/npc/csrc/isa/riscv32/init.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main.o: /home/hyh/ysyx-workbench/npc/csrc/main.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<

@@ -1,6 +1,7 @@
 #include <verilated.h>  // Verilator 库头文件
 #include "Vysyx_24080014_cpu.h"  // 包含由 Verilator 生成的设计头文件
 #include "../include/common.h"
+#include "../include/vaddr.h"
 
 extern uint32_t dut_npc ;
 extern uint32_t inst;
@@ -20,7 +21,7 @@ extern uint32_t dut_pc;
 int cpu_gpr10;
 void init_disasm(const char *triple);
 uint32_t npc = 0x80000000;
-//static Decode s = {.pc = RESET_VECTOR };
+
 //取指过程是先把物理地址转换成虚拟地址，然后进行赋值
 
 //===========================================自己指定的指令======================

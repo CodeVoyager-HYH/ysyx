@@ -1,4 +1,5 @@
 #include "../include/common.h"
+#include "../include/vaddr.h"
 #include "Vysyx_24080014_cpu.h" 
 extern Vysyx_24080014_cpu dut;
 
@@ -31,17 +32,17 @@ static uint32_t pmem_read(uint32_t addr, int len) {
     uint32_t ret = host_read(guest_to_host(addr), len);
     return ret;
 }
-uint32_t vaddr_ifetch(uint32_t addr, int len) {
+word_t vaddr_ifetch(vaddr_t addr, int len) {
   if (likely(in_pmem(addr))) return pmem_read(addr, 4);
   printf("addr:%x\n",addr);
   return printf("%s\n", ANSI_FMT(str(erorr!), ANSI_FG_YELLOW ANSI_BG_RED));
 }
 
-uint32_t vaddr_read(uint32_t addr, int len) {
+word_t vaddr_read(vaddr_t addr, int len) {
   return pmem_read(addr, len);
 }
 
-void vaddr_write(uint32_t addr, int len, uint32_t data) {
+void vaddr_write(vaddr_t addr, int len, word_t data) {
   pmem_write(addr, len, data);
 }
 extern void assert_fail_msg();
