@@ -1,4 +1,4 @@
-#include "include/common.h"
+#include "../include/common.h"
 extern int no_img;
 extern long write_inst_to_mem() ;
 // this is not consistent with uint8_t

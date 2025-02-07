@@ -1,6 +1,6 @@
 #include <getopt.h>
-#include "include/common.h"
-#include "include/macro.h"
+#include "../include/common.h"
+#include "../include/macro.h"
 #include <readline/readline.h>
 #include <readline/history.h>
 #include "verilated_vcd_c.h"  // 用于波形输出

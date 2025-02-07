@@ -1,6 +1,6 @@
 #include <verilated.h>  // Verilator 库头文件
 #include "Vysyx_24080014_cpu.h"  // 包含由 Verilator 生成的设计头文件
-#include "include/common.h"
+#include "../include/common.h"
 
 extern uint32_t dut_npc ;
 extern uint32_t inst;

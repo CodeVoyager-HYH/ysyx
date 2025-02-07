@@ -1,4 +1,4 @@
-#include "include/common.h"
+#include "../include/common.h"
 #include "Vysyx_24080014_cpu.h" 
 extern Vysyx_24080014_cpu dut;
 

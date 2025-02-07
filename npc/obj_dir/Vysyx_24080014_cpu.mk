@@ -43,24 +43,30 @@ VM_USER_LDLIBS = \
 
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
-	addr \
 	difftest \
-	disasm \
 	exec \
-	expr \
 	init \
-	inst_rel \
-	log \
 	main \
+	addr \
 	memory \
-	mointer \
+	moniter \
+	expr \
 	sdb \
-	time \
 	watchpoint \
+	disasm \
+	log \
+	timer \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
 	/home/hyh/ysyx-workbench/npc/csrc \
+	/home/hyh/ysyx-workbench/npc/csrc/cpu \
+	/home/hyh/ysyx-workbench/npc/csrc/cpu/difftest \
+	/home/hyh/ysyx-workbench/npc/csrc/isa-riscv \
+	/home/hyh/ysyx-workbench/npc/csrc/memory \
+	/home/hyh/ysyx-workbench/npc/csrc/moniter \
+	/home/hyh/ysyx-workbench/npc/csrc/moniter/sdb \
+	/home/hyh/ysyx-workbench/npc/csrc/utils \
 
 
 ### Default rules...
@@ -72,33 +78,31 @@ include $(VERILATOR_ROOT)/include/verilated.mk
 ### Executable rules... (from --exe)
 VPATH += $(VM_USER_DIR)
 
-addr.o: /home/hyh/ysyx-workbench/npc/csrc/addr.c
+difftest.o: /home/hyh/ysyx-workbench/npc/csrc/cpu/difftest/difftest.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-difftest.o: /home/hyh/ysyx-workbench/npc/csrc/difftest.c
+exec.o: /home/hyh/ysyx-workbench/npc/csrc/cpu/exec.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-disasm.o: /home/hyh/ysyx-workbench/npc/csrc/disasm.c
-	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-exec.o: /home/hyh/ysyx-workbench/npc/csrc/exec.c
-	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-expr.o: /home/hyh/ysyx-workbench/npc/csrc/expr.c
-	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-init.o: /home/hyh/ysyx-workbench/npc/csrc/init.c
-	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-inst_rel.o: /home/hyh/ysyx-workbench/npc/csrc/inst_rel.c
-	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-log.o: /home/hyh/ysyx-workbench/npc/csrc/log.c
+init.o: /home/hyh/ysyx-workbench/npc/csrc/isa-riscv/init.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 main.o: /home/hyh/ysyx-workbench/npc/csrc/main.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-memory.o: /home/hyh/ysyx-workbench/npc/csrc/memory.c
+addr.o: /home/hyh/ysyx-workbench/npc/csrc/memory/addr.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-mointer.o: /home/hyh/ysyx-workbench/npc/csrc/mointer.c
+memory.o: /home/hyh/ysyx-workbench/npc/csrc/memory/memory.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-sdb.o: /home/hyh/ysyx-workbench/npc/csrc/sdb.c
+moniter.o: /home/hyh/ysyx-workbench/npc/csrc/moniter/moniter.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-time.o: /home/hyh/ysyx-workbench/npc/csrc/time.c
+expr.o: /home/hyh/ysyx-workbench/npc/csrc/moniter/sdb/expr.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
-watchpoint.o: /home/hyh/ysyx-workbench/npc/csrc/watchpoint.c
+sdb.o: /home/hyh/ysyx-workbench/npc/csrc/moniter/sdb/sdb.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+watchpoint.o: /home/hyh/ysyx-workbench/npc/csrc/moniter/sdb/watchpoint.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+disasm.o: /home/hyh/ysyx-workbench/npc/csrc/utils/disasm.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+log.o: /home/hyh/ysyx-workbench/npc/csrc/utils/log.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+timer.o: /home/hyh/ysyx-workbench/npc/csrc/utils/timer.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)

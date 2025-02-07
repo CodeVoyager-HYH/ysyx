@@ -1,4 +1,4 @@
-#include "include/common.h"
+#include "../include/common.h"
 
 #define MAX_INST_TO_PRINT 10
 void checkWatchPoint();
@@ -27,8 +27,6 @@ bool log_enable();
 char iringbuf[BUF][inside];
 int a = 0;
 
-
-
 #define log_write(...) IFDEF(CONFIG_TARGET_NATIVE_ELF, \
   do { \
     if (log_enable() && log_fp != NULL) { \
@@ -45,6 +43,7 @@ int a = 0;
     } \
   } while (0) \
 )
+
 static void trace_and_difftest(Decode *_this, vaddr_t dnpc,char *logbuf) {
 
 #ifdef CONFIG_ITRACE_COND

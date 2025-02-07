@@ -1,6 +1,6 @@
 #include <dlfcn.h>
-#include "include/common.h"                          
-#include "include/difftest-def.h"
+#include "../include/common.h"                          
+#include "../include/difftest-def.h"
 extern uint32_t *cpu_gpr;
 extern uint32_t dut_pc;
 

@@ -1,4 +1,4 @@
-#include "include/common.h"
+#include "../include/common.h"
 
 static int is_batch_mode = false;
 void init_regex();

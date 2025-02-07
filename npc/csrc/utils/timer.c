@@ -1,5 +1,5 @@
-#include "include/common.h"
-#include<sys/time.h>
+#include "../include/common.h"
+#include <sys/time.h>
 extern NPCState npc_state;
 static unsigned long int next = 1;
 static uint64_t boot_time = 0;

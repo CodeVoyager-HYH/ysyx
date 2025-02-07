@@ -1,4 +1,4 @@
-#include "include/common.h"
+#include "../include/common.h"
 
 extern uint64_t g_nr_guest_inst;
 

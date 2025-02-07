@@ -1,6 +1,14 @@
 CSRC = $(wildcard $(CDIR)/*.cpp)
 CSRC += $(wildcard $(CDIR)/*.c)
 VSRC = $(wildcard $(VDIR)/*.v)
+CSRC += $(wildcard $(CDIR)/cpu/*.c)
+CSRC += $(wildcard $(CDIR)/cpu/difftest/*.c)
+CSRC += $(wildcard $(CDIR)/moniter/*.c)
+CSRC += $(wildcard $(CDIR)/moniter/sdb/*.c)
+CSRC += $(wildcard $(CDIR)/isa-riscv/*.c)
+CSRC += $(wildcard $(CDIR)/memory/*.c)
+CSRC += $(wildcard $(CDIR)/utils/*.c)
+
 VTOP = ysyx_24080014_cpu
 VERILATOR = verilator
 VERILATOR_FLAGS = --cc --exe --build --trace
@@ -16,7 +24,7 @@ NPC_ARGS = $(VERILATOR) $(C_FLAGS) --top-module $(VTOP) $(VERILATOR_FLAGS) $(VSR
 OBJ_DIR = make -C $(NPC_HOME)/obj_dir -f  Vysyx_24080014_cpu.mk  Vysyx_24080014_cpu
 INCLUDE_PATH = $(NPC_HOME)/csrc/include 
 INCLUDE = $(addprefix -I, $(INCLUDE_PATH))
-
+include ../Makefile
 override ARGS ?= --log=$(NPC_HOME)/build/ins.txt
 
 all:

@@ -12,7 +12,7 @@
 *
 * See the Mulan PSL v2 for more details.
 ***************************************************************************************/
-#include "include/common.h"
+#include "../include/common.h"
 //监视点数量
 #define NR_WP 32
 extern NPCState npc_state;
