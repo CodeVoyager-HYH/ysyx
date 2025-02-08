@@ -45,7 +45,11 @@ VM_USER_LDLIBS = \
 VM_USER_CLASSES = \
 	difftest \
 	exec \
+	alarm \
+	device \
 	map \
+	mmio \
+	serial \
 	time \
 	init \
 	main \
@@ -86,7 +90,15 @@ difftest.o: /home/hyh/ysyx-workbench/npc/csrc/cpu/difftest/difftest.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 exec.o: /home/hyh/ysyx-workbench/npc/csrc/cpu/exec.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+alarm.o: /home/hyh/ysyx-workbench/npc/csrc/device/alarm.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+device.o: /home/hyh/ysyx-workbench/npc/csrc/device/device.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 map.o: /home/hyh/ysyx-workbench/npc/csrc/device/io/map.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+mmio.o: /home/hyh/ysyx-workbench/npc/csrc/device/io/mmio.c
+	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
+serial.o: /home/hyh/ysyx-workbench/npc/csrc/device/serial.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 time.o: /home/hyh/ysyx-workbench/npc/csrc/device/time.c
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<

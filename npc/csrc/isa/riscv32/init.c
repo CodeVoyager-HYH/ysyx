@@ -1,6 +1,7 @@
 #include "../include/common.h"
 extern int no_img;
 extern long write_inst_to_mem() ;
+uint8_t *pmem = NULL;
 // this is not consistent with uint8_t
 // but it is ok since we do not access the array directly
 static const uint32_t img [] = {
@@ -18,7 +19,7 @@ void init_isa() {
   sprintf(str, "%u", RESET_VECTOR);  // 将 RESET_VECTOR 转换为字符串并存储到 str 中
 }
 
-static long loadimg(char *img_file) {
+long load_img(char *img_file) {
   if(img != NULL) Log("img_file = %s",img_file);
   if (img_file == NULL) {
     no_img = 1;
@@ -39,8 +40,4 @@ static long loadimg(char *img_file) {
   assert(ret == 1);
   fclose(fp);
   return size;
-}
-
-long load_img(char *img_file){
-  return loadimg(img_file);
 }

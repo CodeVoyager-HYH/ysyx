@@ -53,10 +53,11 @@ void init_mem() {
 
 word_t paddr_read(paddr_t addr, int len) {
 #ifdef CONFIG_MTRACE	
-//addr = addr & ~0x3u;  //difftest地址对齐  
   Log("(nemu)read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = %d",addr, cpu.pc, len);	
   Log("(nemu)read data = %x \n",pmem_read(addr, len));
 #endif  
+//addr = addr & ~0x3u;  //difftest地址对齐  
+//printf("raddr = %x\n",addr);
   if (likely(in_pmem(addr))) return pmem_read(addr, len);
   IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
   out_of_bound(addr);
@@ -64,10 +65,11 @@ word_t paddr_read(paddr_t addr, int len) {
 }
 
 void paddr_write(paddr_t addr, int len, word_t data) {
+//addr = addr & ~0x3u;//difftest地址对齐  
 #ifdef CONFIG_MTRACE	
+
   printf("(nemu)write address = " FMT_PADDR " at pc = " FMT_WORD " with byte = %d and data =" FMT_WORD "\n",addr, cpu.pc, len, data);
 #endif  
-//addr = addr & ~0x3u;//difftest地址对齐  
   if (likely(in_pmem(addr))) { pmem_write(addr, len, data); return; }
   IFDEF(CONFIG_DEVICE, mmio_write(addr, len, data); return);
   out_of_bound(addr);

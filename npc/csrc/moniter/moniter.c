@@ -7,11 +7,12 @@
 #include "Vysyx_24080014_cpu.h"  // 顶层模块
 #include "verilated.h"
 
+void init_device() ;
 void init_rand();
 void init_log(const char *log_file) ;
 void init_ftrace(const char *elf_file);
 void init_mem();
-void init_difftest(char *ref_so_file, long img_size, int port);
+void init_difftest(char *ref_so_file, long img_size);
 void init_device();
 void init_sdb();
 void init_disasm(const char *triple);
@@ -80,12 +81,15 @@ void init_monitor(int argc, char **argv) {
 
   /* Open the log file. */
   init_log(log_file);
-
+  
   /*init elf_file*/
   IFDEF(CONFIG_FTRACE, init_ftrace(elf_file));
+  
   /* Initialize memory. */
   init_mem();
-
+  
+  /* Initialize devices. */
+  IFDEF(CONFIG_DEVICE, init_device());
   /* Perform ISA dependent initialization. */
   init_isa();
 
@@ -103,21 +107,8 @@ void init_monitor(int argc, char **argv) {
   welcome();
 }
 
-//=================================iringbuf===================================
-// #ifdef CONFIG_ITRACE_COND
-// void printIB(){
-//     for(int i = 0; i<=15; i++){
-//         if(i == a-1){
-// 		printf("-->%d:%s\n",i,iringbuf[i]);
-// 	}
-// 	else printf("   %d:%s\n",i,iringbuf[i]);
-//     }
-// }
-
-// #endif
-
 //===============================ftrace======================================
-
+#ifdef CONFIG_FTRACE
 typedef struct {
     char name[64];
     paddr_t addr;      //the function head address
@@ -287,3 +278,4 @@ void ftrace_check_inst(uint32_t inst)
         prev_ret = false;
 
 }
+#endif

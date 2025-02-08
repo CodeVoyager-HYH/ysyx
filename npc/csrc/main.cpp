@@ -21,9 +21,7 @@ void sdb_mainloop();
 Vysyx_24080014_cpu dut;
 VerilatedContext* contextp = nullptr;
 VerilatedVcdC* m_trace = nullptr;
-extern NPCState npc_state;
 uint32_t fetch_ins();
-extern int right_judge;
 extern int cpu_gpr10;
 
 extern "C" void get_pc(int pc){
@@ -53,6 +51,7 @@ int main(int argc, char** argv, char** env) {
       dut.rst = 0;  // 启动时设置复位为高
       dut.eval();  // 初始化顶层模块状态
       cpu_exec(1);
+    
       m_trace->dump(contextp->time());  // 记录初始状态
           
     npc_state.state = NPC_RUNNING;
@@ -60,7 +59,6 @@ int main(int argc, char** argv, char** env) {
     
     while (!contextp->gotFinish()) {
         // 在每个周期的前后设置时钟和复位信号
-        
         dut.clk = 0;
         dut.rst = 0;
         dut.eval();  // 评估当前状态
@@ -77,13 +75,14 @@ int main(int argc, char** argv, char** env) {
         m_trace->dump(contextp->time());  // 写入波形数据
 
         //ebreak退出---------------------------------
-        if(npc_state.state == NPC_QUIT){
+          if(global_judge == OK){
             set_npc_state(NPC_END, dut_pc, cpu_gpr[10]);
             state_judge();
             m_trace->close(); 
-            exit(0);
+            
+            if(cpu_gpr10 == 0)exit(0);
+            else exit(1);
         }
-
         if(npc_state.state == NPC_QUIT){
             m_trace->close();
             Log("%s", ANSI_FMT("EXIT SUCCESS !", ANSI_FG_GREEN));

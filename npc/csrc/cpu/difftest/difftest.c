@@ -1,5 +1,6 @@
 #include <dlfcn.h>
-#include "../include/common.h"                          
+#include "../include/common.h"         
+#include "../include/addr.h"                   
 #include "../include/difftest-def.h"
 extern uint32_t *cpu_gpr;
 extern uint32_t dut_pc;
@@ -24,9 +25,11 @@ void (*ref_difftest_raise_intr)(uint32_t NO) = NULL;
 
 void init_difftest(char *ref_so_file, long img_size) {
   assert(ref_so_file != NULL);
-
+  printf("ref_so_file = %s\n",ref_so_file);
   void *handle;
   handle = dlopen(ref_so_file, RTLD_LAZY);
+  assert(handle);
+    
   if((handle = dlopen(ref_so_file, RTLD_NOW)) == NULL) {  
         printf("dlopen - %sn", dlerror());  
         exit(-1);  

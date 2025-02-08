@@ -8,8 +8,8 @@
 #include <stdbool.h>
 #include <inttypes.h>
 #include <string.h>
-#include <elf.h>
 #include "../include/generated/autoconf.h"
+#include <elf.h>
 #include "Vysyx_24080014_cpu__Dpi.h"
 #include <verilated_dpi.h>
 #include <getopt.h>
@@ -45,6 +45,7 @@ extern uint32_t* cpu_gpr;
 extern uint32_t dut_pc;
 extern uint32_t ins_val;
 
+typedef uint16_t ioaddr_t;
 typedef uint32_t word_t;
 typedef uint32_t paddr_t;
 typedef word_t vaddr_t;
@@ -129,7 +130,7 @@ typedef struct Decode {
   vaddr_t snpc; // static next pc
   vaddr_t dnpc; // dynamic next pc
   vaddr_t inst;
-  IFDEF(CONFIG_ITRACE, char logbuf[128]);
+  char logbuf[128];
 } Decode;
 
 word_t isa_reg_str2val(const char *name, bool *success);

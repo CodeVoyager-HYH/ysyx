@@ -1,37 +1,20 @@
 #include "../include/common.h"
 #include "../include/vaddr.h"
 #include "Vysyx_24080014_cpu.h" 
+#include "../include/addr.h"
 extern Vysyx_24080014_cpu dut;
 
 extern uint32_t dut_npc;
 extern uint32_t dut_pc;
-uint8_t pmem[PMEM_MSIZE] = {};
+extern uint8_t *pmem ;
 static uint64_t timer = 0;
+
+word_t mmio_read(paddr_t addr, int len);
+void mmio_write(paddr_t addr, int len, word_t data);
 
 uint8_t* guest_to_host(uint32_t paddr) { return pmem + paddr - 0x80000000; }
 uint32_t host_to_guest(uint8_t *haddr) { return haddr - pmem + 0x80000000; }
 
-static inline uint32_t host_read(void *addr, int len) {
-  switch (len) {
-    case 1: return *(uint8_t  *)addr;
-    case 2: return *(uint16_t *)addr;
-    case 4: return *(uint32_t *)addr;
-    default: assert(0); return 0;
-  }
-}
-
-static inline bool in_pmem(uint32_t addr) {
-  return addr - CONFIG_MBASE < CONFIG_MSIZE;
-}
-
-static void pmem_write(uint32_t addr, int len, uint32_t data) {
-  host_write(guest_to_host(addr), len, data);
-}
-
-static uint32_t pmem_read(uint32_t addr, int len) {
-    uint32_t ret = host_read(guest_to_host(addr), len);
-    return ret;
-}
 word_t vaddr_ifetch(vaddr_t addr, int len) {
   if (likely(in_pmem(addr))) return pmem_read(addr, 4);
   printf("addr:%x\n",addr);
@@ -45,6 +28,7 @@ word_t vaddr_read(vaddr_t addr, int len) {
 void vaddr_write(vaddr_t addr, int len, word_t data) {
   pmem_write(addr, len, data);
 }
+
 extern void assert_fail_msg();
 static void out_of_bound(paddr_t addr) {
   if(IRINGBUF) assert_fail_msg();
@@ -53,10 +37,9 @@ static void out_of_bound(paddr_t addr) {
 }
 
 void init_mem() {
-#if   defined(CONFIG_PMEM_MALLOC)
-  pmem = malloc(CONFIG_MSIZE);
+
+  pmem = (uint8_t*)malloc(CONFIG_MSIZE);
   assert(pmem);
-#endif
   memset(pmem, rand(), CONFIG_MSIZE);
   Log("physical memory area [" FMT_PADDR ", " FMT_PADDR "]", PMEM_LEFT, PMEM_RIGHT);
 }
@@ -80,19 +63,19 @@ uint32_t _pmem_read(uint32_t addr, int len) {
 
 extern "C" int rtl_pmem_read(int raddr,int *rdata){
   extern uint32_t inst;
-  raddr = raddr & ~0x3u;  //字节对齐
-  // if(raddr == 0xa0000048){
-  //   timer = get_time()
-  //   return (uint32_t)timer;
-  // }
-  if (raddr>=PMEM_START && raddr<=PMEM_END){
+  //raddr = raddr & ~0x3u;  //字节对齐
+  //printf("raddr = 0x%x\n",raddr);
+  IFDEF(CONFIG_MTRACE,Log("[mtrace](npc csrc)read data = %x , read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = 4\n",*rdata,raddr, dut_pc));	
+    
+  if (raddr >= PMEM_START && raddr <= PMEM_END){
     *rdata = _pmem_read(raddr,4);
+    
     IFDEF(DEBUG,Log("radrr = %x,rdata=%x\n",raddr,*rdata));
-#ifdef CONFIG_MTRACE	
-    IFDEF(DEBUG,Log("(npc csrc)read data = %x , read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = 4",*rdata,raddr, dut_pc));	
-
-#endif 
+    
     return *rdata;
+  }
+  else if(raddr>=0xa1000000 && raddr <=0xa1080000){
+    IFDEF(CONFIG_DEVICE, return mmio_read(raddr, 4));//映射
   }
   else //avoid latch.
     *rdata = 0;
@@ -104,23 +87,27 @@ extern "C" void rtl_pmem_write(int waddr, int wdata, char wmask) {//waddr写入�
   // 总是往地址为`waddr & ~0x3u`的4字节按写掩码`wmask`写入`wdata`
   // `wmask`中每比特表示`wdata`中1个字节的掩码,
   // 如`wmask = 0x3`代表只写入最低2个字节, 内存中的其它字节保持不变
-  waddr = waddr & ~0x3u;//地址对齐
-  if(waddr == 0xa00003f8) {
-    uint8_t ch = (uint8_t)(wdata & 0xff);
-    putc(ch,stderr);
+  //waddr = waddr & ~0x3u;//地址对齐
+  int i = 0;
+	int j = 0;
+  IFDEF(CONFIG_MTRACE,printf("(npc csrc)write init addr : 0x%x ,write_data : %x ,pc = 0x%x\n",waddr,wdata,dut_pc));
+
+  if (waddr>=PMEM_START && waddr<=PMEM_END){
+    uint8_t *vaddr = guest_to_host(waddr);//物理地址转换
+  	uint8_t *iaddr;
+	  for(i = 0,j = 0;i < 4;i++){
+	  	if(wmask & (1 << i)){
+	  		iaddr = vaddr + i;//修改地址
+	  		*iaddr = (wdata >> (j * 8)) & 0xFF;//写入
+       IFDEF(DEBUG,Log("wirte : %x",*iaddr));
+	  		j++;
+	  	}
+	  }
+  }
+  int paddr = waddr;
+  int data = wdata;
+  if(waddr == SERIAL_PORT) {
+		putc((char)wdata,stderr);
 		return;
-	}
-  IFDEF(CONFIG_MTRACE,Log("(npc csrc)write init addr : 0x%x ,write_data : %x ,pc = 0x%x ",waddr,wdata,dut_pc));
-  uint8_t *vaddr = guest_to_host(waddr);//物理地址转换
-	uint8_t *iaddr;
-	int i;
-	int j;
-	for(i = 0,j = 0;i < 4;i++){
-		if(wmask & (1 << i)){
-			iaddr = vaddr + i;//修改地址
-			*iaddr = (wdata >> (j * 8)) & 0xFF;//写入
-      IFDEF(DEBUG,Log("wirte : %x",*iaddr));
-			j++;
-		}
 	}
 }

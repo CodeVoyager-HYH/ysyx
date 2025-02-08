@@ -2,6 +2,7 @@
 
 #define MAX_INST_TO_PRINT 10
 void checkWatchPoint();
+void device_update();
 CPU_state cpu = {};
 uint32_t inst;
 extern FILE *log_fp ;
@@ -14,14 +15,14 @@ extern uint32_t dut_npc;
 extern Vysyx_24080014_cpu dut;
 extern VerilatedContext* contextp; 
 extern VerilatedVcdC *m_trace;
-extern uint8_t pmem[PMEM_MSIZE];
+extern uint8_t *pmem ;
 extern uint32_t snpc; 
 extern uint32_t dut_pc;
 NPCState npc_state;
 int no_img = 0;
 void ftrace_check_inst(uint32_t inst);
 bool log_enable(); 
-
+char logbuf[128];
 #define BUF 16
 #define inside 1024
 char iringbuf[BUF][inside];
@@ -45,12 +46,12 @@ int a = 0;
 )
 
 static void trace_and_difftest(Decode *_this, vaddr_t dnpc,char *logbuf) {
-
 #ifdef CONFIG_ITRACE_COND
   if (ITRACE_COND==1) { log_write("%s\n", logbuf); }
 #endif
   if (g_print_step) { IFDEF(CONFIG_ITRACE, puts(logbuf)); }
 } 
+
 
 static void statistic() {
   IFNDEF(CONFIG_TARGET_AM, setlocale(LC_NUMERIC, ""));
@@ -125,7 +126,7 @@ void Decode_exec_once(Decode *s, vaddr_t pc){
   s->inst = inst;
 }
 
-uint32_t cpu_exec(uint64_t n){//,uint32_t pc){
+uint32_t cpu_exec(uint64_t n){
   Decode s;
   g_print_step = (n < MAX_INST_TO_PRINT);
   switch (npc_state.state) {
@@ -150,6 +151,7 @@ uint32_t cpu_exec(uint64_t n){//,uint32_t pc){
 
 }
 
+void difftest_step();
 static void execute(uint64_t n,Decode *s) {
   int j = n;
  for (;n > 0; n --) {
@@ -164,7 +166,8 @@ static void execute(uint64_t n,Decode *s) {
         contextp->timeInc(1);  // 增加仿真时间
         m_trace->dump(contextp->time());  // 写入波形数据
         trace();
-        IFDEF(CONFIG_DIFFTEST,trace_and_difftest(&s, dut_npc,logbuf));
+        IFDEF(CONFIG_DEVICE, device_update());
+        IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));
         IFDEF(CONFIG_DIFFTEST, difftest_step());
       }
       
@@ -184,13 +187,14 @@ static void execute(uint64_t n,Decode *s) {
 
         IFDEF(DEBUG,printf("a0 = %d\n",cpu_gpr[10]));
         trace();
-        IFDEF(CONFIG_DIFFTEST,trace_and_difftest(&s, dut_npc,logbuf));
+        IFDEF(CONFIG_DEVICE, device_update());
+        IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));
         IFDEF(CONFIG_DIFFTEST, difftest_step());
       }
     }  
 //-------------------------------------
     trace();
-    IFDEF(CONFIG_DIFFTEST,trace_and_difftest(&s, dut_npc,logbuf));
+    IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));
     if (npc_state.state != NPC_RUNNING) break;
     IFDEF(CONFIG_DEVICE, device_update());
   }

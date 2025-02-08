@@ -11,7 +11,7 @@ extern uint64_t g_nr_guest_inst;
 uint32_t* cpu_gpr;
 uint32_t* snpc;
 uint32_t ins_val;
-extern uint8_t pmem[PMEM_MSIZE];//物理内存
+extern uint8_t *pmem;//物理内存
 extern NPCState npc_state;
 int global_judge = ERROR;
 int right_judge = ERROR;
@@ -44,7 +44,6 @@ uint32_t noimg_pread(uint32_t *memory, uint32_t vaddr){//pmem_read
 }
 
 long write_inst_to_mem() {
-  extern uint8_t pmem[PMEM_MSIZE];
   for (size_t i = 0; i < sizeof(img_memory) / sizeof(img_memory[0]); i++) {
         uint32_t inst = img_memory[i];
         pmem[i * 4 + 0] = (inst >> 0) & 0xFF;   // 低 8 位
@@ -63,7 +62,7 @@ void set_npc_state(int state, vaddr_t pc, int halt_ret) {
 //----------------------------------取指---------------------------------------
 uint32_t fetch_ins(){//uint32_t pc){
     uint32_t ins;
-    g_nr_guest_inst ++;
+   // g_nr_guest_inst ++;
     ins = vaddr_ifetch(dut_pc,4);
     if(no_img == 1){
       uint32_t *memory;
@@ -89,12 +88,9 @@ extern "C" void set_nextpc_ptr(const svLogicVecVal* r) {
 extern "C" void npctrap(){
   Log("excute the ebreak inst");
   Log("cpu_gpr[10] = 0x%x",cpu_gpr[10]);
-  if(cpu_gpr[10] == 0)global_judge = OK;
-  else global_judge = 0;
-  right_judge = OK;
+  global_judge = OK;
   cpu_gpr10 = cpu_gpr[10];
   npc_state.state = NPC_QUIT;
-  if(cpu_gpr[10] != 0)  right_judge = ERROR;
 }
 
 //---------------------------------打印寄存器------------------------------
