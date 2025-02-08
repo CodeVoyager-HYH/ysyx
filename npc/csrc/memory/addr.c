@@ -9,6 +9,7 @@ extern uint32_t dut_pc;
 extern uint8_t *pmem ;
 static uint64_t timer = 0;
 
+
 word_t mmio_read(paddr_t addr, int len);
 void mmio_write(paddr_t addr, int len, word_t data);
 
@@ -74,12 +75,16 @@ extern "C" int rtl_pmem_read(int raddr,int *rdata){
     
     return *rdata;
   }
-  else if(raddr>=0xa1000000 && raddr <=0xa1080000){
-    IFDEF(CONFIG_DEVICE, return mmio_read(raddr, 4));//映射
+  else if(raddr == RTC_ADDR){
+    timer = get_time();
+    return (uint32_t)timer;      
+  }
+  else if(raddr == RTC_ADDR + 4){
+    timer = get_time();
+    return (uint32_t)(timer>>32);      
   }
   else //avoid latch.
     *rdata = 0;
-    IFDEF(DEBUG,printf("rdata:%x\n",*rdata));
     return *rdata;
 }
 
@@ -87,7 +92,9 @@ extern "C" void rtl_pmem_write(int waddr, int wdata, char wmask) {//waddr写入�
   // 总是往地址为`waddr & ~0x3u`的4字节按写掩码`wmask`写入`wdata`
   // `wmask`中每比特表示`wdata`中1个字节的掩码,
   // 如`wmask = 0x3`代表只写入最低2个字节, 内存中的其它字节保持不变
+
   //waddr = waddr & ~0x3u;//地址对齐
+
   int i = 0;
 	int j = 0;
   IFDEF(CONFIG_MTRACE,printf("(npc csrc)write init addr : 0x%x ,write_data : %x ,pc = 0x%x\n",waddr,wdata,dut_pc));
