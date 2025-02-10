@@ -32,6 +32,9 @@ static void restart() {
 
   /* The zero register is always 0. */
   cpu.gpr[0] = 0;
+
+  //让difftest在异常时候也可以运行
+  cpu.csrs.mstatus = 0x1800;
 }
 
 void init_isa() {

@@ -32,6 +32,7 @@ int vsprintf(char *out, const char *fmt, va_list ap) {
 					fmt ++;
 			}
 			switch(*fmt){
+				case 'x':
 				case 'd':
 					int num = va_arg(ap, int); 
 					if(num == 0){
