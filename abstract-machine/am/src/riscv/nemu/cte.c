@@ -34,7 +34,12 @@ bool cte_init(Context*(*handler)(Event, Context*)) {
 }
 
 Context *kcontext(Area kstack, void (*entry)(void *), void *arg) {
-  return NULL;
+  //创建上下文结构然后返回
+  Context *Kcontext  = (Context*)(kstack.end - sizeof(Context));
+  Kcontext->mepc = (uintptr_t)entry;
+  Kcontext->gpr[10] = (uintptr_t)arg;
+
+  return Kcontext;
 }
 
 void yield() {
