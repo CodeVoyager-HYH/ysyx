@@ -71,9 +71,9 @@
    `define srai    6'b010000
 `define xori    3'b100
 
-//Ststem
+//System
 `define ebreak  12'b000000000001
-
+`define ecall   12'b000000000000
 //Immtype
 `define R_type  3'b000
 `define I_type  3'b001
@@ -149,8 +149,8 @@ import "DPI-C" function void npctrap();
 module ysyx_24080014_idu(
    input   [31:0] inst,      
    output  [ 7:0] wmask,//掩码
-   output  [ 4:0] rs1_addr,
-   output  [ 4:0] rs2_addr,
+   output  [ 9:0] rs1_addr,
+   output  [ 9:0] rs2_addr,
    output  [ 4:0] rd,  
    output  [ 2:0] rmask,
    output  [ 2:0] imm_type,
@@ -171,6 +171,7 @@ module ysyx_24080014_idu(
    output  [ 2:0] shamt_ctl,
    output  [ 2:0] and1_ctl,
    output  [ 2:0] and2_ctl,
+   output  csrs_ctl,
    output  Equal_ctl,
    output  ReadWr,//内存读出
    output  StoreWr,//内存写入
@@ -185,11 +186,11 @@ wire [ 6:0] func7;
 wire [ 5:0] func_I;
 
 
-assign func_I = inst[31:26];
-assign opcode = inst[6:0];
-assign func3  = inst[14:12];
-assign func7  = inst[31:25];
-assign func12 = inst[31:20];
+   assign func_I = inst[31:26];
+   assign opcode = inst[6:0];
+   assign func3  = inst[14:12];
+   assign func7  = inst[31:25];
+   assign func12 = inst[31:20];
    assign and1_ctl  = `rs1;
    assign and2_ctl  = (opcode == `Imm)? `imm : `rs2; 
    assign shamt_ctl = (opcode == `Lui)? `shamt_lui:
@@ -201,9 +202,7 @@ assign func12 = inst[31:20];
                            (func7 == `sra)?`shamt_sra:((func7 ==`srl)?`shamt_srl:`shamt_common):
                         (func3 == `logic_shift)?
                            ((func7 == `sll)? `shamt_sll:`shamt_common):`shamt_common:`shamt_common;
-   // always @(*) begin
-   //    $display("shamt_ctl = %d",shamt_ctl);
-   // end                        
+                
   assign rmask = (opcode == `Load)?
                         ((func3 == `lw)? 3'b100 : 
                         (func3 == `lh)? 3'b010 :
@@ -264,16 +263,16 @@ assign func12 = inst[31:20];
                         // ((func3 == `sw)? 1 : 
                         // (func3 == `sh)? 1 : 0):0;
 //rs1_addr
-   assign rs1_addr = (opcode == `Integer)?inst[19:15] :
-                     (opcode == `Load)? inst[19:15] :
-                     (opcode == `Control)? inst[19:15] :
-                     (opcode == `Store)?inst[19:15] :
-                     (opcode == `Imm)   ? inst[19:15] :
-                     (opcode == `Jalr)  ? inst[19:15] :5'b0; //--------------------------------------stystem
+   assign rs1_addr = (opcode == `Integer)?{5'b0,inst[19:15]} :
+                     (opcode == `Load)?   {5'b0,inst[19:15]} :
+                     (opcode == `Control)?{5'b0,inst[19:15]} :
+                     (opcode == `Store)?  {5'b0,inst[19:15]} :
+                     (opcode == `Imm)   ? {5'b0,inst[19:15]} :
+                     (opcode == `Jalr)  ? {5'b0,inst[19:15]} :5'b0; //--------------------------------------stystem
 //rs1_addr
-   assign rs2_addr = (opcode == `Integer)?inst[24:20] :
-                     (opcode == `Control)? inst[24:20] :
-                     (opcode == `Store)?inst[24:20] : 5'b0;
+   assign rs2_addr = (opcode == `Integer)?{5'b0,inst[24:20]} :
+                     (opcode == `Control)?{5'b0,inst[24:20]} :
+                     (opcode == `Store)?  {5'b0,inst[24:20]} : 5'b0;
 
 //rd
    assign rd =       (opcode == `Integer)?inst[11:7] :
@@ -413,6 +412,7 @@ assign func12 = inst[31:20];
                      //  (func3 == `andi)? `ALU_OUT :
                      //  (func3 == `slli)? `ALU_OUT :
                      //  (func3 == `sltiu)? `ALU_OUT : `ALU_OUT ): `ALU_OUT ;
+    assign csrs_ctl = (opcode == `System)?((func12 == `ecall)?1'b1:1'b0):1'b0;
 
 always @(*)begin
   if(opcode == `System)begin

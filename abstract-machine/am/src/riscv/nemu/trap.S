@@ -40,6 +40,7 @@ f(30) f(31)
 .align 3
 .globl __am_asm_trap
 __am_asm_trap:
+  #move sp    
   addi sp, sp, -CONTEXT_SIZE
 
   MAP(REGS, PUSH)
@@ -48,6 +49,7 @@ __am_asm_trap:
   csrr t1, mstatus
   csrr t2, mepc
 
+  #store reg to stack    
   STORE t0, OFFSET_CAUSE(sp)
   STORE t1, OFFSET_STATUS(sp)
   STORE t2, OFFSET_EPC(sp)
@@ -70,6 +72,7 @@ __am_asm_trap:
   csrw mepc, t2
 
   MAP(REGS, POP)
-
+  
+  #restore the pointer of stack
   addi sp, sp, CONTEXT_SIZE
   mret

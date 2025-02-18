@@ -20,9 +20,5 @@ end
 always @(*) begin
     get_pc(pc);
 end
-//next_pc
-// assign next_pc = (npc_ctr == `NEXT_PC_JAL )? (pc + imm) :
-//                  (npc_ctr == `NEXT_PC_JALR)? ((rs1_data + imm) & (~32'b1)):(pc+4);
-
 
 endmodule
