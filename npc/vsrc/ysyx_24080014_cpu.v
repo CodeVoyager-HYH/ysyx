@@ -1,7 +1,6 @@
 module ysyx_24080014_cpu(
     input clk,
     input rst
-   // input [31:0] inst
 );
 
 //声明
@@ -22,8 +21,10 @@ wire [31:0] rs1_data;
 wire [31:0] rs2_data;
 wire [31:0] mem_rd;
 wire [31:0] store_data;
-wire [ 9:0] rs1_addr;
-wire [ 9:0] rs2_addr;
+wire [ 4:0] rs1_addr;
+wire [ 4:0] rs2_addr;
+wire [ 11:0] csrs_rs1_read_add;
+wire [ 11:0] csrs_rs2_read_add;
 wire [ 1:0] npc_ctr;
 wire [ 2:0] rs1_ctr;
 wire [ 2:0] rs2_ctr;
@@ -44,7 +45,7 @@ wire [ 5:0] shamt_right;
 wire [ 2:0] shamt_ctl;
 wire [ 2:0] and1_ctl;
 wire [ 2:0] and2_ctl;
-wire csrs_ctl;
+wire [ 1:0] csrs_ctl;
 wire rd_wirte;
 wire Equal_ctl;
 wire ReadWr;
@@ -85,6 +86,8 @@ ysyx_24080014_memory mem(
 );
 
 ysyx_24080014_idu idu (
+    .csrs_rs1_read_add(csrs_rs1_read_add),
+    .csrs_rs2_read_add(csrs_rs2_read_add),
     .csrs_ctl(csrs_ctl),
     .and1_ctl(and1_ctl),
     .and2_ctl(and2_ctl),
@@ -167,11 +170,13 @@ ysyx_24080014_rdin rdin (
 );
 
 ysyx_24080014_gpr gpr (
+    .csrs_ctl(csrs_ctl),
+    .csrs_rs1_read_add(csrs_rs1_read_add),
+    .csrs_rs2_read_add(csrs_rs2_read_add),
     .pc(pc),
     .rs1_addr(rs1_addr),
     .rs2_addr(rs2_addr),
     .rd(rd),
-    .csrs_ctl(csrs_ctl),
     .csr_next_pc(csr_next_pc),
     .clk(clk),
     .RegWr(RegWr),
