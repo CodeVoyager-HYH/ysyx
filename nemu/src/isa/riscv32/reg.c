@@ -25,10 +25,12 @@ const char *regs[] = {
 
 void isa_reg_display() {
   int i;
+  printf("------------------------nemu-----------------\n");
   for (i = 0; i < (sizeof(regs) / sizeof(char *)); i++){
     printf("%-10s\t0x%-10x\t0x%x\n", regs[i], cpu.gpr[i], cpu.gpr[i]);    
   }
   printf("%-10s\t0x%-10x\t0x%x\n", "pc", cpu.pc, cpu.pc);
+  printf("\n");
 }
 
 word_t isa_reg_str2val(const char *s, bool *success) {

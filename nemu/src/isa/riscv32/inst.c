@@ -133,10 +133,11 @@ static int decode_exec(Decode *s) {
   return 0;
 }
  
-
+extern void isa_reg_display();
 int isa_exec_once(Decode *s) {
   s->isa.inst.val = inst_fetch(&s->snpc, 4);
-  //printf("nemu_inst:0x%x\n",s->isa.inst.val);
+  isa_reg_display();
+  printf("nemu_inst:0x%x\n",s->isa.inst.val);
   return decode_exec(s);
 }
  

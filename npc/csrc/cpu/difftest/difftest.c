@@ -2,7 +2,7 @@
 #include "../include/common.h"         
 #include "../include/addr.h"                   
 #include "../include/difftest-def.h"
-extern uint32_t *cpu_gpr;
+extern uint32_t cpu_gpr[32];
 extern uint32_t dut_pc;
 
 bool is_skip_ref = false;
@@ -24,12 +24,13 @@ void (*ref_difftest_exec)(uint32_t n) = NULL;
 void (*ref_difftest_raise_intr)(uint32_t NO) = NULL;
 
 void init_difftest(char *ref_so_file, long img_size) {
+  for(int i = 0; i < 32; i++){
+    cpu_gpr[i] = 0;
+  }
   assert(ref_so_file != NULL);
-  printf("ref_so_file = %s\n",ref_so_file);
+
   void *handle;
   handle = dlopen(ref_so_file, RTLD_LAZY);
-  assert(handle);
-    
   if((handle = dlopen(ref_so_file, RTLD_NOW)) == NULL) {  
         printf("dlopen - %sn", dlerror());  
         exit(-1);  
@@ -54,10 +55,11 @@ void init_difftest(char *ref_so_file, long img_size) {
 
   ref_difftest_init();
   ref_difftest_memcpy(INST_START,guest_to_host(INST_START), img_size, DIFFTEST_TO_REF);
- printf("sd\n");
+ 
   //regfile dut = pack_dut_regfile(cpu_gpr, INST_START); printf("sd\n");
   ref_difftest_regcpy(&cpu_gpr, DIFFTEST_TO_REF);
 }
+
 
 bool difftest_check() {
   regfile ref,dut;
@@ -87,4 +89,3 @@ void difftest_step() {
   ref_difftest_exec(1);
   difftest_check();
 }
-

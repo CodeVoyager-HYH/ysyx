@@ -33,7 +33,7 @@ long load_img(char *img_file) {
   fseek(fp, 0, SEEK_END);
   long size = ftell(fp);
 
-  Log("The image is %s, size = %ld\n", img_file, size);
+  Log("The image is %s, size = %ld", img_file, size);
 
   fseek(fp, 0, SEEK_SET);
   int ret = fread(guest_to_host(RESET_VECTOR), size, 1, fp);

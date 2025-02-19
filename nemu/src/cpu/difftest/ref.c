@@ -18,7 +18,9 @@
 #include <difftest-def.h>
 #include <memory/paddr.h>
 
+extern void isa_reg_display();
 __EXPORT void difftest_memcpy(paddr_t addr, void *buf, size_t n, bool direction) {
+	
 	if(direction == DIFFTEST_TO_REF) {
 		memcpy(guest_to_host(addr), buf, n);
 	}
@@ -48,9 +50,12 @@ __EXPORT void difftest_regcpy(void *dut, bool direction) {
 		// 	diff_context->csr[i] = cpu.csr[i];
 		// }
 	}
+	Log("why=-=======\n");
+	isa_reg_display();
 }
 
 __EXPORT void difftest_exec(uint64_t n) {
+
 	cpu_exec(n);
 }
 

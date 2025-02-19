@@ -144,10 +144,12 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___ctor_var_reset(Vysyx_24080014_c
     vlSelf->ysyx_24080014_cpu__DOT__alu_ctl = VL_RAND_RESET_I(4);
     vlSelf->ysyx_24080014_cpu__DOT__alu_rs2 = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add = VL_RAND_RESET_I(12);
+    vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_write_add = VL_RAND_RESET_I(12);
     vlSelf->ysyx_24080014_cpu__DOT__npc_ctr = VL_RAND_RESET_I(2);
     vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr = VL_RAND_RESET_I(3);
     vlSelf->ysyx_24080014_cpu__DOT__rs2_ctr = VL_RAND_RESET_I(3);
     vlSelf->ysyx_24080014_cpu__DOT__rd_ctl = VL_RAND_RESET_I(3);
+    vlSelf->ysyx_24080014_cpu__DOT__rd_data = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__compare_ctl = VL_RAND_RESET_I(3);
     vlSelf->ysyx_24080014_cpu__DOT__shamt_ctl = VL_RAND_RESET_I(3);
     vlSelf->ysyx_24080014_cpu__DOT__csrs_ctl = VL_RAND_RESET_I(2);

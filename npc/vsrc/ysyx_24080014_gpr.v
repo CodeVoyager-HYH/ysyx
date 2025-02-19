@@ -10,6 +10,7 @@ module ysyx_24080014_gpr(
     input      [31:0] pc          ,
     input      [11:0]  csrs_rs1_read_add,  
     input      [11:0]  csrs_rs2_read_add,  
+    input      [11:0]  csrs_rs1_write_add,  
     input      [31:0] rd_data     ,//写入对应A3寄存器的值
     output reg [31:0] rs1_data    ,//输出对应A1寄存器的值
     output reg [31:0]  csr_next_pc ,
@@ -59,8 +60,16 @@ always @(posedge clk) begin
             csr_next_pc = mtvec      ;
         end
         else if(csrs_ctl == 2'b10) begin//mret
-            csr_next_pc = mepc + 4;
+            csr_next_pc = mepc ;
         end    
+        else if(csrs_rs1_write_add == 12'h300)
+            mstatus = rd_data;
+        else if(csrs_rs1_write_add == 12'h305)
+            mtvec = rd_data;
+        else if(csrs_rs1_write_add == 12'h341)
+            mepc = rd_data;
+        else if(csrs_rs1_write_add == 12'h342)
+            mcause = rd_data;            
 
     end
 

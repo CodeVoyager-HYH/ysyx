@@ -135,7 +135,6 @@ uint32_t cpu_exec(uint64_t n){
       exit(0) ;
     default: npc_state.state = NPC_RUNNING;
   }
-  int j = n;
   uint64_t timer_start = get_time();
 
 //-----------------excute-----------------------  
@@ -175,7 +174,6 @@ static void execute(uint64_t n,Decode *s) {
       dut.eval();  // 评估当前状态
       contextp->timeInc(1);  // 增加仿真时间
       m_trace->dump(contextp->time());  // 写入波形数据
-      IFDEF(CONFIG_DIFFTEST, difftest_step());
 
       dut.clk = 1;
       dut.rst = 0;  // 解除复位
@@ -185,7 +183,6 @@ static void execute(uint64_t n,Decode *s) {
         contextp->timeInc(1);  // 增加仿真时间
         m_trace->dump(contextp->time());  // 写入波形数据
 
-        IFDEF(DEBUG,printf("a0 = %d\n",cpu_gpr[10]));
         trace();
         IFDEF(CONFIG_DEVICE, device_update());
         IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));

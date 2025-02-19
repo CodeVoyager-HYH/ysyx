@@ -37,6 +37,7 @@ class Vysyx_24080014_cpu___024root final : public VerilatedModule {
     CData/*0:0*/ __Vtrigrprev__TOP__clk;
     CData/*0:0*/ __VactContinue;
     SData/*11:0*/ ysyx_24080014_cpu__DOT__csrs_rs1_read_add;
+    SData/*11:0*/ ysyx_24080014_cpu__DOT__csrs_rs1_write_add;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__pc;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__csr_next_pc;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__inst;
@@ -45,6 +46,7 @@ class Vysyx_24080014_cpu___024root final : public VerilatedModule {
     IData/*31:0*/ ysyx_24080014_cpu__DOT__alu_out;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__alu_rs1;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__alu_rs2;
+    IData/*31:0*/ ysyx_24080014_cpu__DOT__rd_data;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__IF__DOT__tem;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__mem__DOT__tem;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__mem__DOT__read_tem;

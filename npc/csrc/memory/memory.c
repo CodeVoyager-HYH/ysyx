@@ -8,7 +8,7 @@ extern uint32_t inst;
 extern Vysyx_24080014_cpu dut;
 extern int no_img;
 extern uint64_t g_nr_guest_inst;
-uint32_t* cpu_gpr;
+uint32_t cpu_gpr[32] ;
 uint32_t* snpc;
 uint32_t ins_val;
 extern uint8_t *pmem;//物理内存
@@ -75,9 +75,15 @@ uint32_t fetch_ins(){//uint32_t pc){
     return vaddr_ifetch(dut_pc,4);//取指
 }
 //--------------------------------寄存器---------------------------------
-
+extern void isa_reg_display();
 extern "C" void set_gpr_ptr(const svOpenArrayHandle r) {
-    cpu_gpr = (uint32_t *)(((VerilatedDpiOpenVar*)r)->datap());
+
+   uint32_t* gpr = (uint32_t *)(((VerilatedDpiOpenVar*)r)->datap());
+   for(int i = 0; i < 32; i++){
+    cpu_gpr[i] = gpr[i];
+   }
+   isa_reg_display();
+   printf("\n");
 }
 
 extern "C" void set_nextpc_ptr(const svLogicVecVal* r) {

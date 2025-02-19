@@ -113,6 +113,7 @@
 `define ALU_OUT     3'b010
 `define IMM         3'b011
 `define READ_DATA   3'b100
+`define RS1_DATA    3'b101
 
 //aluout_ctr(PC_ADD,ALU_OUT,IMM)
 
@@ -178,6 +179,8 @@ module ysyx_24080014_idu(
    output  [ 1:0] csrs_ctl,
    output  [ 11:0] csrs_rs1_read_add,
    output  [ 11:0] csrs_rs2_read_add,
+   output  [ 11:0] csrs_rs1_write_add,
+   //output  [ 11:0] csrs_rs2_wirte_add,
    output  Equal_ctl,
    output  ReadWr,//内存读出
    output  StoreWr,//内存写入
@@ -191,6 +194,9 @@ wire [11:0] func12;
 wire [ 6:0] func7;
 wire [ 5:0] func_I;
 
+wire tem_system;
+assign tem_system = (opcode == `System)?1:0;
+
    assign ReadWr = (opcode == `Load)?1 :0;
    assign func_I = inst[31:26];
    assign opcode = inst[6:0];
@@ -199,14 +205,18 @@ wire [ 5:0] func_I;
    assign func12 = inst[31:20];
    assign and1_ctl  = `rs1;
    assign csrs_ctl = (opcode == `System)? 
-                        ((func12 == `ecall)? 1: 
-                        (func12 == `mret)? 2: 0): 0;
+                        ((func12 == `ecall)? 2'b1: 
+                        (func12 == `mret)? 2'b10: 0): 0;
    
    assign csrs_rs1_read_add = (opcode == `System)?
                                  ((func3 == `csrrw)? inst[31:20] :
                                  (func3 == `csrrs)? inst[31:20] : 12'b0) : 12'b0;
 
    assign csrs_rs2_read_add = 12'b0;                             
+
+   assign csrs_rs1_write_add = (opcode == `System)?
+                                 ((func3 == `csrrs)? inst[31:20]:
+                                 (func3 == `csrrw)? inst[31:20]: 12'b0):12'b0;
 
    assign and2_ctl  = (opcode == `Imm)? `imm : `rs2; 
    assign shamt_ctl = (opcode == `Lui)? `shamt_lui:
@@ -373,6 +383,7 @@ wire [ 5:0] func_I;
                (opcode == `Jal) ? 1 :
                (opcode == `Auipc) ? 1 :
                (opcode == `Lui) ? 1 :
+               (opcode == `System)? 1 : 
                (opcode == `Imm) ? 1 : 0;//-------------------------------------------Imm
 
 //alu_rs1  
@@ -397,13 +408,16 @@ wire [ 5:0] func_I;
                         
 
 //rd_ctl
-    assign rd_ctl = (opcode == `Load)?`READ_DATA:
-                     (opcode == `Integer)?`ALU_OUT :
-                   (opcode == `Jalr) ? `PC_ADD://---------------------------------stystem
-                      (opcode == `Jal) ? `PC_ADD :
-                      (opcode == `Auipc) ? `ALU_OUT :
-                      (opcode == `Lui) ? `ALU_OUT :
-                   (opcode == `Imm) ? `ALU_OUT : `ALU_OUT ;//-------------------------------------------Imm
+    assign rd_ctl =  (opcode == `System)?
+                        ((func3 == `csrrs)?`ALU_OUT:
+                        (func3 == `csrrw)? `RS1_DATA: `ALU_OUT):
+                     (opcode == `Load)?`READ_DATA:
+                        (opcode == `Integer)?`ALU_OUT :
+                     (opcode == `Jalr) ? `PC_ADD://---------------------------------stystem
+                        (opcode == `Jal) ? `PC_ADD :
+                        (opcode == `Auipc) ? `ALU_OUT :
+                        (opcode == `Lui) ? `ALU_OUT :
+                     (opcode == `Imm) ? `ALU_OUT : `ALU_OUT ;//-------------------------------------------Imm
 
 
 always @(*)begin

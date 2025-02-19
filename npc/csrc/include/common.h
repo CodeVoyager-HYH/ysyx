@@ -41,7 +41,7 @@
 #define ITRACE_COND 1
 #define IRINGBUF 0//IRINGBUF
 //====================================================================================
-extern uint32_t* cpu_gpr;
+extern uint32_t cpu_gpr[32];
 extern uint32_t dut_pc;
 extern uint32_t ins_val;
 

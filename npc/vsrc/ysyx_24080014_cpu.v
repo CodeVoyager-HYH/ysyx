@@ -24,6 +24,7 @@ wire [31:0] store_data;
 wire [ 4:0] rs1_addr;
 wire [ 4:0] rs2_addr;
 wire [ 11:0] csrs_rs1_read_add;
+wire [ 11:0] csrs_rs1_write_add;
 wire [ 11:0] csrs_rs2_read_add;
 wire [ 1:0] npc_ctr;
 wire [ 2:0] rs1_ctr;
@@ -86,6 +87,7 @@ ysyx_24080014_memory mem(
 );
 
 ysyx_24080014_idu idu (
+    .csrs_rs1_write_add(csrs_rs1_write_add),
     .csrs_rs1_read_add(csrs_rs1_read_add),
     .csrs_rs2_read_add(csrs_rs2_read_add),
     .csrs_ctl(csrs_ctl),
@@ -161,6 +163,7 @@ ysyx_24080014_alu alu (
 );
 
 ysyx_24080014_rdin rdin ( 
+    .rs1_data(rs1_data),
     .read_data(read_data),
     .alu_out(alu_out),
     .pc(pc),
@@ -171,6 +174,7 @@ ysyx_24080014_rdin rdin (
 
 ysyx_24080014_gpr gpr (
     .csrs_ctl(csrs_ctl),
+    .csrs_rs1_write_add(csrs_rs1_write_add),
     .csrs_rs1_read_add(csrs_rs1_read_add),
     .csrs_rs2_read_add(csrs_rs2_read_add),
     .pc(pc),
