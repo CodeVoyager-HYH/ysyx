@@ -3,6 +3,7 @@ import "DPI-C" function void rtl_pmem_write(input int waddr, input int wdata,inp
 module ysyx_24080014_memory(
     input  ReadWr,//读入使能
     input  StoreWr,   //内存写入使能
+    input  sign,
     input  [ 7:0] wmask, //掩码
     input  [31:0] rs1_data,
     input  [ 2:0] rmask,//读取的字节数
@@ -22,8 +23,13 @@ always @(*) begin
 end 
     assign read_tem = rtl_pmem_read(read_addr,tem);
     assign read_data = (ReadWr == 1)?
-                        ((rmask == 3'b001)?{{24{1'b0}},read_tem[7:0]}:
-                        (rmask == 3'b010)?{{16{1'b0}},read_tem[15:0]}:read_tem):32'b0;
+                            ((sign == 0)?
+                                ((rmask == 3'b001)?{{24{1'b0}},read_tem[7:0]}:
+                                (rmask == 3'b010)?{{16{1'b0}},read_tem[15:0]}:read_tem):
+                                ((rmask == 3'b001)?{{24{read_tem[7]}},read_tem[7:0]}:
+                                (rmask == 3'b010)?{{16{read_tem[15]}},read_tem[15:0]}:read_tem)):32'b0;
+                                
+
                        //rtl_pmem_read(read_addr,tem):32'b0;
 
 endmodule

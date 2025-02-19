@@ -4,6 +4,7 @@
 `define IMM         3'b011
 `define READ_DATA   3'b100
 `define RS1_DATA    3'b101
+
 module ysyx_24080014_rdin(
     input  [31:0] alu_out,
     input  [31:0] pc,

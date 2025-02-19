@@ -49,6 +49,7 @@ wire [ 2:0] and2_ctl;
 wire [ 1:0] csrs_ctl;
 wire rd_wirte;
 wire Equal_ctl;
+wire sign;
 wire ReadWr;
 wire RegWr;
 wire StoreWr;
@@ -75,6 +76,7 @@ ysyx_24080014_if IF(
 );
 
 ysyx_24080014_memory mem(
+    .sign(sign),
     .rs1_data(rs1_data),
     .rmask(rmask),
     .ReadWr(ReadWr),
@@ -87,6 +89,7 @@ ysyx_24080014_memory mem(
 );
 
 ysyx_24080014_idu idu (
+    .sign(sign),
     .csrs_rs1_write_add(csrs_rs1_write_add),
     .csrs_rs1_read_add(csrs_rs1_read_add),
     .csrs_rs2_read_add(csrs_rs2_read_add),

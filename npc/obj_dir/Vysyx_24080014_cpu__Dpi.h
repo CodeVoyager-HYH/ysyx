@@ -22,7 +22,7 @@ extern "C" {
     extern void get_pc(int pc);
     // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_gpr.v:2:30
     extern void isa_reg_display();
-    // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_idu.v:153:30
+    // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_idu.v:154:30
     extern void npctrap();
     // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_if.v:1:31
     extern int rtl_pmem_read(int raddr, int* rdata);

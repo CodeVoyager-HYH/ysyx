@@ -48,6 +48,7 @@
 `define lw      3'b010   
 `define lbu     3'b100
 `define lh      3'b001
+`define lhu     3'b101  
 
 //Store
    //func3
@@ -184,6 +185,7 @@ module ysyx_24080014_idu(
    output  Equal_ctl,
    output  ReadWr,//内存读出
    output  StoreWr,//内存写入
+   output  sign,
    output  RegWr//写入使能 
 );
 
@@ -232,6 +234,7 @@ assign tem_system = (opcode == `System)?1:0;
   assign rmask = (opcode == `Load)?
                         ((func3 == `lw)? 3'b100 : 
                         (func3 == `lh)? 3'b010 :
+                        (func3 == `lhu)?3'b010 :
                         (func3 == `lbu)? 3'b001: `no_memout):`no_memout;
 
   assign shamt_left = inst[25:20];
@@ -252,10 +255,10 @@ assign tem_system = (opcode == `System)?1:0;
 
   assign  shamt_right = inst[25:20];
 
-  assign read_ctl = (opcode == `Load)?
-                        ((func3 == `lw)? `alu_out : 
-                        (func3 == `lh)? `alu_out:
-                        (func3 == `lbu)? `alu_out: `no_memout):`no_memout;
+  assign read_ctl = (opcode == `Load)?`alu_out: `no_memout;
+                        // ((func3 == `lw)? `alu_out : 
+                        // (func3 == `lh)? `alu_out:
+                        // (func3 == `lbu)? `alu_out: `no_memout):`no_memout;
 
    assign eq_ctl = (opcode == `Control)?
                         ((func3 == `beq)? `eq_beq : 
@@ -351,6 +354,7 @@ assign tem_system = (opcode == `System)?1:0;
                      (opcode == `Load)?
                         ((func3 == `lw)? `ADD: 
                         (func3 == `lh)? `ADD:
+                        (func3 == `lhu)? `ADD:
                         (func3 == `lbu)? `ADD: `NONE):
                      (opcode == `Control)?
                            ((func3 == `beq)? `EQUAL:
@@ -419,6 +423,9 @@ assign tem_system = (opcode == `System)?1:0;
                         (opcode == `Lui) ? `ALU_OUT :
                      (opcode == `Imm) ? `ALU_OUT : `ALU_OUT ;//-------------------------------------------Imm
 
+   assign sign  = (opcode == `Load)?
+                     ((func3 == `lbu)?0:
+                      (func3 == `lhu)?0: 1):0;
 
 always @(*)begin
   if(opcode == `System)begin

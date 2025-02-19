@@ -1197,13 +1197,20 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                        >> 0xcU)))
                                                    ? 2U
                                                    : 
-                                                  ((4U 
+                                                  ((5U 
                                                     == 
                                                     (7U 
                                                      & (vlSelf->ysyx_24080014_cpu__DOT__inst 
                                                         >> 0xcU)))
-                                                    ? 1U
-                                                    : 7U)))
+                                                    ? 2U
+                                                    : 
+                                                   ((4U 
+                                                     == 
+                                                     (7U 
+                                                      & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                         >> 0xcU)))
+                                                     ? 1U
+                                                     : 7U))))
                                               : 7U);
     if ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
         vlSelf->ysyx_24080014_cpu__DOT__npc_ctr = 3U;
@@ -1442,13 +1449,20 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                             >> 0xcU)))
                                                         ? 0U
                                                         : 
-                                                       ((4U 
+                                                       ((5U 
                                                          == 
                                                          (7U 
                                                           & (vlSelf->ysyx_24080014_cpu__DOT__inst 
                                                              >> 0xcU)))
                                                          ? 0U
-                                                         : 0xfU)))
+                                                         : 
+                                                        ((4U 
+                                                          == 
+                                                          (7U 
+                                                           & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                              >> 0xcU)))
+                                                          ? 0U
+                                                          : 0xfU))))
                                                       : 
                                                      ((0x63U 
                                                        == 
@@ -2303,28 +2317,7 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                                                 == 
                                                                                 (0x7fU 
                                                                                 & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                                                ? 
-                                                                               ((2U 
-                                                                                == 
-                                                                                (7U 
-                                                                                & (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                                                >> 0xcU)))
-                                                                                 ? 1U
-                                                                                 : 
-                                                                                ((1U 
-                                                                                == 
-                                                                                (7U 
-                                                                                & (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                                                >> 0xcU)))
-                                                                                 ? 1U
-                                                                                 : 
-                                                                                ((4U 
-                                                                                == 
-                                                                                (7U 
-                                                                                & (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                                                >> 0xcU)))
-                                                                                 ? 1U
-                                                                                 : 7U)))
+                                                                                ? 1U
                                                                                 : 7U))
                                                                               ? vlSelf->ysyx_24080014_cpu__DOT__alu_out
                                                                               : 0U), vlSelf->__Vfunc_rtl_pmem_read__2__rdata, vlSelf->__Vfunc_rtl_pmem_read__2__Vfuncout);
@@ -2343,18 +2336,57 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                      (0x7fU 
                                                       & vlSelf->ysyx_24080014_cpu__DOT__inst))
                                                      ? 
-                                                    ((1U 
-                                                      == (IData)(vlSelf->ysyx_24080014_cpu__DOT__rmask))
+                                                    (((~ 
+                                                       ((4U 
+                                                         == 
+                                                         (7U 
+                                                          & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                             >> 0xcU))) 
+                                                        | (5U 
+                                                           == 
+                                                           (7U 
+                                                            & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                               >> 0xcU))))) 
+                                                      & (3U 
+                                                         == 
+                                                         (0x7fU 
+                                                          & vlSelf->ysyx_24080014_cpu__DOT__inst)))
                                                       ? 
-                                                     (0xffU 
-                                                      & vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem)
-                                                      : 
-                                                     ((2U 
+                                                     ((1U 
                                                        == (IData)(vlSelf->ysyx_24080014_cpu__DOT__rmask))
                                                        ? 
-                                                      (0xffffU 
+                                                      (((- (IData)(
+                                                                   (1U 
+                                                                    & (vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem 
+                                                                       >> 7U)))) 
+                                                        << 8U) 
+                                                       | (0xffU 
+                                                          & vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem))
+                                                       : 
+                                                      ((2U 
+                                                        == (IData)(vlSelf->ysyx_24080014_cpu__DOT__rmask))
+                                                        ? 
+                                                       (((- (IData)(
+                                                                    (1U 
+                                                                     & (vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem 
+                                                                        >> 0xfU)))) 
+                                                         << 0x10U) 
+                                                        | (0xffffU 
+                                                           & vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem))
+                                                        : vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem))
+                                                      : 
+                                                     ((1U 
+                                                       == (IData)(vlSelf->ysyx_24080014_cpu__DOT__rmask))
+                                                       ? 
+                                                      (0xffU 
                                                        & vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem)
-                                                       : vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem))
+                                                       : 
+                                                      ((2U 
+                                                        == (IData)(vlSelf->ysyx_24080014_cpu__DOT__rmask))
+                                                        ? 
+                                                       (0xffffU 
+                                                        & vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem)
+                                                        : vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem)))
                                                      : 0U)
                                                     : 
                                                    ((3U 
