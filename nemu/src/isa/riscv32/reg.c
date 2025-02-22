@@ -15,6 +15,7 @@
 
 #include <isa.h>
 #include "local-include/reg.h"
+#define REG 32
 
 const char *regs[] = {
   "$0", "ra", "sp", "gp", "tp", "t0", "t1", "t2",
@@ -26,9 +27,13 @@ const char *regs[] = {
 void isa_reg_display() {
   int i;
   printf("------------------------nemu-----------------\n");
-  for (i = 0; i < (sizeof(regs) / sizeof(char *)); i++){
+  for (i = 0; i < REG; i++){
     printf("%-10s\t0x%-10x\t0x%x\n", regs[i], cpu.gpr[i], cpu.gpr[i]);    
   }
+  printf("%-10s\t0x%-10x\t0x%x\n", "mcause", cpu.csrs.mcause, cpu.csrs.mcause);
+  printf("%-10s\t0x%-10x\t0x%x\n", "mepc", cpu.csrs.mepc, cpu.csrs.mepc);
+  printf("%-10s\t0x%-10x\t0x%x\n", "mstatus", cpu.csrs.mstatus, cpu.csrs.mstatus);
+  printf("%-10s\t0x%-10x\t0x%x\n", "mtvec", cpu.csrs.mtvec, cpu.csrs.mtvec);
   printf("%-10s\t0x%-10x\t0x%x\n", "pc", cpu.pc, cpu.pc);
   printf("\n");
 }

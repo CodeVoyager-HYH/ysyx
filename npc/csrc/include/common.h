@@ -41,7 +41,7 @@
 #define ITRACE_COND 1
 #define IRINGBUF 0//IRINGBUF
 //====================================================================================
-extern uint32_t cpu_gpr[32];
+extern uint32_t cpu_gpr[36];
 extern uint32_t dut_pc;
 extern uint32_t ins_val;
 
@@ -119,7 +119,12 @@ union isa_gdb_regs {
 typedef struct {
   uint32_t x[32];
   uint32_t pc;
+  uint32_t mepc;
+  uint32_t mcause;
+  uint32_t mtvec;
+  uint32_t mstatus;
 } regfile;
+
 typedef struct {
   word_t gpr[32];
   vaddr_t pc;

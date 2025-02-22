@@ -132,7 +132,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___ctor_var_reset(Vysyx_24080014_c
     vlSelf->clk = VL_RAND_RESET_I(1);
     vlSelf->rst = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__pc = VL_RAND_RESET_I(32);
-    vlSelf->ysyx_24080014_cpu__DOT__csr_next_pc = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__rmask = VL_RAND_RESET_I(3);
     vlSelf->ysyx_24080014_cpu__DOT__inst = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__next_pc = VL_RAND_RESET_I(32);
@@ -153,8 +152,8 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___ctor_var_reset(Vysyx_24080014_c
     vlSelf->ysyx_24080014_cpu__DOT__compare_ctl = VL_RAND_RESET_I(3);
     vlSelf->ysyx_24080014_cpu__DOT__shamt_ctl = VL_RAND_RESET_I(3);
     vlSelf->ysyx_24080014_cpu__DOT__csrs_ctl = VL_RAND_RESET_I(2);
+    vlSelf->ysyx_24080014_cpu__DOT__csr_rs1_data = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__rd_wirte = VL_RAND_RESET_I(1);
-    vlSelf->ysyx_24080014_cpu__DOT__RegWr = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__tem = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__tem = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem = VL_RAND_RESET_I(32);
@@ -168,15 +167,12 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___ctor_var_reset(Vysyx_24080014_c
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__logic_left_shift = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT____VdfgTmp_h03500f17__0 = 0;
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT____VdfgTmp_h8a6dd40b__0 = 0;
-    for (int __Vi0 = 0; __Vi0 < 32; ++__Vi0) {
+    for (int __Vi0 = 0; __Vi0 < 36; ++__Vi0) {
         vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[__Vi0] = VL_RAND_RESET_I(32);
     }
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__mepc = VL_RAND_RESET_I(32);
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__mcause = VL_RAND_RESET_I(32);
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__mtvec = VL_RAND_RESET_I(32);
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__mstatus = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__i = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__j = VL_RAND_RESET_I(32);
+    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT____Vlvbound_hdcffde56__0 = VL_RAND_RESET_I(32);
     vlSelf->__Vfunc_rtl_pmem_read__0__Vfuncout = 0;
     vlSelf->__Vfunc_rtl_pmem_read__0__rdata = 0;
     vlSelf->__Vfunc_rtl_pmem_read__2__Vfuncout = 0;

@@ -8,68 +8,66 @@ module ysyx_24080014_gpr(
     input      [4:0]  rs2_addr    ,//读入寄存器的2地址,输入的是下标
     input      [4:0]  rd          ,//输出寄存器的3地址,输入的是下标
     input      [31:0] pc          ,
-    input      [11:0]  csrs_rs1_read_add,  
-    input      [11:0]  csrs_rs2_read_add,  
-    input      [11:0]  csrs_rs1_write_add,  
+    input      [11:0] csrs_rs1_read_add,  
+    input      [11:0] csrs_rs2_read_add,  
+    input      [11:0] csrs_rs1_write_add,  
     input      [31:0] rd_data     ,//写入对应A3寄存器的值
     output reg [31:0] rs1_data    ,//输出对应A1寄存器的值
-    output reg [31:0]  csr_next_pc ,
-    output reg [31:0]  rs2_data     //输出对应A2寄存器的值
+    output     [31:0] csr_rs1_data,
+    output     [31:0] csr_next_pc ,
+    output reg [31:0] rs2_data     //输出对应A2寄存器的值
 );
 
-reg [31:0] general_register [31:0];//32个寄存器
-reg [31:0] mepc;
-reg [31:0] mcause;
-reg [31:0] mtvec;
-reg [31:0] mstatus;
+reg [31:0] general_register [35:0];//32个寄存器 + mcause[32] mepc[33] mstatus[34] mtvec[35]
 
 assign general_register[0] = 0;//零号寄存器
 
 //对寄存器进行初始化
 integer i, j;
 initial begin
-    for (i = 0; i < 32; i++) begin
-        for (j = 0; j < 32; j++) begin
+    for (i = 0; i < 36; i++) begin
+        for (j = 0; j < 36; j++) begin
             general_register[i] = 32'b0;
         end
     end
-    mstatus = 32'h1800;
+
     set_gpr_ptr(general_register);
 end
 
 //读出
-  assign rs1_data = (csrs_rs1_read_add == 12'h300)? mstatus:
-                        (csrs_rs1_read_add == 12'h305)? mtvec :
-                        (csrs_rs1_read_add == 12'h341)? mepc :
-                        (csrs_rs1_read_add == 12'h342)? mcause : 
-                    general_register[rs1_addr];
+  assign csr_rs1_data = (csrs_rs1_read_add == 12'h300)? general_register[34] ://mstatus
+                        (csrs_rs1_read_add == 12'h305)? general_register[35] ://mtvec
+                        (csrs_rs1_read_add == 12'h341)? general_register[33] ://mepc
+                        (csrs_rs1_read_add == 12'h342)? general_register[32] :  32'b0;//mcause 
+
+  wire [5:0] index_rs1 = {1'b0,rs1_addr};
+  wire [5:0] index_rs2 = {1'b0,rs2_addr};
+  wire [5:0] index_rd  = {1'b0,rd};             
+  assign rs1_data = general_register[index_rs1];
                     
-  assign rs2_data = (csrs_rs2_read_add == 12'h300)? mstatus:
-                        (csrs_rs2_read_add == 12'h305)? mtvec :
-                        (csrs_rs2_read_add == 12'h341)? mepc :
-                        (csrs_rs2_read_add == 12'h342)? mcause : 
-                        general_register[rs2_addr] ;
+  assign rs2_data = general_register[index_rs2] ;
 
 //写入
+assign csr_next_pc = (csrs_ctl == 2'b01)? general_register[35]://ecall
+                        (csrs_ctl == 2'b10)? general_register[33] : pc+4;//mret
+
+
 always @(posedge clk) begin
     if (RegWr)begin// isa_reg_display();
-      general_register[rd] <= rd_data;
+      general_register[index_rd] = rd_data;
         if(csrs_ctl == 2'b01)begin//ecall
-            mepc        = pc         ;
-            mcause      = general_register[17] ;
-            csr_next_pc = mtvec      ;
+            general_register[33] = pc         ;
+            general_register[32] = general_register[15] ;
+            //csr_next_pc = mtvec      ;
         end
-        else if(csrs_ctl == 2'b10) begin//mret
-            csr_next_pc = mepc ;
-        end    
         else if(csrs_rs1_write_add == 12'h300)
-            mstatus = rd_data;
+            general_register[34] = rd_data;
         else if(csrs_rs1_write_add == 12'h305)
-            mtvec = rd_data;
+            general_register[35] = rd_data;
         else if(csrs_rs1_write_add == 12'h341)
-            mepc = rd_data;
+            general_register[33] = rd_data;
         else if(csrs_rs1_write_add == 12'h342)
-            mcause = rd_data;            
+            general_register[32] = rd_data;            
 
     end
 

@@ -203,7 +203,7 @@ static char* rl_gets() {
 
   return line_read;
 }
-extern uint32_t cpu_gpr[32] ;
+extern uint32_t cpu_gpr[36] ;
 void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();
@@ -211,7 +211,6 @@ void init_sdb() {
   /* Initialize the watchpoint pool. */
   init_wp_pool();
 
-  //for(int i = 0; i < 32; i++) cpu_gpr[i] = 0;
 }
 
 void sdb_set_batch_mode() {

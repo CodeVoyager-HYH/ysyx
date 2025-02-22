@@ -115,7 +115,7 @@
 `define IMM         3'b011
 `define READ_DATA   3'b100
 `define RS1_DATA    3'b101
-
+`define CSR_DATA    3'b110
 //aluout_ctr(PC_ADD,ALU_OUT,IMM)
 
 //store_ctl
@@ -207,7 +207,7 @@ assign tem_system = (opcode == `System)?1:0;
    assign func12 = inst[31:20];
    assign and1_ctl  = `rs1;
    assign csrs_ctl = (opcode == `System)? 
-                        ((func12 == `ecall)? 2'b1: 
+                        ((func12 == `ecall)? 2'b01: 
                         (func12 == `mret)? 2'b10: 0): 0;
    
    assign csrs_rs1_read_add = (opcode == `System)?
@@ -293,6 +293,7 @@ assign tem_system = (opcode == `System)?1:0;
                         // (func3 == `sh)? 1 : 0):0;
 //rs1_addr
    assign rs1_addr = (opcode == `Integer)?inst[19:15] :
+                     (opcode == `System)? inst[19:15] :
                      (opcode == `Load)?   inst[19:15] :
                      (opcode == `Control)?inst[19:15] :
                      (opcode == `Store)?  inst[19:15] :
@@ -309,7 +310,8 @@ assign tem_system = (opcode == `System)?1:0;
                      (opcode == `Imm)   ?  inst[11:7] :
                      (opcode == `Jalr)  ? inst[11:7] ://--------------------------------------stystem
                         (opcode == `Jal)   ? inst[11:7] :
-                        (opcode == `Auipc) ? inst[11:7] :   
+                        (opcode == `Auipc) ? inst[11:7] :  
+                        (opcode == `System)? inst[11:7] : 
                         (opcode == `Lui) ? inst[11:7] : 
                         (opcode == `Jalr)  ? inst[11:7] :5'b0;
 
@@ -403,6 +405,7 @@ assign tem_system = (opcode == `System)?1:0;
 //alu_rs2
   assign rs2_ctr =   (opcode == `Integer)?`RS_OUT : 
                      (opcode == `Load)? `IMM:
+                     (opcode == `System)?((func3 == `csrrs)?`CSR_DATA:`RS_OUT):
                      (opcode == `Control)? `PC : 
                      (opcode == `Store)? `IMM :
                      (opcode == `Jalr) ? `IMM://---------------------------------stystem

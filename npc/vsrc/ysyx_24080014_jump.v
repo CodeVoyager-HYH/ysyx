@@ -13,7 +13,7 @@ module ysyx_24080014_jump(
     output [31:0] next_pc
 );
     assign next_pc = //(rd_wirte == 1)?
-                 (csrs_ctl == 2'b11)? csr_next_pc :
+                 (csrs_ctl != 2'b0)? csr_next_pc :
                  (npc_ctr  == `NEXT_PC_ALU_OUT )? alu_out :
                  (npc_ctr  == `NEXT_PC_JAL )? alu_out :
                  (npc_ctr  == `NEXT_PC_JALR)? (alu_out & (~32'b1)):(pc+4);//:(pc+4);

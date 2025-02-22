@@ -64,9 +64,10 @@ uint32_t _pmem_read(uint32_t addr, int len) {
 
 extern "C" int rtl_pmem_read(int raddr,int *rdata){
   extern uint32_t inst;
-//  raddr = raddr & ~0x3u;  //字节对齐
+  //raddr = raddr & ~0x3u;  //字节对齐
   //printf("raddr = 0x%x\n",raddr);
-    Log("==========================0x%x",pmem_read(0x8000029c,4));
+  // uint32_t tem = _pmem_read(0x800189c4,4);
+  // Log("0x800189c4 = 0x%x",tem);  
   IFDEF(CONFIG_MTRACE,Log("[mtrace](npc csrc)read data = %x , read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = 4\n",*rdata,raddr, dut_pc));	
     
   if (raddr >= PMEM_START && raddr <= PMEM_END){
@@ -95,7 +96,6 @@ extern "C" void rtl_pmem_write(int waddr, int wdata, char wmask) {//waddr写入�
   // 如`wmask = 0x3`代表只写入最低2个字节, 内存中的其它字节保持不变
 
   //waddr = waddr & ~0x3u;//地址对齐
-  Log("==========================0x%x",pmem_read(0x8000029c,4));
   int i = 0;
 	int j = 0;
   IFDEF(CONFIG_MTRACE,printf("(npc csrc)write init addr : 0x%x ,write_data : %x ,pc = 0x%x\n",waddr,wdata,dut_pc));

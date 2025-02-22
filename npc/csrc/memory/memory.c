@@ -8,7 +8,7 @@ extern uint32_t inst;
 extern Vysyx_24080014_cpu dut;
 extern int no_img;
 extern uint64_t g_nr_guest_inst;
-uint32_t cpu_gpr[32] ;
+uint32_t cpu_gpr[36] ;//32+4 32个寄存器 4个csrs寄存器 顺序mcause mepc mstatus mtvec
 uint32_t* snpc;
 uint32_t ins_val;
 extern uint8_t *pmem;//物理内存
@@ -21,6 +21,8 @@ extern uint32_t dut_pc;
 int cpu_gpr10;
 void init_disasm(const char *triple);
 uint32_t npc = 0x80000000;
+
+
 
 //取指过程是先把物理地址转换成虚拟地址，然后进行赋值
 
@@ -75,15 +77,13 @@ uint32_t fetch_ins(){//uint32_t pc){
     return vaddr_ifetch(dut_pc,4);//取指
 }
 //--------------------------------寄存器---------------------------------
-extern void isa_reg_display();
 extern "C" void set_gpr_ptr(const svOpenArrayHandle r) {
 
    uint32_t* gpr = (uint32_t *)(((VerilatedDpiOpenVar*)r)->datap());
-   for(int i = 0; i < 32; i++){
+   for(int i = 0; i < 36; i++){
     cpu_gpr[i] = gpr[i];
    }
-   isa_reg_display();
-   printf("\n");
+   
 }
 
 extern "C" void set_nextpc_ptr(const svLogicVecVal* r) {
@@ -106,6 +106,11 @@ const char *regs[] = {
   "a6", "a7", "s2", "s3", "s4", "s5", "s6", "s7",
   "s8", "s9", "s10", "s11", "t3", "t4", "t5", "t6"
 };
+
+const char *CSRs[] = {
+  "mcause", "mepc", "mstatus", "mtvec"
+};
+
 bool checkregs(regfile *ref, regfile *dut) {
   if(ref->pc != dut->pc){
     printf("difftest error: ");
@@ -120,6 +125,27 @@ bool checkregs(regfile *ref, regfile *dut) {
       return false;
     }
   }
+  
+  if(ref->mcause != dut->mcause){//mcause mepc mstatus mtvec
+    printf("difftest error at nextpc = 0x%x, ",dut->pc);
+    printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[0],ref->mcause,dut->mcause);
+    return false;
+  }
+  if(ref->mepc != dut->mepc){//mcause mepc mstatus mtvec
+    printf("difftest error at nextpc = 0x%x, ",dut->pc);
+    printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[1],ref->mepc,dut->mepc);
+    return false;
+  }
+  if(ref->mstatus != dut->mstatus){//mcause mepc mstatus mtvec
+    printf("difftest error at nextpc = 0x%x, ",dut->pc);
+    printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[2],ref->mstatus,dut->mstatus);
+    return false;
+  }
+  if(ref->mtvec != dut->mtvec){//mcause mepc mstatus mtvec
+    printf("difftest error at nextpc = 0x%x, ",dut->pc);
+    printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[3],ref->mtvec,dut->mtvec);
+    return false;
+  }  
 
   return true;
 }
@@ -127,29 +153,44 @@ void print_regs(regfile *ref, regfile *dut){
   printf("---------------DUT REGS---------------\n");
   printf("$pc = 0x%x\n",dut->pc);
   for (int i = 0; i < 32; i++) {
-    printf("%-3s = 0x%08x\t",regs[i],dut->x[i]);
+    printf("%-7s = 0x%08x\t",regs[i],dut->x[i]);
     if(i % 4==3) {
       printf("\n");
     }
   }
+  printf("%-7s = 0x%08x\t",CSRs[0],dut->mcause);
+  printf("%-7s = 0x%08x\t",CSRs[1],dut->mepc);
+  printf("%-7s = 0x%08x\t",CSRs[2],dut->mstatus);
+  printf("%-7s = 0x%08x\t",CSRs[3],dut->mtvec);
 
-  printf("---------------REF REGS---------------\n");
+  printf("\n---------------REF REGS---------------\n");
   printf("$pc = 0x%x\n",ref->pc);
   for (int i = 0; i < 32; i++) {
-    printf("%-3s = 0x%08x\t",regs[i],ref->x[i]);
+    printf("%-7s = 0x%08x\t",regs[i],ref->x[i]);
     if(i % 4==3) {
       printf("\n");
     }
   }
-
+  printf("%-7s = 0x%08x\t",CSRs[0],ref->mcause);
+  printf("%-7s = 0x%08x\t",CSRs[1],ref->mepc);
+  printf("%-7s = 0x%08x\t",CSRs[2],ref->mstatus);
+  printf("%-7s = 0x%08x\t",CSRs[3],ref->mtvec);
+  printf("\n\n");
 }
+
 extern "C" void isa_reg_display() {
-  int i;printf("-------------------------------NPC------------------\n");
-  for (i = 0; i < (sizeof(regs) / sizeof(char *)); i++){
+  printf("-------------------------------NPC------------------\n");
+  for (int i = 0; i < 32; i++){
     printf("%-10s\t0x%-10x\t0x%x\n", regs[i], cpu_gpr[i], cpu_gpr[i]);    
   }
   printf("%-10s\t0x%-10x\t0x%x\n", "pc", dut_pc, dut_pc);
+  printf("%-10s\t0x%-10x\t0x%x\n", "mcause", cpu_gpr[32], cpu_gpr[32]);
+  printf("%-10s\t0x%-10x\t0x%x\n", "mepc", cpu_gpr[33], cpu_gpr[33]);
+  printf("%-10s\t0x%-10x\t0x%x\n", "mstatus", cpu_gpr[34], cpu_gpr[34]);
+  printf("%-10s\t0x%-10x\t0x%x\n", "mtvec", cpu_gpr[35], cpu_gpr[35]);
 }
+
+
 word_t isa_reg_str2val(const char *s, bool *success) {
   int i;
   *success = true;

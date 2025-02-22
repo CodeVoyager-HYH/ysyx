@@ -5,7 +5,7 @@ module ysyx_24080014_cpu(
 
 //声明
 reg  [31:0] pc ;
-reg  [31:0] csr_next_pc;
+wire  [31:0] csr_next_pc;
 wire [ 2:0] rmask;
 wire  [31:0] inst ;
 wire [31:0] next_pc ;
@@ -47,6 +47,7 @@ wire [ 2:0] shamt_ctl;
 wire [ 2:0] and1_ctl;
 wire [ 2:0] and2_ctl;
 wire [ 1:0] csrs_ctl;
+wire [31:0] csr_rs1_data;
 wire rd_wirte;
 wire Equal_ctl;
 wire sign;
@@ -132,6 +133,7 @@ ysyx_24080014_imm imm1 (
 );
 
 ysyx_24080014_alu_in aluin (
+    .csr_rs1_data(csr_rs1_data),
     .rs1_data(rs1_data),
     .rs2_data(rs2_data),
     .pc(pc),
@@ -166,6 +168,7 @@ ysyx_24080014_alu alu (
 );
 
 ysyx_24080014_rdin rdin ( 
+    .csr_rs1_data(csr_rs1_data),
     .rs1_data(rs1_data),
     .read_data(read_data),
     .alu_out(alu_out),
@@ -176,6 +179,7 @@ ysyx_24080014_rdin rdin (
 );
 
 ysyx_24080014_gpr gpr (
+    .csr_rs1_data(csr_rs1_data),
     .csrs_ctl(csrs_ctl),
     .csrs_rs1_write_add(csrs_rs1_write_add),
     .csrs_rs1_read_add(csrs_rs1_read_add),

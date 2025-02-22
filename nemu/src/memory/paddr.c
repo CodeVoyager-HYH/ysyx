@@ -57,7 +57,9 @@ word_t paddr_read(paddr_t addr, int len) {
   Log("(nemu)read data = %x \n",pmem_read(addr, len));
 #endif  
 //addr = addr & ~0x3u;  //difftest地址对齐  
-//printf("raddr = %x\n",addr);
+// //printf("raddr = %x\n",addr);
+// uint32_t tem = pmem_read(0x800189c4,4);
+//   Log("++++++++++++++++++++++++++++=nemu  0x800189c4 = 0x%x",tem);  
   if (likely(in_pmem(addr))) return pmem_read(addr, len);
   IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
   out_of_bound(addr);
