@@ -9,5 +9,4 @@ module ysyx_24080014_if(
 
 reg [31:0]tem;
 assign  inst = rtl_pmem_read(pc, tem);
-//always @(*) $display("inst = %x",inst);
 endmodule

@@ -40,8 +40,8 @@ int main(int argc, char** argv, char** env) {
     m_trace = new VerilatedVcdC;  // 创建 VCD 跟踪对象
     contextp->commandArgs(argc, argv);
     
-    dut.trace(m_trace, 99);  // 绑定 VCD 跟踪
-    m_trace->open("wave.vcd");  // 打开 wave.vcd 文件以保存波形
+    IFDEF(CONFIG_WAVE_TRACE,dut.trace(m_trace, 1));  // 绑定 VCD 跟踪
+    IFDEF(CONFIG_WAVE_TRACE,m_trace->open("wave.vcd"));  // 打开 wave.vcd 文件以保存波形
 
     // 初始化仿真
     
@@ -52,7 +52,7 @@ int main(int argc, char** argv, char** env) {
       dut.eval();  // 初始化顶层模块状态
       cpu_exec(1);
     
-      m_trace->dump(contextp->time());  // 记录初始状态
+      IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 记录初始状态
           
     npc_state.state = NPC_RUNNING;
     // 单周期仿真
@@ -64,36 +64,35 @@ int main(int argc, char** argv, char** env) {
         dut.eval();  // 评估当前状态
         // 获取指令
         contextp->timeInc(1);  // 增加仿真时间
-        m_trace->dump(contextp->time());  // 写入波形数据
+        IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));   // 写入波形数据
 
         dut.clk = 1;
         dut.rst = 0;  // 解除复位
         sdb_mainloop();
         //m_trace->dump(contextp->time());  // 写入波形数据
-        dut.eval();  // 评估电路状态
+        dut.eval();   // 评估电路状态
         contextp->timeInc(1);  // 增加仿真时间
-        m_trace->dump(contextp->time());  // 写入波形数据
+        IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));   // 写入波形数据
 
         //ebreak退出---------------------------------
           if(global_judge == OK){
             set_npc_state(NPC_END, dut_pc, cpu_gpr[10]);
             state_judge();
-            m_trace->close(); 
+            IFDEF(CONFIG_WAVE_TRACE,m_trace->close()); 
             
             if(cpu_gpr10 == 0)exit(0);
             else exit(1);
         }
         if(npc_state.state == NPC_QUIT){
-            m_trace->close();
+            IFDEF(CONFIG_WAVE_TRACE,m_trace->close()); 
             Log("%s", ANSI_FMT("EXIT SUCCESS !", ANSI_FG_GREEN));
             exit(0);
         }
 
     }
 
-    m_trace->close();  // 关闭波形文件void single_cycle(VerilatedContext* contextp) {
+    IFDEF(CONFIG_WAVE_TRACE,m_trace->close());   // 关闭波形文件void single_cycle(VerilatedContext* contextp) {
     dut.clk = 0;
-    //get_pc(dut.pc);
     dut.eval();
     contextp->timeInc(1);  // 增加仿真时间
     dut.clk = 1;

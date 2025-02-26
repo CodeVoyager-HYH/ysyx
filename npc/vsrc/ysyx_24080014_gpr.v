@@ -30,7 +30,6 @@ initial begin
             general_register[i] = 32'b0;
         end
     end
-
     set_gpr_ptr(general_register);
 end
 
@@ -49,14 +48,14 @@ end
 
 //写入
 assign csr_next_pc = (csrs_ctl == 2'b01)? general_register[35]://ecall
-                        (csrs_ctl == 2'b10)? general_register[33] : pc+4;//mret
+                        (csrs_ctl == 2'b10)? (general_register[33]) : pc+4;//mret
 
 
 always @(posedge clk) begin
     if (RegWr)begin// isa_reg_display();
       general_register[index_rd] = rd_data;
         if(csrs_ctl == 2'b01)begin//ecall
-            general_register[33] = pc         ;
+            general_register[33] = pc       ;
             general_register[32] = general_register[15] ;
             //csr_next_pc = mtvec      ;
         end

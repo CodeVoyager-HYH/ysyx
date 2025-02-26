@@ -13,7 +13,7 @@ LDSCRIPTS += $(AM_HOME)/scripts/linker.ld
 LDFLAGS   += --defsym=_pmem_start=0x80000000 --defsym=_entry_offset=0x0
 LDFLAGS   += --gc-sections -e _start
 NEMUFLAGS += -b -l $(shell dirname $(IMAGE).elf)/ins.txt
-#NEMUFLAGS += -e $(IMAGE).elf
+NEMUFLAGS += -e $(IMAGE).elf
 #NEMUFLAGS += -d /home/hyh/ysyx-workbench/nemu/tools/spike-diff/build/riscv32-spike-so
 
 MAINARGS_MAX_LEN = 64

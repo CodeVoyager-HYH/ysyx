@@ -9,7 +9,7 @@ Context* __am_irq_handle(Context *c) {
     Event ev = {0};
     uint32_t ex_code = c->mcause;  
     switch (ex_code) {
-      case -1: ev.event = EVENT_YIELD; break;
+      case 0xb: ev.event = EVENT_YIELD; break;
       default: ev.event = EVENT_ERROR; break;
     }
 

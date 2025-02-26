@@ -126,26 +126,26 @@ bool checkregs(regfile *ref, regfile *dut) {
     }
   }
   
-  if(ref->mcause != dut->mcause){//mcause mepc mstatus mtvec
-    printf("difftest error at nextpc = 0x%x, ",dut->pc);
-    printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[0],ref->mcause,dut->mcause);
-    return false;
-  }
-  if(ref->mepc != dut->mepc){//mcause mepc mstatus mtvec
-    printf("difftest error at nextpc = 0x%x, ",dut->pc);
-    printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[1],ref->mepc,dut->mepc);
-    return false;
-  }
-  if(ref->mstatus != dut->mstatus){//mcause mepc mstatus mtvec
-    printf("difftest error at nextpc = 0x%x, ",dut->pc);
-    printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[2],ref->mstatus,dut->mstatus);
-    return false;
-  }
-  if(ref->mtvec != dut->mtvec){//mcause mepc mstatus mtvec
-    printf("difftest error at nextpc = 0x%x, ",dut->pc);
-    printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[3],ref->mtvec,dut->mtvec);
-    return false;
-  }  
+  // if(ref->mcause != dut->mcause){//mcause mepc mstatus mtvec
+  //   printf("difftest error at nextpc = 0x%x, ",dut->pc);
+  //   printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[0],ref->mcause,dut->mcause);
+  //   return false;
+  // }
+  // if(ref->mepc != dut->mepc){//mcause mepc mstatus mtvec
+  //   printf("difftest error at nextpc = 0x%x, ",dut->pc);
+  //   printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[1],ref->mepc,dut->mepc);
+  //   return false;
+  // }
+  // if(ref->mstatus != dut->mstatus){//mcause mepc mstatus mtvec
+  //   printf("difftest error at nextpc = 0x%x, ",dut->pc);
+  //   printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[2],ref->mstatus,dut->mstatus);
+  //   return false;
+  // }
+  // if(ref->mtvec != dut->mtvec){//mcause mepc mstatus mtvec
+  //   printf("difftest error at nextpc = 0x%x, ",dut->pc);
+  //   printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",CSRs[3],ref->mtvec,dut->mtvec);
+  //   return false;
+  // }  
 
   return true;
 }

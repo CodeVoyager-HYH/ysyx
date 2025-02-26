@@ -1430,27 +1430,34 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                       >> 0xcU)))
                                                   ? 4U
                                                   : 
-                                                 ((1U 
+                                                 ((0U 
                                                    == 
                                                    (7U 
                                                     & (vlSelf->ysyx_24080014_cpu__DOT__inst 
                                                        >> 0xcU)))
-                                                   ? 2U
+                                                   ? 1U
                                                    : 
-                                                  ((5U 
+                                                  ((1U 
                                                     == 
                                                     (7U 
                                                      & (vlSelf->ysyx_24080014_cpu__DOT__inst 
                                                         >> 0xcU)))
                                                     ? 2U
                                                     : 
-                                                   ((4U 
+                                                   ((5U 
                                                      == 
                                                      (7U 
                                                       & (vlSelf->ysyx_24080014_cpu__DOT__inst 
                                                          >> 0xcU)))
-                                                     ? 1U
-                                                     : 7U))))
+                                                     ? 2U
+                                                     : 
+                                                    ((4U 
+                                                      == 
+                                                      (7U 
+                                                       & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                          >> 0xcU)))
+                                                      ? 1U
+                                                      : 7U)))))
                                               : 7U);
     if ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
         vlSelf->ysyx_24080014_cpu__DOT__npc_ctr = 3U;
@@ -1689,20 +1696,27 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                             >> 0xcU)))
                                                         ? 0U
                                                         : 
-                                                       ((5U 
+                                                       ((0U 
                                                          == 
                                                          (7U 
                                                           & (vlSelf->ysyx_24080014_cpu__DOT__inst 
                                                              >> 0xcU)))
                                                          ? 0U
                                                          : 
-                                                        ((4U 
+                                                        ((5U 
                                                           == 
                                                           (7U 
                                                            & (vlSelf->ysyx_24080014_cpu__DOT__inst 
                                                               >> 0xcU)))
                                                           ? 0U
-                                                          : 0xfU))))
+                                                          : 
+                                                         ((4U 
+                                                           == 
+                                                           (7U 
+                                                            & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                               >> 0xcU)))
+                                                           ? 0U
+                                                           : 0xfU)))))
                                                       : 
                                                      ((0x63U 
                                                        == 
@@ -1855,13 +1869,20 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                                      >> 0xcU)))
                                                                  ? 6U
                                                                  : 
-                                                                ((7U 
+                                                                ((6U 
                                                                   == 
                                                                   (7U 
                                                                    & (vlSelf->ysyx_24080014_cpu__DOT__inst 
                                                                       >> 0xcU)))
-                                                                  ? 3U
-                                                                  : 0xfU))))))
+                                                                  ? 4U
+                                                                  : 
+                                                                 ((7U 
+                                                                   == 
+                                                                   (7U 
+                                                                    & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                                       >> 0xcU)))
+                                                                   ? 3U
+                                                                   : 0xfU)))))))
                                                             : 0xfU)))))))));
         vlSelf->ysyx_24080014_cpu__DOT__shamt_ctl = 
             ((0x13U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))

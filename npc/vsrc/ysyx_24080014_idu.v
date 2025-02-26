@@ -45,6 +45,7 @@
 `define bltu    3'b110
 //Load
    //fun3
+`define lb      3'b000 
 `define lw      3'b010   
 `define lbu     3'b100
 `define lh      3'b001
@@ -61,6 +62,7 @@
 `define addi    3'b000
 `define sltiu   3'b011
 `define andi    3'b111
+`define ori     3'b110
    //func3
 `define logic_left_shift    3'b001
    //func_I 
@@ -233,6 +235,7 @@ assign tem_system = (opcode == `System)?1:0;
                 
   assign rmask = (opcode == `Load)?
                         ((func3 == `lw)? 3'b100 : 
+                        (func3 == `lb)? 3'b001 :
                         (func3 == `lh)? 3'b010 :
                         (func3 == `lhu)?3'b010 :
                         (func3 == `lbu)? 3'b001: `no_memout):`no_memout;
@@ -356,6 +359,7 @@ assign tem_system = (opcode == `System)?1:0;
                      (opcode == `Load)?
                         ((func3 == `lw)? `ADD: 
                         (func3 == `lh)? `ADD:
+                        (func3 == `lb)? `ADD:
                         (func3 == `lhu)? `ADD:
                         (func3 == `lbu)? `ADD: `NONE):
                      (opcode == `Control)?
@@ -381,6 +385,7 @@ assign tem_system = (opcode == `System)?1:0;
                            (func_I == `srai)?`RIGHT_SHIFT:`NONE):
                        (func3 == `xori) ? `XOR:
                        (func3 == `sltiu)? `COMPARE :
+                       (func3 == `ori)? `OR :
                        (func3 == `andi)? `AND:`NONE)):`NONE ;
 //waddr
   assign RegWr = (opcode == `Integer)?1 :

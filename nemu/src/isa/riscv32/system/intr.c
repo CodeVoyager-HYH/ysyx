@@ -26,6 +26,7 @@ word_t isa_raise_intr(word_t NO, vaddr_t epc) {
   //4.跳转到异常入口地址
   cpu.csrs.mepc = epc;
   cpu.csrs.mcause = NO;
+  cpu.csrs.mstatus = 0x1800;
 #ifdef CONFIG_ETRACE
   printf("[ETrace] mtvec = 0x%x, mepc = 0x%x, mstatus = 0x%x, mcause = 0x%x\n",
     cpu.csrs.mtvec, cpu.csrs.mepc, cpu.csrs.mstatus, cpu.csrs.mcause);

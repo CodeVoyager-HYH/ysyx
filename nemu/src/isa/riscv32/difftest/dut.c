@@ -16,6 +16,7 @@
 #include <isa.h>
 #include <cpu/difftest.h>
 #include "../local-include/reg.h"
+int gpr_index = 0;
 
 bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
   bool sign = true;
@@ -23,7 +24,7 @@ bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
   for(; i < 32; i++)
   {
     if(cpu.gpr[i] != ref_r->gpr[i])
-    {
+    { gpr_index = i;
       sign = false;
       break;
     }

@@ -163,7 +163,7 @@ static void execute(uint64_t n,Decode *s) {
       if(j == n){
         dut.eval();  // 评估当前状态
         contextp->timeInc(1);  // 增加仿真时间
-        m_trace->dump(contextp->time());  // 写入波形数据
+        IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 写入波形数据
         trace();
         IFDEF(CONFIG_DEVICE, device_update());
         IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));
@@ -173,7 +173,7 @@ static void execute(uint64_t n,Decode *s) {
       dut.clk = 0;
       dut.eval();  // 评估当前状态
       contextp->timeInc(1);  // 增加仿真时间
-      m_trace->dump(contextp->time());  // 写入波形数据
+      IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 写入波形数据
 
       dut.clk = 1;
       dut.rst = 0;  // 解除复位
@@ -181,7 +181,7 @@ static void execute(uint64_t n,Decode *s) {
       
       if(n>1){
         contextp->timeInc(1);  // 增加仿真时间
-        m_trace->dump(contextp->time());  // 写入波形数据
+        IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 写入波形数据
 
         trace();
         IFDEF(CONFIG_DEVICE, device_update());
