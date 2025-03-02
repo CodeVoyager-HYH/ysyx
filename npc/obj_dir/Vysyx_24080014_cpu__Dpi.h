@@ -24,9 +24,9 @@ extern "C" {
     extern void isa_reg_display();
     // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_idu.v:156:30
     extern void npctrap();
-    // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_if.v:1:31
-    extern int rtl_pmem_read(int raddr, int* rdata);
-    // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_memory.v:1:30
+    // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_if_sram.v:1:29
+    extern int rtl_pmem_read(int raddr);
+    // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_mem_ass.v:1:30
     extern void rtl_pmem_write(int waddr, int wdata, char wmask);
     // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_gpr.v:1:30
     extern void set_gpr_ptr(const svOpenArrayHandle a);

@@ -48,169 +48,186 @@ wire [ 2:0] and1_ctl;
 wire [ 2:0] and2_ctl;
 wire [ 1:0] csrs_ctl;
 wire [31:0] csr_rs1_data;
+wire load;
+wire mem_ready;
 wire rd_wirte;
 wire Equal_ctl;
 wire sign;
 wire ReadWr;
 wire RegWr;
 wire StoreWr;
+wire ready;
+wire valid;
 
 initial begin
     pc = 32'h80000000;
-    //next_pc = pc + 4; 
 end
+
 ysyx_24080014_mem_in menin(
-    .read_ctl(read_ctl),
-    .rs1_data(rs1_data),
-    .memout_ctl(memout_ctl),
-    .store_ctl(store_ctl),
-    .alu_out(alu_out),
-    .rs2_data(rs2_data),
-    .mem_rd(mem_rd),
-    .read_addr(read_addr),
-    .store_data(store_data)
+    .read_ctl   (read_ctl)   ,
+    .rs1_data   (rs1_data)   ,
+    .memout_ctl (memout_ctl) ,
+    .store_ctl  (store_ctl)  ,
+    .alu_out    (alu_out)    ,
+    .rs2_data   (rs2_data)   ,
+    .mem_rd     (mem_rd)     ,
+    .read_addr  (read_addr)  ,
+    .store_data (store_data)
 );
 
 ysyx_24080014_if IF(
-    .pc(pc),
-    .inst(inst)
+    .ready  (ready) ,
+    .valid  (valid) ,
+    .rst    (rst)   ,
+    .clk    (clk)   ,
+    .pc     (pc)    ,
+    .inst   (inst)
 );
 
 ysyx_24080014_memory mem(
-    .sign(sign),
-    .rs1_data(rs1_data),
-    .rmask(rmask),
-    .ReadWr(ReadWr),
-    .StoreWr(StoreWr),
-    .wmask(wmask),
-    .read_addr(read_addr),
-    .mem_rd(mem_rd),
-    .store_data(store_data),
-    .read_data(read_data)
+    .mem_ready  (mem_ready)  ,  
+    .valid      (valid)      ,
+    .sign       (sign)       ,
+    .clk        (clk)        ,
+    .rs1_data   (rs1_data)   ,
+    .rmask      (rmask)      ,
+    .ReadWr     (ReadWr)     ,
+    .StoreWr    (StoreWr)    ,
+    .wmask      (wmask)      ,
+    .read_addr  (read_addr)  ,
+    .mem_rd     (mem_rd)     ,
+    .store_data (store_data) ,
+    .read_data  (read_data)
 );
 
 ysyx_24080014_idu idu (
-    .sign(sign),
-    .csrs_rs1_write_add(csrs_rs1_write_add),
-    .csrs_rs1_read_add(csrs_rs1_read_add),
-    .csrs_rs2_read_add(csrs_rs2_read_add),
-    .csrs_ctl(csrs_ctl),
-    .and1_ctl(and1_ctl),
-    .and2_ctl(and2_ctl),
-    .shamt_ctl(shamt_ctl),
-    .rmask(rmask),
-    .compare_ctl(compare_ctl),
-    .shamt_right(shamt_right),
-    .shamt_left(shamt_left),
-    .read_ctl(read_ctl),
-    .eq1_ctr(eq1_ctr),
-    .eq2_ctr(eq2_ctr),
-    .inst(inst),
-    .wmask(wmask),
-    .alu_ctl(alu_ctl),
-    .rd_ctl(rd_ctl),
-    .rs1_addr(rs1_addr),
-    .rs2_addr(rs2_addr),
-    .rd(rd),
-    .eq_ctl(eq_ctl),
-    .imm_type(imm_type),
-    .npc_ctr(npc_ctr),
-    .rs1_ctr(rs1_ctr),
-    .rs2_ctr(rs2_ctr),
-    .store_ctl(store_ctl),
-    .memout_ctl(memout_ctl),
-    .Equal_ctl(Equal_ctl),
-    .ReadWr(ReadWr),
-    .StoreWr(StoreWr),
-    .RegWr(RegWr)
+    .load               (load)                  ,
+    .sign               (sign)                  ,
+    .csrs_rs1_write_add (csrs_rs1_write_add)    ,
+    .csrs_rs1_read_add  (csrs_rs1_read_add)     ,
+    .csrs_rs2_read_add  (csrs_rs2_read_add)     ,
+    .csrs_ctl           (csrs_ctl)              ,
+    .and1_ctl           (and1_ctl)              ,
+    .and2_ctl           (and2_ctl)              ,
+    .shamt_ctl          (shamt_ctl)             ,
+    .rmask              (rmask)                 ,
+    .compare_ctl        (compare_ctl)           ,
+    .shamt_right        (shamt_right)           ,
+    .shamt_left         (shamt_left)            ,
+    .read_ctl           (read_ctl)              ,
+    .eq1_ctr            (eq1_ctr)               ,
+    .eq2_ctr            (eq2_ctr)               ,
+    .inst               (inst)                  ,
+    .wmask              (wmask)                 ,
+    .alu_ctl            (alu_ctl)               ,
+    .rd_ctl             (rd_ctl)                ,
+    .rs1_addr           (rs1_addr)              ,
+    .rs2_addr           (rs2_addr)              ,
+    .rd                 (rd)                    ,
+    .eq_ctl             (eq_ctl)                ,
+    .imm_type           (imm_type)              ,
+    .npc_ctr            (npc_ctr)               ,
+    .rs1_ctr            (rs1_ctr)               ,
+    .rs2_ctr            (rs2_ctr)               ,
+    .store_ctl          (store_ctl)             ,
+    .memout_ctl         (memout_ctl)            ,
+    .Equal_ctl          (Equal_ctl)             ,
+    .ReadWr             (ReadWr)                ,
+    .StoreWr            (StoreWr)               ,
+    .RegWr              (RegWr)
 );
 
 ysyx_24080014_imm imm1 (
-    .imm_type(imm_type),
-    .inst(inst),
-    .imm(imm)
-    // .uimm(uimm)
+    .imm_type   (imm_type)  ,
+    .inst       (inst)      ,
+    .imm        (imm)
 );
 
 ysyx_24080014_alu_in aluin (
-    .csr_rs1_data(csr_rs1_data),
-    .rs1_data(rs1_data),
-    .rs2_data(rs2_data),
-    .pc(pc),
-    .imm(imm),
-    .rs1_ctr(rs1_ctr),
-    .rs2_ctr(rs2_ctr),
-    .alu_rs1(alu_rs1),
-    .alu_rs2(alu_rs2)
+    .csr_rs1_data   (csr_rs1_data)  ,
+    .rs1_data       (rs1_data)      ,
+    .rs2_data       (rs2_data)      ,
+    .pc             (pc)            ,
+    .imm            (imm)           ,
+    .rs1_ctr        (rs1_ctr)       ,
+    .rs2_ctr        (rs2_ctr)       ,
+    .alu_rs1        (alu_rs1)       ,
+    .alu_rs2        (alu_rs2)
 );
 
 ysyx_24080014_alu alu (
-    .and1_ctl(and1_ctl),
-    .and2_ctl(and2_ctl),
-    .shamt_ctl(shamt_ctl),
-    .compare_ctl(compare_ctl),
-    .rd_wirte(rd_wirte),
-    .rd_data(rd_data),
-    .shamt_right(shamt_right),
-    .shamt_left(shamt_left),
-    .eq_ctl(eq_ctl),
-    .eq1_ctr(eq1_ctr),
-    .eq2_ctr(eq2_ctr),    
-    .pc(pc),
-    .imm(imm),
-    .Equal_ctl(Equal_ctl),
-    .rs1_data(rs1_data),
-    .rs2_data(rs2_data),
-    .alu_rs1(alu_rs1),
-    .alu_rs2(alu_rs2),
-    .alu_ctl(alu_ctl),
-    .alu_out(alu_out)
+    .and1_ctl       (and1_ctl)      ,
+    .and2_ctl       (and2_ctl)      ,
+    .shamt_ctl      (shamt_ctl)     ,
+    .compare_ctl    (compare_ctl)   ,
+    .rd_wirte       (rd_wirte)      ,
+    .rd_data        (rd_data)       ,
+    .shamt_right    (shamt_right)   ,
+    .shamt_left     (shamt_left)    ,
+    .eq_ctl         (eq_ctl)        ,
+    .eq1_ctr        (eq1_ctr)       ,
+    .eq2_ctr        (eq2_ctr)       ,    
+    .pc             (pc)            ,
+    .imm            (imm)           ,
+    .Equal_ctl      (Equal_ctl)     ,
+    .rs1_data       (rs1_data)      ,
+    .rs2_data       (rs2_data)      ,
+    .alu_rs1        (alu_rs1)       ,
+    .alu_rs2        (alu_rs2)       ,
+    .alu_ctl        (alu_ctl)       ,
+    .alu_out        (alu_out)
 );
 
 ysyx_24080014_rdin rdin ( 
-    .csr_rs1_data(csr_rs1_data),
-    .rs1_data(rs1_data),
-    .read_data(read_data),
-    .alu_out(alu_out),
-    .pc(pc),
-    .rd_ctl(rd_ctl),
-    .imm(imm),
-    .rd_data(rd_data)
+    .csr_rs1_data   (csr_rs1_data)  ,
+    .rs1_data       (rs1_data)      ,
+    .read_data      (read_data)     ,
+    .alu_out        (alu_out)       ,
+    .pc             (pc)            ,
+    .rd_ctl         (rd_ctl)        ,
+    .imm            (imm)           ,
+    .rd_data        (rd_data)
 );
 
 ysyx_24080014_gpr gpr (
-    .csr_rs1_data(csr_rs1_data),
-    .csrs_ctl(csrs_ctl),
-    .csrs_rs1_write_add(csrs_rs1_write_add),
-    .csrs_rs1_read_add(csrs_rs1_read_add),
-    .csrs_rs2_read_add(csrs_rs2_read_add),
-    .pc(pc),
-    .rs1_addr(rs1_addr),
-    .rs2_addr(rs2_addr),
-    .rd(rd),
-    .csr_next_pc(csr_next_pc),
-    .clk(clk),
-    .RegWr(RegWr),
-    .rd_data(rd_data),
-    .rs1_data(rs1_data),
-    .rs2_data(rs2_data)
+    .ready                  (ready)                 ,
+    .load                   (load)                  ,
+    .mem_ready              (mem_ready)             ,
+    .valid                  (valid)                 ,
+    .csr_rs1_data           (csr_rs1_data)          ,
+    .csrs_ctl               (csrs_ctl)              ,
+    .csrs_rs1_write_add     (csrs_rs1_write_add)    ,
+    .csrs_rs1_read_add      (csrs_rs1_read_add)     ,
+    .csrs_rs2_read_add      (csrs_rs2_read_add)     ,
+    .pc                     (pc)                    ,
+    .rs1_addr               (rs1_addr)              ,
+    .rs2_addr               (rs2_addr)              ,
+    .rd                     (rd)                    ,
+    .csr_next_pc            (csr_next_pc)           ,
+    .clk                    (clk)                   ,
+    .RegWr                  (RegWr)                 ,
+    .rd_data                (rd_data)               ,
+    .rs1_data               (rs1_data)              ,
+    .rs2_data               (rs2_data)
 );
 
 ysyx_24080014_jump jump (
-    .csrs_ctl(csrs_ctl),
-    .csr_next_pc(csr_next_pc),
-    .rd_wirte(rd_wirte),
-    .pc(pc),
-    .alu_out(alu_out),
-    .npc_ctr(npc_ctr),
-    .next_pc(next_pc)
+    .csrs_ctl       (csrs_ctl)      ,
+    .csr_next_pc    (csr_next_pc)   ,
+    .rd_wirte       (rd_wirte)      ,
+    .pc             (pc)            ,
+    .alu_out        (alu_out)       ,
+    .npc_ctr        (npc_ctr)       ,
+    .next_pc        (next_pc)
 );
 
 ysyx_24080014_pc pc1 (
-    .rst(rst),
-    .clk(clk),
-    .next_pc(next_pc),
-    .pc(pc)
+    //.ready      (ready)     ,
+    .valid      (valid)     ,
+    .rst        (rst)       ,
+    .clk        (clk)       ,
+    .next_pc    (next_pc)   ,
+    .pc         (pc)
 );
 
 endmodule

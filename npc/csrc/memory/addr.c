@@ -62,20 +62,18 @@ uint32_t _pmem_read(uint32_t addr, int len) {
   assert(0);
 }
 
-extern "C" int rtl_pmem_read(int raddr,int *rdata){
+extern "C" int rtl_pmem_read(int raddr){//,int *rdata){
   extern uint32_t inst;
   //raddr = raddr & ~0x3u;  //字节对齐
-  //printf("raddr = 0x%x\n",raddr);
-  // uint32_t tem = _pmem_read(0x800189c4,4);
-  // Log("0x800189c4 = 0x%x",tem);  
+
   IFDEF(CONFIG_MTRACE,Log("[mtrace](npc csrc)read data = %x , read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = 4\n",*rdata,raddr, dut_pc));	
-    
+  int rdata;  
   if (raddr >= PMEM_START && raddr <= PMEM_END){
-    *rdata = _pmem_read(raddr,4);
+    rdata = _pmem_read(raddr,4);
     
-    IFDEF(DEBUG,Log("radrr = %x,rdata=%x\n",raddr,*rdata));
+    IFDEF(DEBUG,Log("radrr = %x,rdata=%x\n",raddr,rdata));
     
-    return *rdata;
+    return rdata;
   }
   else if(raddr == RTC_ADDR){
     timer = get_time();
@@ -86,8 +84,8 @@ extern "C" int rtl_pmem_read(int raddr,int *rdata){
     return (uint32_t)(timer>>32);      
   }
   else //avoid latch.
-    *rdata = 0;
-    return *rdata;
+    rdata = 0;
+    return rdata;
 }
 
 extern "C" void rtl_pmem_write(int waddr, int wdata, char wmask) {//waddr写入的目标地址，

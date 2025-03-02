@@ -188,6 +188,7 @@ module ysyx_24080014_idu(
    output  ReadWr,//内存读出
    output  StoreWr,//内存写入
    output  sign,
+   output  load,
    output  RegWr//写入使能 
 );
 
@@ -199,7 +200,9 @@ wire [ 6:0] func7;
 wire [ 5:0] func_I;
 
 wire tem_system;
-assign tem_system = (opcode == `System)?1:0;
+   
+   assign load = (opcode == `Load)?1:0;
+   assign tem_system = (opcode == `System)?1:0;
 
    assign ReadWr = (opcode == `Load)?1 :0;
    assign func_I = inst[31:26];

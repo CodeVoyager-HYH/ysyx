@@ -126,7 +126,7 @@ static int decode_exec(Decode *s) {
   INSTPAT("0000000 ????? ????? 100 ????? 01100 11", xor    , R, R(rd) = src1 ^ src2);
   INSTPAT("0000000 ????? ????? 110 ????? 01100 11", or     , R, R(rd) = src1 | src2);
   INSTPAT("0000000 00001 00000 000 00000 11100 11", ebreak , I, NEMUTRAP(s->pc, R(10))); 
-  INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall  , I, CSR++; s->dnpc = isa_raise_intr(0xb, s->pc)); 
+  INSTPAT("0000000 00000 00000 000 00000 11100 11", ecall  , I, CSR++; s->dnpc = isa_raise_intr(R(17), s->pc)); 
   INSTPAT("??????? ????? ????? ??? ????? ????? ??", inv    , N, INV(s->pc)); 
 
   INSTPAT_END();//指示指令模式匹配的结束
@@ -134,12 +134,12 @@ static int decode_exec(Decode *s) {
 
   return 0;
 }
- 
+int i = 1; 
 extern void isa_reg_display();
 int isa_exec_once(Decode *s) {
   s->isa.inst.val = inst_fetch(&s->snpc, 4);
   //isa_reg_display();
-  //printf("\nnemu_inst:0x%x\n",s->isa.inst.val);
+  //printf("\n%d nemu_inst:0x%x\n",i++,s->isa.inst.val);
   return decode_exec(s);
 }
  

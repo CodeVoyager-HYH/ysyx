@@ -149,7 +149,7 @@ uint32_t cpu_exec(uint64_t n){
   return inst;
 
 }
-
+int i = 1;
 void difftest_step();
 static void execute(uint64_t n,Decode *s) {
   int j = n;
@@ -167,9 +167,9 @@ static void execute(uint64_t n,Decode *s) {
         trace();
         IFDEF(CONFIG_DEVICE, device_update());
         IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));
-        IFDEF(CONFIG_DIFFTEST, difftest_step());
+        //IFDEF(CONFIG_DIFFTEST, difftest_step());
       }
-      
+      int cirle = 0;
       dut.clk = 0;
       dut.eval();  // 评估当前状态
       contextp->timeInc(1);  // 增加仿真时间
@@ -177,6 +177,8 @@ static void execute(uint64_t n,Decode *s) {
 
       dut.clk = 1;
       dut.rst = 0;  // 解除复位
+      cirle ++ ;
+      if(cirle % 2 !=  0)i++;
       dut.eval();  // 评估电路状态
       
       if(n>1){
@@ -186,7 +188,7 @@ static void execute(uint64_t n,Decode *s) {
         trace();
         IFDEF(CONFIG_DEVICE, device_update());
         IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));
-        IFDEF(CONFIG_DIFFTEST, difftest_step());
+        if(i%2!=0 ){ IFDEF(CONFIG_DIFFTEST, difftest_step());}
       }
     }  
 //-------------------------------------
