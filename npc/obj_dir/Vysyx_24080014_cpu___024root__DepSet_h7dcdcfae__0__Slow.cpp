@@ -1338,6 +1338,7 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_triggers__stl(Vysyx_240800
 #endif
 }
 
+void Vysyx_24080014_cpu___024unit____Vdpiimwrap_load_skip_TOP____024unit(CData/*0:0*/ load);
 void Vysyx_24080014_cpu___024unit____Vdpiimwrap_npctrap_TOP____024unit();
 void Vysyx_24080014_cpu___024unit____Vdpiimwrap_get_pc_TOP____024unit(IData/*31:0*/ pc);
 void Vysyx_24080014_cpu___024unit____Vdpiimwrap_get_npc_TOP____024unit(IData/*31:0*/ npc);
@@ -1347,6 +1348,11 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
     Vysyx_24080014_cpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_24080014_cpu___024root___stl_sequent__TOP__0\n"); );
     // Body
+    Vysyx_24080014_cpu___024unit____Vdpiimwrap_load_skip_TOP____024unit(
+                                                                        (3U 
+                                                                         == 
+                                                                         (0x7fU 
+                                                                          & vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_dout)));
     if ((0x73U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_dout))) {
         if ((1U == (vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_dout 
                     >> 0x14U))) {

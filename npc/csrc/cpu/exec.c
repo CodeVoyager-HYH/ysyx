@@ -151,6 +151,12 @@ uint32_t cpu_exec(uint64_t n){
 }
 int i = 1;
 void difftest_step();
+int diff_skip = 0 ;
+extern "C" void load_skip(svBit load){
+  if(load) diff_skip = 1;
+  else diff_skip = 0;
+}
+
 static void execute(uint64_t n,Decode *s) {
   int j = n;
  for (;n > 0; n --) {
@@ -176,9 +182,9 @@ static void execute(uint64_t n,Decode *s) {
       IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 写入波形数据
 
       dut.clk = 1;
-      dut.rst = 0;  // 解除复位
-      cirle ++ ;
-      if(cirle % 2 !=  0)i++;
+      dut.rst = 1;  // 解除复位
+      if(diff_skip) cirle ++ ;
+      if(cirle % 2 ==  0)i++;
       dut.eval();  // 评估电路状态
       
       if(n>1){

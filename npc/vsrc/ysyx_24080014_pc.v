@@ -11,7 +11,7 @@ module ysyx_24080014_pc(
 
 //pc
 always @(posedge clk) begin
-    if(rst) pc <= 32'h80000000;
+    if(!rst) pc <= 32'h80000000;
     else if(!valid)  pc <= next_pc;
     
 end

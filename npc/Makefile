@@ -81,4 +81,4 @@ clean:
 	rm -rf $(NPC_HOME)/obj_dir
 	rm -rf $(NPC_HOME)/wave.vcd
 
-.PHONY: run sim all	 NPC_ARGS clean
+.PHONY: run sim all	 NPC_ARGS clean 

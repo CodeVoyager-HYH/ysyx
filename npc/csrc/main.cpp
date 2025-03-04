@@ -48,7 +48,7 @@ int main(int argc, char** argv, char** env) {
     init_monitor(argc, argv);
     // 初始化时钟信号和复位信号
       dut.clk = 1;
-      dut.rst = 0;  // 启动时设置复位为高
+      dut.rst = 1;  // 启动时设置复位为高
       dut.eval();  // 初始化顶层模块状态
       cpu_exec(1);
     
@@ -60,14 +60,14 @@ int main(int argc, char** argv, char** env) {
     while (!contextp->gotFinish()) {
         // 在每个周期的前后设置时钟和复位信号
         dut.clk = 0;
-        dut.rst = 0;
+        dut.rst = 1;
         dut.eval();  // 评估当前状态
         // 获取指令
         contextp->timeInc(1);  // 增加仿真时间
         IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));   // 写入波形数据
 
         dut.clk = 1;
-        dut.rst = 0;  // 解除复位
+        dut.rst = 1;  // 解除复位
         sdb_mainloop();
         //m_trace->dump(contextp->time());  // 写入波形数据
         dut.eval();   // 评估电路状态

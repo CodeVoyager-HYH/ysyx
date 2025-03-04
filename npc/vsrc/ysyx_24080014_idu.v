@@ -154,6 +154,7 @@
 `define compare_ctl_none  3'b111 
 
 import "DPI-C" function void npctrap(); 
+import "DPI-C" function void load_skip(bit load);
 module ysyx_24080014_idu(
    input   [31:0] inst,      
    output  [ 7:0] wmask,//掩码
@@ -200,7 +201,7 @@ wire [ 6:0] func7;
 wire [ 5:0] func_I;
 
 wire tem_system;
-   
+      always @(*) load_skip(load);
    assign load = (opcode == `Load)?1:0;
    assign tem_system = (opcode == `System)?1:0;
 

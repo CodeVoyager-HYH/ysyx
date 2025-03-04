@@ -34,4 +34,6 @@ run: insert-arg
 	$(MAKE) -C $(NPC_HOME) ISA=$(ISA) sim ARGS="$(NPCFLAGS)"  IMG=$(IMAGE).bin
 
 
+
+
 .PHONY: insert-arg clean

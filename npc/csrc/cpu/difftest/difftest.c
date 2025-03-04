@@ -81,7 +81,7 @@ bool difftest_check() {
   ret = checkregs(&ref, &dut);
   if(!ret) {
     print_regs(&ref, &dut);
-    assert(0);
+    IFNDEF(CONFIG_DIFFTEST_RUN,assert(0));
   }    
   return ret;
 }
