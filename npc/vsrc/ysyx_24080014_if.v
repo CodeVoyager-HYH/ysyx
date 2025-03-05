@@ -6,14 +6,19 @@ module ysyx_24080014_if(
     output valid        ,
     output [31:0] inst
 );
+  wire RVALID ;
+  wire ARVALID ;
+  assign ARVALID = ready;
+  assign RVALID = (ARVALID&& valid)? 1'b1 : 1'b0 ;//当发送地址有效的时候置高，所以这
 
   ysyx_24080014_if_sram ifu(
-    .clk    (clk)   ,
-    .ready  (ready) ,
-    .addr   (pc)    ,
-    .rst    (rst)   ,
-    .valid  (valid) ,
-    .dout   (inst)
+    .ACLK    (clk)   ,
+    .RVALID (RVALID),
+    .ARVALID  (ARVALID) ,
+    .ARADDR   (pc)    ,
+    .ARESETn    (rst)   ,
+    .ARREADY  (valid) ,
+    .RDATA   (inst)
   );
 
 endmodule

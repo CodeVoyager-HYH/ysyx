@@ -29,7 +29,7 @@ module ysyx_24080014_mem_ass(
     reg [31:0] tem_dout     ;
 
     always @(posedge clk) begin
-        if(wen && valid) begin 
+        if(wen && !valid) begin 
             //表示可以写，并且指令正确，但是注意要延迟一个时钟周期
             //这里打算做一个握手，因为要延迟完才可以写下一个指令
             //而且多周期的话，读应该也是时钟上升沿开始读出，也要延迟，所以还需要一个ren读使能
@@ -37,13 +37,13 @@ module ysyx_24080014_mem_ass(
             tem_dout      = 32'b0 ;
             tem_mem_ready = 1'b0  ;
         end
-        else if(ren && valid) begin
+        else if(ren && !valid) begin
             clock         = 2'b10 ;
             tem_dout      = 32'b0 ;
             tem_mem_ready = 1'b0  ;
         end
         else begin
-            clock         = 2'b00 ;
+            //clock         = 2'b00 ;
             tem_dout      = 32'b0 ;
             tem_mem_ready = 1'b0  ;
         end

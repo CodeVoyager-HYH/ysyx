@@ -7,10 +7,26 @@
 
 #include "Vysyx_24080014_cpu___024root.h"
 
+VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_static__TOP(Vysyx_24080014_cpu___024root* vlSelf);
+
 VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_static(Vysyx_24080014_cpu___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
     Vysyx_24080014_cpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_24080014_cpu___024root___eval_static\n"); );
+    // Body
+    Vysyx_24080014_cpu___024root___eval_static__TOP(vlSelf);
+    vlSelf->__Vm_traceActivity[3U] = 1U;
+    vlSelf->__Vm_traceActivity[2U] = 1U;
+    vlSelf->__Vm_traceActivity[1U] = 1U;
+    vlSelf->__Vm_traceActivity[0U] = 1U;
+}
+
+VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_static__TOP(Vysyx_24080014_cpu___024root* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    Vysyx_24080014_cpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_24080014_cpu___024root___eval_static__TOP\n"); );
+    // Body
+    vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_din = 1U;
 }
 
 VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_24080014_cpu___024root* vlSelf);
@@ -165,6 +181,7 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___ctor_var_reset(Vysyx_24080014_c
     vlSelf->ysyx_24080014_cpu__DOT__csr_rs1_data = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__rd_wirte = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__RegWr = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_24080014_cpu__DOT__valid = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__read_pending = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_dout = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_inst = VL_RAND_RESET_I(32);

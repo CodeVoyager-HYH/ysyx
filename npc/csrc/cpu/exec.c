@@ -151,10 +151,10 @@ uint32_t cpu_exec(uint64_t n){
 }
 int i = 1;
 void difftest_step();
-int diff_skip = 0 ;
-extern "C" void load_skip(svBit load){
-  if(load) diff_skip = 1;
-  else diff_skip = 0;
+int diff_run = 0;
+extern "C" void difftest(int exec){
+  if(exec) diff_run = 1;
+  else diff_run = 0;
 }
 
 static void execute(uint64_t n,Decode *s) {
@@ -181,9 +181,10 @@ static void execute(uint64_t n,Decode *s) {
       contextp->timeInc(1);  // 增加仿真时间
       IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 写入波形数据
 
+      
       dut.clk = 1;
       dut.rst = 1;  // 解除复位
-      //if(diff_skip) i ++ ;
+      //if(diff_skip) i ;
 
       if(cirle % 2 ==  0)i++;
       dut.eval();  // 评估电路状态
@@ -195,8 +196,9 @@ static void execute(uint64_t n,Decode *s) {
         trace();
         IFDEF(CONFIG_DEVICE, device_update());
         IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));
-        if(i%2==0&&!diff_skip ){ IFDEF(CONFIG_DIFFTEST, difftest_step());}
-        else i++;
+
+        if(diff_run){ IFDEF(CONFIG_DIFFTEST,difftest_step());}
+        
       }
       //if(diff_skip) i ++ ;
     }  

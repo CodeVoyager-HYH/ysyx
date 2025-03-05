@@ -61,7 +61,7 @@ assign csr_next_pc = (csrs_ctl == 2'b01)? general_register[35]://ecall
 always @(posedge clk) begin
     if (load)begin//表示需要等延迟
         if (mem_ready)begin//表示延迟完成
-            if (RegWr && valid)begin// isa_reg_display();
+            if (RegWr && !valid)begin// isa_reg_display();
                 general_register[index_rd] = rd_data;
                 if(csrs_ctl == 2'b01)begin//ecall
                     general_register[33] = pc       ;
@@ -81,7 +81,7 @@ always @(posedge clk) begin
         else tem_ready = 0 ;
     end
     else begin//表示不需要延迟
-        if (RegWr && valid)begin// isa_reg_display();
+        if (RegWr && !valid)begin// isa_reg_display();
             general_register[index_rd] = rd_data;
             if(csrs_ctl == 2'b01)begin//ecall
                 general_register[33] = pc       ;

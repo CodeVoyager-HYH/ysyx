@@ -16,14 +16,14 @@ extern "C" {
 
 
     // DPI IMPORTS
+    // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_pc.v:11:30
+    extern void difftest(int exec);
     // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_jump.v:5:30
     extern void get_npc(int npc);
     // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_pc.v:1:30
     extern void get_pc(int pc);
     // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_gpr.v:2:30
     extern void isa_reg_display();
-    // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_idu.v:157:30
-    extern void load_skip(svBit load);
     // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_idu.v:156:30
     extern void npctrap();
     // DPI import at /home/hyh/ysyx-workbench/npc/vsrc/ysyx_24080014_if_sram.v:1:29

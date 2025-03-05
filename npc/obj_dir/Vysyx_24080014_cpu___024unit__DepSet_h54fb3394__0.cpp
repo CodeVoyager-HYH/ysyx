@@ -35,16 +35,6 @@ VL_INLINE_OPT void Vysyx_24080014_cpu___024unit____Vdpiimwrap_npctrap_TOP____024
     npctrap();
 }
 
-extern "C" void load_skip(svBit load);
-
-VL_INLINE_OPT void Vysyx_24080014_cpu___024unit____Vdpiimwrap_load_skip_TOP____024unit(CData/*0:0*/ load) {
-    VL_DEBUG_IF(VL_DBG_MSGF("+        Vysyx_24080014_cpu___024unit____Vdpiimwrap_load_skip_TOP____024unit\n"); );
-    // Body
-    svBit load__Vcvt;
-    for (size_t load__Vidx = 0; load__Vidx < 1; ++load__Vidx) load__Vcvt = load;
-    load_skip(load__Vcvt);
-}
-
 extern "C" int rtl_pmem_read(int raddr);
 
 VL_INLINE_OPT void Vysyx_24080014_cpu___024unit____Vdpiimwrap_rtl_pmem_read_TOP____024unit(IData/*31:0*/ raddr, IData/*31:0*/ &rtl_pmem_read__Vfuncrtn) {

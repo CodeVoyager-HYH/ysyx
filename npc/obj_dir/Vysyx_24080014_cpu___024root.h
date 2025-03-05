@@ -32,6 +32,7 @@ class Vysyx_24080014_cpu___024root final : public VerilatedModule {
     CData/*1:0*/ ysyx_24080014_cpu__DOT__csrs_ctl;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__rd_wirte;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__RegWr;
+    CData/*0:0*/ ysyx_24080014_cpu__DOT__valid;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__read_pending;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_din;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_ready;
