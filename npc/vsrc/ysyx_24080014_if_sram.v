@@ -1,58 +1,50 @@
-import "DPI-C" function int rtl_pmem_read(
-    input int raddr
+import "DPI-C" function int rtl_pmem_read(input int addr);
+
+module ifu_axi_sram (
+    //全局变量
+    input  wire        aclk,
+    input  wire        aresetn,
+
+    // AXI4-Lite 读地址通道
+    input  wire        arvalid, //   读地址有效信号
+    output wire        arready, //   表示准备好读地址
+    input  wire [31:0] araddr,  //    要读的数据
+
+    // AXI4-Lite 读数据通道
+    output wire        rvalid,  //    表示传出的数据有效
+    input  wire        rready,  //    准备好接收数据
+    output reg [31:0]  rdata    //    读出的数据  
 );
 
-module ysyx_24080014_if_sram(
-    input  ACLK,//ACLK
-    input  ARESETn,//ARESETn
-    input  [31:0] ARADDR,//ARADDR 读取的目标地址
-    input  ARVALID,//ARVALID 表示输入的地址有效
-    input  RVALID,
-    //output RVALID,
-    output ARREADY,//ARREADY 表示可以接收地址
-    output [31:0] RDATA
-);
+    delay_cycle waiting(
+        .clk    (clk)       , 
+        .rst_n  (aresetn)   ,
+        .start  (start)     ,
+        .times  (1'b1)      ,
+        .done   (done)
+    );
 
-    //ARREADY 表示可以接收地址
-    assign ARREADY = tem_din;  // 数据有效信号
-    assign RDATA = tem_dout;  // 输出读取的指令
-    
+    wire start   ;   //表示开始延迟
+    wire done    ;   //表示延迟结束
+    reg  inst_f  ;
 
-    reg read_pending;        // 延迟周期标志
-    reg [31:0] if_storage [255:0]; // 存储指令，256个32-bit
-    reg [31:0] tem_dout;     // 输出数据
-    reg [31:0] tem_inst;     // 存储取出的指令
-    reg tem_din = 1;             // 数据有效标志
-    reg tem_ready ;
+    assign start = (aresetn)? 1'b1 : ((arvalid)? 1'b1 :1'b0) ;  //当指令执行完开始start = 1
+    assign arready = (aresetn)? 1'b1 :((inst_f)? 1'b0 :1'b1);   // 当输出的数据有效的时候就可以准备好读地址了        
+    assign rvalid = (aresetn)? 1'b0 : ((arvalid && arready)?1'b1:1'b0);
 
-    always @(posedge ACLK or posedge ARESETn) begin
-        if (!ARESETn) begin
-            tem_din = 1'b0;
-            tem_dout = 32'b0;
-            read_pending = 1'b0;
-            tem_ready = 1'b0;
+    always @(posedge aclk or negedge aresetn) begin
+        if(!aresetn)begin
+            rdata   <= 32'b0; 
+            inst_f  <= 1'b1;
         end
-        else if (ARVALID == 0) begin //表示没有写完再等待
-            tem_din = 1'b0;
-            tem_ready = 1'b0;
+        else if(done)begin  //表示延迟完输出地址
+                inst_f <= 1'b1;
+                rdata  <= pmem_read(araddr); 
         end
-        else begin
-            if (!read_pending) begin
-                // 第一个周期，发出读取请求并保存数据
-                tem_dout = rtl_pmem_read(ARADDR);   // 调用 DPI-C 读取数据
-                read_pending = 1'b1;             // 设置标志，表示已经发出请求
-                tem_din = 1'b0;                  // 数据有效
-                tem_ready = 1'b0;
-            end
-            else begin
-                // 延迟周期，输出数据
-                if(ARVALID && ARREADY)tem_inst = tem_dout;// 将数据传递给内部指令
-                read_pending = 1'b0;             // 读取完成，重置标志
-                tem_din = 1'b1;                  // 数据无效
-                tem_ready = 1'b1;
-            end
-        end
+        else 
+            if(!done) inst_f <= 1'b0; //表示未延迟完 不能读地址
     end
 
 endmodule
+
 

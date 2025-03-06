@@ -18,6 +18,7 @@ class Vysyx_24080014_cpu___024root final : public VerilatedModule {
 
     // DESIGN SPECIFIC STATE
     VL_IN8(clk,0,0);
+    CData/*0:0*/ ysyx_24080014_cpu__DOT__tem_rst;
     VL_IN8(rst,0,0);
     CData/*2:0*/ ysyx_24080014_cpu__DOT__rmask;
     CData/*2:0*/ ysyx_24080014_cpu__DOT__eq_ctl;
@@ -33,20 +34,22 @@ class Vysyx_24080014_cpu___024root final : public VerilatedModule {
     CData/*0:0*/ ysyx_24080014_cpu__DOT__rd_wirte;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__RegWr;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__valid;
-    CData/*0:0*/ ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__read_pending;
-    CData/*0:0*/ ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_din;
-    CData/*0:0*/ ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__tem_ready;
+    CData/*0:0*/ ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__busy;
+    CData/*0:0*/ ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__counter;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__tem_mem_ready;
     CData/*1:0*/ ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__clock;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__alu__DOT__Compare;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__alu__DOT__Equal;
     CData/*0:0*/ ysyx_24080014_cpu__DOT__gpr__DOT__tem_ready;
+    CData/*0:0*/ __Vdly__ysyx_24080014_cpu__DOT__valid;
+    CData/*1:0*/ __Vdly__ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__clock;
     CData/*0:0*/ __Vtrigrprev__TOP__clk;
-    CData/*0:0*/ __Vtrigrprev__TOP__rst;
+    CData/*0:0*/ __Vtrigrprev__TOP__ysyx_24080014_cpu__DOT__tem_rst;
     CData/*0:0*/ __VactContinue;
     SData/*11:0*/ ysyx_24080014_cpu__DOT__csrs_rs1_read_add;
     SData/*11:0*/ ysyx_24080014_cpu__DOT__csrs_rs1_write_add;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__pc;
+    IData/*31:0*/ ysyx_24080014_cpu__DOT__inst;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__next_pc;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__imm;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__alu_out;
@@ -72,11 +75,14 @@ class Vysyx_24080014_cpu___024root final : public VerilatedModule {
     IData/*31:0*/ ysyx_24080014_cpu__DOT__gpr__DOT__j;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__gpr__DOT____Vlvbound_hdcffde56__0;
     IData/*31:0*/ ysyx_24080014_cpu__DOT__gpr__DOT____Vlvbound_hdcffde56__1;
+    IData/*31:0*/ __Vdly__ysyx_24080014_cpu__DOT__inst;
     IData/*31:0*/ __VstlIterCount;
+    IData/*31:0*/ __VicoIterCount;
     IData/*31:0*/ __VactIterCount;
     VlUnpacked<IData/*31:0*/, 36> ysyx_24080014_cpu__DOT__gpr__DOT__general_register;
     VlUnpacked<CData/*0:0*/, 4> __Vm_traceActivity;
     VlTriggerVec<1> __VstlTriggered;
+    VlTriggerVec<1> __VicoTriggered;
     VlTriggerVec<2> __VactTriggered;
     VlTriggerVec<2> __VnbaTriggered;
 

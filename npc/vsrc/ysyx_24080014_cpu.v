@@ -58,10 +58,12 @@ wire RegWr;
 wire StoreWr;
 wire ready;
 wire valid;
-
+reg tem_rst;
 initial begin
     pc = 32'h80000000;
+    tem_rst = 1'b1; // 确保 rst 在仿真开始时是高
 end
+assign tem_rst = rst;
 
 ysyx_24080014_mem_in menin(
     .read_ctl   (read_ctl)   ,
@@ -78,7 +80,7 @@ ysyx_24080014_mem_in menin(
 ysyx_24080014_if IF(
     .ready  (ready) ,
     .valid  (valid) ,
-    .rst    (rst)   ,
+    .rst    (tem_rst)   ,
     .clk    (clk)   ,
     .pc     (pc)    ,
     .inst   (inst)
@@ -190,6 +192,8 @@ ysyx_24080014_rdin rdin (
 );
 
 ysyx_24080014_gpr gpr (
+    .StoreWr                (StoreWr)               ,
+    .ReadWr                 (ReadWr)                ,
     .ready                  (ready)                 ,
     .load                   (load)                  ,
     .mem_ready              (mem_ready)             ,
@@ -222,8 +226,8 @@ ysyx_24080014_jump jump (
 );
 
 ysyx_24080014_pc pc1 (
-    //.ready      (ready)     ,
-    .valid      (valid)     ,
+    .ready      (ready)     ,
+    //.valid      (valid)     ,
     .rst        (rst)       ,
     .clk        (clk)       ,
     .next_pc    (next_pc)   ,

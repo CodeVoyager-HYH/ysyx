@@ -67,7 +67,7 @@ int main(int argc, char** argv, char** env) {
         IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));   // 写入波形数据
 
         dut.clk = 1;
-        dut.rst = 1;  // 解除复位
+        //dut.rst = 1;  // 解除复位
         sdb_mainloop();
         //m_trace->dump(contextp->time());  // 写入波形数据
         dut.eval();   // 评估电路状态

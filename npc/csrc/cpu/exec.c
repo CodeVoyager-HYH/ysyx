@@ -196,11 +196,9 @@ static void execute(uint64_t n,Decode *s) {
         trace();
         IFDEF(CONFIG_DEVICE, device_update());
         IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));
-
         if(diff_run){ IFDEF(CONFIG_DIFFTEST,difftest_step());}
         
       }
-      //if(diff_skip) i ++ ;
     }  
 //-------------------------------------
     trace();
