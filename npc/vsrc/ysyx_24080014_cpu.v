@@ -58,7 +58,9 @@ wire RegWr;
 wire StoreWr;
 wire ready;
 wire valid;
+wire jump;
 reg tem_rst;
+
 initial begin
     pc = 32'h80000000;
     tem_rst = 1'b1; // 确保 rst 在仿真开始时是高
@@ -86,7 +88,24 @@ ysyx_24080014_if IF(
     .inst   (inst)
 );
 
+// ysyx_24080014_memory mem(
+//     .rst        (rst)        ,
+//     .mem_ready  (mem_ready)  ,  
+//     .valid      (valid)      ,
+//     .sign       (sign)       ,
+//     .clk        (clk)        ,
+//     .rs1_data   (rs1_data)   ,
+//     .rmask      (rmask)      ,
+//     .ReadWr     (ReadWr)     ,
+//     .StoreWr    (StoreWr)    ,
+//     .wmask      (wmask)      ,
+//     .read_addr  (read_addr)  ,
+//     .mem_rd     (mem_rd)     ,
+//     .store_data (store_data) ,
+//     .read_data  (read_data)
+// );
 ysyx_24080014_memory mem(
+    .rst        (rst)        ,   
     .mem_ready  (mem_ready)  ,  
     .valid      (valid)      ,
     .sign       (sign)       ,
@@ -103,6 +122,7 @@ ysyx_24080014_memory mem(
 );
 
 ysyx_24080014_idu idu (
+    .jump               (jump)                  ,
     .load               (load)                  ,
     .sign               (sign)                  ,
     .csrs_rs1_write_add (csrs_rs1_write_add)    ,
@@ -192,8 +212,6 @@ ysyx_24080014_rdin rdin (
 );
 
 ysyx_24080014_gpr gpr (
-    .StoreWr                (StoreWr)               ,
-    .ReadWr                 (ReadWr)                ,
     .ready                  (ready)                 ,
     .load                   (load)                  ,
     .mem_ready              (mem_ready)             ,
@@ -215,7 +233,7 @@ ysyx_24080014_gpr gpr (
     .rs2_data               (rs2_data)
 );
 
-ysyx_24080014_jump jump (
+ysyx_24080014_jump jump_npc (
     .csrs_ctl       (csrs_ctl)      ,
     .csr_next_pc    (csr_next_pc)   ,
     .rd_wirte       (rd_wirte)      ,
@@ -227,7 +245,7 @@ ysyx_24080014_jump jump (
 
 ysyx_24080014_pc pc1 (
     .ready      (ready)     ,
-    //.valid      (valid)     ,
+    .valid      (valid)     ,
     .rst        (rst)       ,
     .clk        (clk)       ,
     .next_pc    (next_pc)   ,

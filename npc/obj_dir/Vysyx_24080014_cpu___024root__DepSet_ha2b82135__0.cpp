@@ -13,6 +13,15 @@ VL_INLINE_OPT void Vysyx_24080014_cpu___024root___ico_sequent__TOP__0(Vysyx_2408
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_24080014_cpu___024root___ico_sequent__TOP__0\n"); );
     // Body
     vlSelf->ysyx_24080014_cpu__DOT__tem_rst = vlSelf->rst;
+    vlSelf->ysyx_24080014_cpu__DOT__valid = (1U & (
+                                                   (~ (IData)(vlSelf->rst)) 
+                                                   | (IData)(vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__waiting__DOT__running)));
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__clock 
+        = (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
+            & (0x23U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
+            ? 1U : (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
+                     & (3U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
+                     ? 2U : 0U));
 }
 
 void Vysyx_24080014_cpu___024root___eval_ico(Vysyx_24080014_cpu___024root* vlSelf) {
@@ -31,7 +40,27 @@ void Vysyx_24080014_cpu___024root___eval_act(Vysyx_24080014_cpu___024root* vlSel
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_24080014_cpu___024root___eval_act\n"); );
 }
 
-void Vysyx_24080014_cpu___024root___nba_sequent__TOP__0(Vysyx_24080014_cpu___024root* vlSelf);
+VL_INLINE_OPT void Vysyx_24080014_cpu___024root___nba_sequent__TOP__0(Vysyx_24080014_cpu___024root* vlSelf) {
+    if (false && vlSelf) {}  // Prevent unused
+    Vysyx_24080014_cpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
+    VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_24080014_cpu___024root___nba_sequent__TOP__0\n"); );
+    // Body
+    vlSelf->__Vdly__ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__waiting__DOT__running 
+        = vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__waiting__DOT__running;
+    if (vlSelf->ysyx_24080014_cpu__DOT__tem_rst) {
+        if ((1U & (((~ (IData)(vlSelf->rst)) | (IData)(vlSelf->ysyx_24080014_cpu__DOT__ready)) 
+                   & (~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__waiting__DOT__running))))) {
+            vlSelf->__Vdly__ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__waiting__DOT__running = 1U;
+        }
+    }
+    if (vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__waiting__DOT__running) {
+        vlSelf->__Vdly__ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__waiting__DOT__running = 0U;
+    }
+    if ((1U & (~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__tem_rst)))) {
+        vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__waiting__DOT__read_pending = 0U;
+    }
+}
+
 void Vysyx_24080014_cpu___024root___nba_sequent__TOP__1(Vysyx_24080014_cpu___024root* vlSelf);
 void Vysyx_24080014_cpu___024root___nba_sequent__TOP__2(Vysyx_24080014_cpu___024root* vlSelf);
 void Vysyx_24080014_cpu___024root___nba_sequent__TOP__3(Vysyx_24080014_cpu___024root* vlSelf);
@@ -42,23 +71,22 @@ void Vysyx_24080014_cpu___024root___eval_nba(Vysyx_24080014_cpu___024root* vlSel
     Vysyx_24080014_cpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_24080014_cpu___024root___eval_nba\n"); );
     // Body
-    if (vlSelf->__VnbaTriggered.at(1U)) {
+    if (vlSelf->__VnbaTriggered.at(0U)) {
         Vysyx_24080014_cpu___024root___nba_sequent__TOP__0(vlSelf);
     }
-    if (vlSelf->__VnbaTriggered.at(0U)) {
+    if (vlSelf->__VnbaTriggered.at(1U)) {
         Vysyx_24080014_cpu___024root___nba_sequent__TOP__1(vlSelf);
     }
-    if (vlSelf->__VnbaTriggered.at(1U)) {
+    if (vlSelf->__VnbaTriggered.at(0U)) {
         Vysyx_24080014_cpu___024root___nba_sequent__TOP__2(vlSelf);
         vlSelf->__Vm_traceActivity[1U] = 1U;
     }
-    if (vlSelf->__VnbaTriggered.at(0U)) {
+    if (vlSelf->__VnbaTriggered.at(1U)) {
         Vysyx_24080014_cpu___024root___nba_sequent__TOP__3(vlSelf);
-        vlSelf->__Vm_traceActivity[2U] = 1U;
     }
     if ((vlSelf->__VnbaTriggered.at(0U) | vlSelf->__VnbaTriggered.at(1U))) {
         Vysyx_24080014_cpu___024root___nba_comb__TOP__0(vlSelf);
-        vlSelf->__Vm_traceActivity[3U] = 1U;
+        vlSelf->__Vm_traceActivity[2U] = 1U;
     }
 }
 

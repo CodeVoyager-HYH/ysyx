@@ -35,15 +35,15 @@ VL_INLINE_OPT void Vysyx_24080014_cpu___024unit____Vdpiimwrap_npctrap_TOP____024
     npctrap();
 }
 
-extern "C" int rtl_pmem_read(int raddr);
+extern "C" int rtl_pmem_read(int addr);
 
-VL_INLINE_OPT void Vysyx_24080014_cpu___024unit____Vdpiimwrap_rtl_pmem_read_TOP____024unit(IData/*31:0*/ raddr, IData/*31:0*/ &rtl_pmem_read__Vfuncrtn) {
+VL_INLINE_OPT void Vysyx_24080014_cpu___024unit____Vdpiimwrap_rtl_pmem_read_TOP____024unit(IData/*31:0*/ addr, IData/*31:0*/ &rtl_pmem_read__Vfuncrtn) {
     VL_DEBUG_IF(VL_DBG_MSGF("+        Vysyx_24080014_cpu___024unit____Vdpiimwrap_rtl_pmem_read_TOP____024unit\n"); );
     // Body
-    int raddr__Vcvt;
-    for (size_t raddr__Vidx = 0; raddr__Vidx < 1; ++raddr__Vidx) raddr__Vcvt = raddr;
+    int addr__Vcvt;
+    for (size_t addr__Vidx = 0; addr__Vidx < 1; ++addr__Vidx) addr__Vcvt = addr;
     int rtl_pmem_read__Vfuncrtn__Vcvt;
-    rtl_pmem_read__Vfuncrtn__Vcvt = rtl_pmem_read(raddr__Vcvt);
+    rtl_pmem_read__Vfuncrtn__Vcvt = rtl_pmem_read(addr__Vcvt);
     rtl_pmem_read__Vfuncrtn = rtl_pmem_read__Vfuncrtn__Vcvt;
 }
 

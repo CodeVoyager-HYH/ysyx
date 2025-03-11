@@ -1,13 +1,13 @@
-import "DPI-C" function int rtl_pmem_read(input int addr);
+import "DPI-C" function int rtl_pmem_read(input int addr);//,output int rdata);
 
-module ifu_axi_sram (
+module ysyx_24080014_if_sram (
     //全局变量
     input  wire        aclk,
     input  wire        aresetn,
 
     // AXI4-Lite 读地址通道
     input  wire        arvalid, //   读地址有效信号
-    output wire        arready, //   表示准备好读地址
+    output reg        arready, //   表示准备好读地址
     input  wire [31:0] araddr,  //    要读的数据
 
     // AXI4-Lite 读数据通道
@@ -17,10 +17,10 @@ module ifu_axi_sram (
 );
 
     delay_cycle waiting(
-        .clk    (clk)       , 
+        .clk    (aclk)       , 
         .rst_n  (aresetn)   ,
         .start  (start)     ,
-        .times  (1'b1)      ,
+        .times  (5'b0001)      ,
         .done   (done)
     );
 
@@ -28,21 +28,20 @@ module ifu_axi_sram (
     wire done    ;   //表示延迟结束
     reg  inst_f  ;
 
-    assign start = (aresetn)? 1'b1 : ((arvalid)? 1'b1 :1'b0) ;  //当指令执行完开始start = 1
-    assign arready = (aresetn)? 1'b1 :((inst_f)? 1'b0 :1'b1);   // 当输出的数据有效的时候就可以准备好读地址了        
-    assign rvalid = (aresetn)? 1'b0 : ((arvalid && arready)?1'b1:1'b0);
+    assign start = (!aresetn)? 1'b1 : ((arvalid)? 1'b1 :1'b0) ;  //当指令执行完开始start = 1
+    assign arready = (!aresetn)? 1'b1 :((done)? 1'b1 :1'b0);   // 当输出的数据有效的时候就可以准备好读地址了 valid        
+    assign rvalid = 1'b1;//(!aresetn)? 1'b1 : ((arvalid && arready)?1'b1:1'b1);
 
     always @(posedge aclk or negedge aresetn) begin
         if(!aresetn)begin
-            rdata   <= 32'b0; 
             inst_f  <= 1'b1;
         end
-        else if(done)begin  //表示延迟完输出地址
+        else if(!done)begin  //表示延迟完输出地址
                 inst_f <= 1'b1;
-                rdata  <= pmem_read(araddr); 
+                rdata <= rtl_pmem_read(araddr);//,rdata); 
         end
         else 
-            if(!done) inst_f <= 1'b0; //表示未延迟完 不能读地址
+            if(done) inst_f <= 1'b0; //表示未延迟完 不能读地址
     end
 
 endmodule

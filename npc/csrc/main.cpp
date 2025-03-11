@@ -50,7 +50,7 @@ int main(int argc, char** argv, char** env) {
       dut.clk = 1;
       dut.rst = 1;  // 启动时设置复位为高
       dut.eval();  // 初始化顶层模块状态
-      cpu_exec(1);
+      //cpu_exec(1);
     
       IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 记录初始状态
           

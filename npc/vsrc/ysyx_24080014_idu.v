@@ -187,6 +187,7 @@ module ysyx_24080014_idu(
    output  Equal_ctl,
    output  ReadWr,//内存读出
    output  StoreWr,//内存写入
+   output  jump,
    output  sign,
    output  load,
    output  RegWr//写入使能 
@@ -203,7 +204,7 @@ wire tem_system;
       //always @(*) load_skip(load);
    assign load = (opcode == `Load)?1:0;
    assign tem_system = (opcode == `System)?1:0;
-
+   assign jump = (opcode == `Control)?1'b1:1'b0;
    assign ReadWr = (opcode == `Load)?1 :0;
    assign func_I = inst[31:26];
    assign opcode = inst[6:0];

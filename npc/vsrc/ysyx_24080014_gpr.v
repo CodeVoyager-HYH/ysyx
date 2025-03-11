@@ -4,8 +4,6 @@ module ysyx_24080014_gpr(
     input      clk                          ,
     input      RegWr                        ,//写入使能
     input      load                         ,
-    input      ReadWr                       ,
-    input      StoreWr                      ,
     input      mem_ready                    ,
     input      valid                        ,//表示指令是否是正确的，防止为读出指令就修改寄存器状态               
     input      [1:0]  csrs_ctl              ,//当csrs为0表示没有操作，1的时候是ecall，2的时候是mret
@@ -19,7 +17,7 @@ module ysyx_24080014_gpr(
     input      [31:0] rd_data               ,//写入对应A3寄存器的值
     output reg [31:0] rs1_data              ,//输出对应A1寄存器的值
     output     [31:0] csr_rs1_data          ,
-    output     ready                        ,//表示指令完成  
+    output     ready                        ,  
     output     [31:0] csr_next_pc           ,
     output reg [31:0] rs2_data     //输出对应A2寄存器的值
 );
@@ -37,7 +35,7 @@ initial begin
         end
     end
 
-    tem_ready = 0;
+    tem_ready = 1;
     set_gpr_ptr(general_register);
 end
 
@@ -50,71 +48,58 @@ end
   wire [5:0] index_rs1 = {1'b0,rs1_addr};
   wire [5:0] index_rs2 = {1'b0,rs2_addr};
   wire [5:0] index_rd  = {1'b0,rd};             
-  reg reg_ready ;
+  reg tem_ready ;
 
   assign rs1_data = general_register[index_rs1];                 
   assign rs2_data = general_register[index_rs2] ;
-  assign ready    = tem_ready;    
+  assign ready = (load && !mem_ready) ? 1'b0 : 1'b1;
 //写入
 assign csr_next_pc = (csrs_ctl == 2'b01)? general_register[35]://ecall
                         (csrs_ctl == 2'b10)? (general_register[33]) : pc+4;//mret
 
-
 always @(posedge clk) begin
     if (load)begin//表示需要等延迟
         if (mem_ready)begin//表示延迟完成
-            if (RegWr && valid)begin// isa_reg_display();
-                general_register[index_rd] = rd_data;
+            if (RegWr && valid)begin //isa_reg_display();
+                general_register[index_rd] <= rd_data;
+                
                 if(csrs_ctl == 2'b01)begin//ecall
-                    general_register[33] = pc       ;
-                    general_register[32] = general_register[15] ;
+                    general_register[33] <= pc       ;
+                    general_register[32] <= general_register[15] ;
                 end
                 else if(csrs_rs1_write_add == 12'h300)
-                    general_register[34] = rd_data;
+                    general_register[34] <= rd_data;
                 else if(csrs_rs1_write_add == 12'h305)
-                    general_register[35] = rd_data;
+                    general_register[35] <= rd_data;
                 else if(csrs_rs1_write_add == 12'h341)
-                    general_register[33] = rd_data;
+                    general_register[33] <= rd_data;
                 else if(csrs_rs1_write_add == 12'h342)
-                    general_register[32] = rd_data;            
+                    general_register[32] <= rd_data;            
             end
-            reg_ready = 1 ;
         end
-        else reg_ready = 0 ;
     end
     else begin//表示不需要延迟
-        if (RegWr && valid)begin// isa_reg_display();
-            general_register[index_rd] = rd_data;
+        if (RegWr &&valid)begin //isa_reg_display();
+            general_register[index_rd] <= rd_data;
             if(csrs_ctl == 2'b01)begin//ecall
-                general_register[33] = pc       ;
-                general_register[32] = general_register[15] ;
+                general_register[33] <= pc       ;
+                general_register[32] <= general_register[15] ;
             end
             else if(csrs_rs1_write_add == 12'h300)
-                general_register[34] = rd_data;
+                general_register[34] <= rd_data;
             else if(csrs_rs1_write_add == 12'h305)
-                general_register[35] = rd_data;
+                general_register[35] <= rd_data;
             else if(csrs_rs1_write_add == 12'h341)
-                general_register[33] = rd_data;
+                general_register[33] <= rd_data;
             else if(csrs_rs1_write_add == 12'h342)
-                general_register[32] = rd_data;            
+                general_register[32] <= rd_data;            
         end
-        reg_ready = 1 ;
     end
-
-  general_register[0] = 32'b0;
+  //$display("general_register[%d] <= %x,pc = %x",index_rd-1,rd_data,pc);  
+  general_register[0] <= 32'b0;
 end
 
 always @(*) begin
     set_gpr_ptr(general_register);
 end
-
-finish_inst ready(
-    .valid          (valid)         ,
-    .ReadWr         (ReadWr)        ,
-    .StoreWr        (StoreWr)       ,
-    .store_ready    (mem_ready)     ,
-    .reg_ready      (reg_ready)     ,
-    .inst_finish    (ready)
-);
-
 endmodule

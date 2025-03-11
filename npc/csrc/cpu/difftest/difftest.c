@@ -4,7 +4,9 @@
 #include "../include/difftest-def.h"
 extern uint32_t cpu_gpr[36];//mcause mepc mstatus mtvec
 extern uint32_t dut_pc;
-
+extern Vysyx_24080014_cpu dut;
+extern VerilatedContext* contextp; 
+extern VerilatedVcdC *m_trace;
 bool is_skip_ref = false;
 bool is_skip_ref_r = false;
 regfile pack_dut_regfile(uint32_t *dut_reg,uint32_t pc) {
@@ -65,6 +67,7 @@ void init_difftest(char *ref_so_file, long img_size) {
   ref_difftest_regcpy(&cpu_gpr, DIFFTEST_TO_REF);
 }
 
+int exit_diff = 0;
 extern void isa_reg_display();
 bool difftest_check() {
   regfile ref,dut;
@@ -81,7 +84,8 @@ bool difftest_check() {
   ret = checkregs(&ref, &dut);
   if(!ret) {
     print_regs(&ref, &dut);
-    IFNDEF(CONFIG_DIFFTEST_RUN,assert(0));
+    exit_diff = 1;
+    //IFNDEF(CONFIG_DIFFTEST_RUN,assert(0));
   }    
   return ret;
 }

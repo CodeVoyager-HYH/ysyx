@@ -9,11 +9,11 @@ module ysyx_24080014_if(
   reg [31:0] rdata;
   wire arready;
   wire rready;
-  wire rvalid;
+  wire rvalid = 0;
 
-  always @(*) begin
-    if(rvalid)  inst = rdata;
-  end
+  // always @(*) begin
+  //   if(rvalid)  inst = rdata;
+  // end
 
   ysyx_24080014_if_sram ifu(
     //全局
@@ -28,7 +28,7 @@ module ysyx_24080014_if(
     //读数据通道
     .rvalid(rvalid),   //传出的数据有效    这个用来输出inst 当为1的时候输出，反之保持原来
     .rready(ready),   //准备好接收数据    pc更新后就表示可以接收新的数据了
-    .rdata(rdata),     
+    .rdata(inst)     
   );
 
 endmodule

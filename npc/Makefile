@@ -60,7 +60,7 @@ sim:
 	$(NPC_ARGS) 
 	$(OBJ_DIR)
 	$(OBJDIR)/Vysyx_24080014_cpu $(ARGS)  $(IMG)
-#	gtkwave wave.vcd
+	gtkwave wave.vcd
 
 run: 
 	$(call git_commit, "sim RTL") # DO NOT REMOVE THIS LINE!!!
