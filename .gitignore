@@ -12,3 +12,5 @@
 /nvboard
 /am-kernels
 npc/wave.vcd
+!/npc/vsrc/delay_cycle.v
+
