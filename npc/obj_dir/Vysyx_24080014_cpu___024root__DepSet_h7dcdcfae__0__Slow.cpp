@@ -8,7 +8,7 @@
 #include "Vysyx_24080014_cpu__Syms.h"
 #include "Vysyx_24080014_cpu___024root.h"
 
-void Vysyx_24080014_cpu___024unit____Vdpiimwrap_set_gpr_ptr__Vdpioc3_TOP____024unit(const VlUnpacked<IData/*31:0*/, 36> &a);
+void Vysyx_24080014_cpu___024unit____Vdpiimwrap_set_gpr_ptr__Vdpioc3_TOP____024unit(const VlUnpacked<IData/*31:0*/, 21> &a);
 
 VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_24080014_cpu___024root* vlSelf) {
     if (false && vlSelf) {}  // Prevent unused
@@ -37,38 +37,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[1U] = 0U;
@@ -109,38 +77,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[2U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[3U] = 0U;
@@ -181,38 +117,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[4U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[5U] = 0U;
@@ -253,38 +157,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[6U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[7U] = 0U;
@@ -325,38 +197,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[8U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[9U] = 0U;
@@ -397,38 +237,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xaU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xbU] = 0U;
@@ -469,38 +277,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xcU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xdU] = 0U;
@@ -541,38 +317,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xeU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0xfU] = 0U;
@@ -613,38 +357,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x10U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x11U] = 0U;
@@ -685,22 +397,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x12U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
@@ -721,600 +417,8 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_2408001
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x13U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x14U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x15U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x16U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x17U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x18U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x19U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1aU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1bU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1cU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1dU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1eU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x1fU] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x20U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x21U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x22U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register[0x23U] = 0U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__j = 0x24U;
-    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__i = 0x24U;
+    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__j = 0x14U;
+    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__i = 0x14U;
     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__tem_ready = 1U;
     Vysyx_24080014_cpu___024unit____Vdpiimwrap_set_gpr_ptr__Vdpioc3_TOP____024unit(vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register);
 }
@@ -1417,6 +521,189 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
         vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add = 0U;
     }
     vlSelf->ysyx_24080014_cpu__DOT__tem_rst = vlSelf->rst;
+    if ((0x33U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
+        vlSelf->ysyx_24080014_cpu__DOT__rd = (0x1fU 
+                                              & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                 >> 7U));
+        vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr = 2U;
+        vlSelf->ysyx_24080014_cpu__DOT__rs2_ctr = 2U;
+        vlSelf->ysyx_24080014_cpu__DOT__rs2_addr = 
+            (0x1fU & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                      >> 0x14U));
+        vlSelf->ysyx_24080014_cpu__DOT__rs1_addr = 
+            (0x1fU & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                      >> 0xfU));
+        vlSelf->ysyx_24080014_cpu__DOT__imm_type = 0U;
+    } else {
+        if ((3U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
+            vlSelf->ysyx_24080014_cpu__DOT__rd = (0x1fU 
+                                                  & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                     >> 7U));
+            vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr = 2U;
+            vlSelf->ysyx_24080014_cpu__DOT__rs2_ctr = 3U;
+            vlSelf->ysyx_24080014_cpu__DOT__imm_type = 1U;
+        } else {
+            vlSelf->ysyx_24080014_cpu__DOT__rd = (0x1fU 
+                                                  & ((0x13U 
+                                                      == 
+                                                      (0x7fU 
+                                                       & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                      ? 
+                                                     (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                      >> 7U)
+                                                      : 
+                                                     ((0x67U 
+                                                       == 
+                                                       (0x7fU 
+                                                        & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                       ? 
+                                                      (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                       >> 7U)
+                                                       : 
+                                                      ((0x6fU 
+                                                        == 
+                                                        (0x7fU 
+                                                         & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                        ? 
+                                                       (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                        >> 7U)
+                                                        : 
+                                                       ((0x17U 
+                                                         == 
+                                                         (0x7fU 
+                                                          & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                         ? 
+                                                        (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                         >> 7U)
+                                                         : 
+                                                        ((0x73U 
+                                                          == 
+                                                          (0x7fU 
+                                                           & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                          ? 
+                                                         (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                          >> 7U)
+                                                          : 
+                                                         ((0x37U 
+                                                           == 
+                                                           (0x7fU 
+                                                            & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                           ? 
+                                                          (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                           >> 7U)
+                                                           : 
+                                                          ((0x67U 
+                                                            == 
+                                                            (0x7fU 
+                                                             & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                            ? 
+                                                           (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                            >> 7U)
+                                                            : 0U))))))));
+            if ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
+                vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr = 3U;
+                vlSelf->ysyx_24080014_cpu__DOT__imm_type = 4U;
+            } else if ((0x23U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
+                vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr = 2U;
+                vlSelf->ysyx_24080014_cpu__DOT__imm_type = 2U;
+            } else {
+                vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr 
+                    = ((0x67U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                        ? 2U : ((0x6fU == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                 ? 0U : ((0x17U == 
+                                          (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                          ? 0U : 2U)));
+                vlSelf->ysyx_24080014_cpu__DOT__imm_type 
+                    = ((0x13U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                        ? 1U : ((0x67U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                 ? 1U : ((0x6fU == 
+                                          (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                          ? 5U : ((0x17U 
+                                                   == 
+                                                   (0x7fU 
+                                                    & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                   ? 3U
+                                                   : 
+                                                  ((0x37U 
+                                                    == 
+                                                    (0x7fU 
+                                                     & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                    ? 3U
+                                                    : 6U)))));
+            }
+            vlSelf->ysyx_24080014_cpu__DOT__rs2_ctr 
+                = ((0x73U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                    ? ((2U == (7U & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                     >> 0xcU))) ? 6U
+                        : 2U) : ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                  ? 0U : ((0x23U == 
+                                           (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                           ? 3U : (
+                                                   (0x67U 
+                                                    == 
+                                                    (0x7fU 
+                                                     & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                    ? 3U
+                                                    : 
+                                                   ((0x6fU 
+                                                     == 
+                                                     (0x7fU 
+                                                      & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                     ? 3U
+                                                     : 
+                                                    ((0x17U 
+                                                      == 
+                                                      (0x7fU 
+                                                       & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                      ? 3U
+                                                      : 
+                                                     ((0x13U 
+                                                       == 
+                                                       (0x7fU 
+                                                        & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                       ? 3U
+                                                       : 2U)))))));
+        }
+        vlSelf->ysyx_24080014_cpu__DOT__rs2_addr = 
+            (0x1fU & ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                       ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                          >> 0x14U) : ((0x23U == (0x7fU 
+                                                  & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                        ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                           >> 0x14U)
+                                        : 0U)));
+        vlSelf->ysyx_24080014_cpu__DOT__rs1_addr = 
+            (0x1fU & ((0x73U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                       ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                          >> 0xfU) : ((3U == (0x7fU 
+                                              & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                       ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                          >> 0xfU) : 
+                                      ((0x63U == (0x7fU 
+                                                  & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                        ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                           >> 0xfU)
+                                        : ((0x23U == 
+                                            (0x7fU 
+                                             & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                            ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                               >> 0xfU)
+                                            : ((0x13U 
+                                                == 
+                                                (0x7fU 
+                                                 & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                   >> 0xfU)
+                                                : (
+                                                   (0x67U 
+                                                    == 
+                                                    (0x7fU 
+                                                     & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                    ? 
+                                                   (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                    >> 0xfU)
+                                                    : 0U)))))));
+    }
     vlSelf->ysyx_24080014_cpu__DOT__RegWr = ((0x33U 
                                               == (0x7fU 
                                                   & vlSelf->ysyx_24080014_cpu__DOT__inst)) 
@@ -1450,13 +737,20 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                                    & vlSelf->ysyx_24080014_cpu__DOT__inst)))))))));
     vlSelf->ysyx_24080014_cpu__DOT__ready = (1U & (~ 
                                                    ((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem_ready)) 
-                                                    & (3U 
-                                                       == 
-                                                       (0x7fU 
-                                                        & vlSelf->ysyx_24080014_cpu__DOT__inst)))));
-    vlSelf->ysyx_24080014_cpu__DOT__valid = (1U & (
-                                                   (~ (IData)(vlSelf->rst)) 
-                                                   | (IData)(vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__waiting__DOT__running)));
+                                                    & ((3U 
+                                                        == 
+                                                        (0x7fU 
+                                                         & vlSelf->ysyx_24080014_cpu__DOT__inst)) 
+                                                       | (0x23U 
+                                                          == 
+                                                          (0x7fU 
+                                                           & vlSelf->ysyx_24080014_cpu__DOT__inst))))));
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__clock 
+        = (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
+            & (0x23U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
+            ? 1U : (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
+                     & (3U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
+                     ? 2U : 0U));
     if ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
         vlSelf->ysyx_24080014_cpu__DOT__npc_ctr = 3U;
         vlSelf->ysyx_24080014_cpu__DOT__eq_ctl = ((0U 
@@ -1944,182 +1238,26 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                         ? 5U : 0U) : 0U))
                             : 0U));
     }
-    if ((0x33U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
-        vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr = 2U;
-        vlSelf->ysyx_24080014_cpu__DOT__rs2_ctr = 2U;
-        vlSelf->ysyx_24080014_cpu__DOT__imm_type = 0U;
-    } else if ((3U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
-        vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr = 2U;
-        vlSelf->ysyx_24080014_cpu__DOT__rs2_ctr = 3U;
-        vlSelf->ysyx_24080014_cpu__DOT__imm_type = 1U;
-    } else {
-        if ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
-            vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr = 3U;
-            vlSelf->ysyx_24080014_cpu__DOT__imm_type = 4U;
-        } else if ((0x23U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
-            vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr = 2U;
-            vlSelf->ysyx_24080014_cpu__DOT__imm_type = 2U;
-        } else {
-            vlSelf->ysyx_24080014_cpu__DOT__rs1_ctr 
-                = ((0x67U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                    ? 2U : ((0x6fU == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                             ? 0U : ((0x17U == (0x7fU 
-                                                & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                      ? 0U : 2U)));
-            vlSelf->ysyx_24080014_cpu__DOT__imm_type 
-                = ((0x13U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                    ? 1U : ((0x67U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                             ? 1U : ((0x6fU == (0x7fU 
-                                                & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                      ? 5U : ((0x17U 
-                                               == (0x7fU 
-                                                   & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                               ? 3U
-                                               : ((0x37U 
-                                                   == 
-                                                   (0x7fU 
-                                                    & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                   ? 3U
-                                                   : 6U)))));
-        }
-        vlSelf->ysyx_24080014_cpu__DOT__rs2_ctr = (
-                                                   (0x73U 
-                                                    == 
-                                                    (0x7fU 
-                                                     & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                    ? 
-                                                   ((2U 
-                                                     == 
-                                                     (7U 
-                                                      & (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                         >> 0xcU)))
-                                                     ? 6U
-                                                     : 2U)
-                                                    : 
-                                                   ((0x63U 
-                                                     == 
-                                                     (0x7fU 
-                                                      & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                     ? 0U
-                                                     : 
-                                                    ((0x23U 
-                                                      == 
-                                                      (0x7fU 
-                                                       & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                      ? 3U
-                                                      : 
-                                                     ((0x67U 
-                                                       == 
-                                                       (0x7fU 
-                                                        & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                       ? 3U
-                                                       : 
-                                                      ((0x6fU 
-                                                        == 
-                                                        (0x7fU 
-                                                         & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                        ? 3U
-                                                        : 
-                                                       ((0x17U 
-                                                         == 
-                                                         (0x7fU 
-                                                          & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                         ? 3U
-                                                         : 
-                                                        ((0x13U 
-                                                          == 
-                                                          (0x7fU 
-                                                           & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                          ? 3U
-                                                          : 2U)))))));
-    }
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__eq_rs2 
-        = vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
-        [(0x1fU & ((0x33U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                    ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                       >> 0x14U) : ((0x63U == (0x7fU 
-                                               & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                     ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                        >> 0x14U) : 
-                                    ((0x23U == (0x7fU 
-                                                & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                      ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                         >> 0x14U) : 0U))))];
-    vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__eq_rs1 
-        = vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
-        [(0x1fU & ((0x33U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                    ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                       >> 0xfU) : ((0x73U == (0x7fU 
-                                              & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                    ? (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                       >> 0xfU) : (
-                                                   (3U 
-                                                    == 
-                                                    (0x7fU 
-                                                     & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                    ? 
-                                                   (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                    >> 0xfU)
-                                                    : 
-                                                   ((0x63U 
-                                                     == 
-                                                     (0x7fU 
-                                                      & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                     ? 
-                                                    (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                     >> 0xfU)
-                                                     : 
-                                                    ((0x23U 
-                                                      == 
-                                                      (0x7fU 
-                                                       & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                      ? 
-                                                     (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                      >> 0xfU)
-                                                      : 
-                                                     ((0x13U 
-                                                       == 
-                                                       (0x7fU 
-                                                        & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                       ? 
-                                                      (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                       >> 0xfU)
-                                                       : 
-                                                      ((0x67U 
-                                                        == 
-                                                        (0x7fU 
-                                                         & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                        ? 
-                                                       (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                        >> 0xfU)
-                                                        : 0U))))))))];
-    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__clock 
-        = (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
-            & (0x23U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
-            ? 1U : (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
-                     & (3U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
-                     ? 2U : 0U));
+        = ((0x14U >= (IData)(vlSelf->ysyx_24080014_cpu__DOT__rs2_addr))
+            ? vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
+           [vlSelf->ysyx_24080014_cpu__DOT__rs2_addr]
+            : 0U);
     vlSelf->ysyx_24080014_cpu__DOT__csr_rs1_data = 
         ((0x300U == (IData)(vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add))
           ? vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
-         [0x22U] : ((0x305U == (IData)(vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add))
+         [0x13U] : ((0x305U == (IData)(vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add))
                      ? vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
-                    [0x23U] : ((0x341U == (IData)(vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add))
+                    [0x14U] : ((0x341U == (IData)(vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add))
                                 ? vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
-                               [0x21U] : ((0x342U == (IData)(vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add))
+                               [0x12U] : ((0x342U == (IData)(vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add))
                                            ? vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
-                                          [0x20U] : 0U))));
-    vlSelf->ysyx_24080014_cpu__DOT__alu__DOT____VdfgTmp_h03500f17__0 
-        = ((0x1fU >= (0x3fU & (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                               >> 0x14U))) ? (vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__eq_rs1 
-                                              >> (0x3fU 
-                                                  & (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                     >> 0x14U)))
+                                          [0x11U] : 0U))));
+    vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__eq_rs1 
+        = ((0x14U >= (IData)(vlSelf->ysyx_24080014_cpu__DOT__rs1_addr))
+            ? vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
+           [vlSelf->ysyx_24080014_cpu__DOT__rs1_addr]
             : 0U);
-    vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__Equal 
-        = ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)) 
-           & (vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__eq_rs1 
-              == vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__eq_rs2));
     vlSelf->ysyx_24080014_cpu__DOT__imm = ((1U == (IData)(vlSelf->ysyx_24080014_cpu__DOT__imm_type))
                                             ? (((- (IData)(
                                                            (vlSelf->ysyx_24080014_cpu__DOT__inst 
@@ -2180,6 +1318,17 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                                & (vlSelf->ysyx_24080014_cpu__DOT__inst 
                                                                   >> 7U)))))
                                                       : 0U)))));
+    vlSelf->ysyx_24080014_cpu__DOT__alu__DOT____VdfgTmp_h03500f17__0 
+        = ((0x1fU >= (0x3fU & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                               >> 0x14U))) ? (vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__eq_rs1 
+                                              >> (0x3fU 
+                                                  & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                     >> 0x14U)))
+            : 0U);
+    vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__Equal 
+        = ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)) 
+           & (vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__eq_rs1 
+              == vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__eq_rs2));
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT____VdfgTmp_h8a6dd40b__0 
         = (vlSelf->ysyx_24080014_cpu__DOT__imm + vlSelf->ysyx_24080014_cpu__DOT__pc);
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__And = 
@@ -2562,13 +1711,13 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                     == (IData)(vlSelf->ysyx_24080014_cpu__DOT__csrs_ctl))
                                                     ? 
                                                    vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
-                                                   [0x23U]
+                                                   [0x14U]
                                                     : 
                                                    ((2U 
                                                      == (IData)(vlSelf->ysyx_24080014_cpu__DOT__csrs_ctl))
                                                      ? 
                                                     vlSelf->ysyx_24080014_cpu__DOT__gpr__DOT__general_register
-                                                    [0x21U]
+                                                    [0x12U]
                                                      : 
                                                     ((IData)(4U) 
                                                      + vlSelf->ysyx_24080014_cpu__DOT__pc))));

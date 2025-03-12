@@ -2,7 +2,7 @@
 #include "../include/common.h"         
 #include "../include/addr.h"                   
 #include "../include/difftest-def.h"
-extern uint32_t cpu_gpr[36];//mcause mepc mstatus mtvec
+extern uint32_t cpu_gpr[20];//mcause mepc mstatus mtvec
 extern uint32_t dut_pc;
 extern Vysyx_24080014_cpu dut;
 extern VerilatedContext* contextp; 
@@ -11,13 +11,13 @@ bool is_skip_ref = false;
 bool is_skip_ref_r = false;
 regfile pack_dut_regfile(uint32_t *dut_reg,uint32_t pc) {
   regfile dut;
-  for (int i = 0; i < 32; i++) {
+  for (int i = 0; i < 16; i++) {
     dut.x[i] = dut_reg[i];
   }
-  dut.mcause = dut_reg[32];
-  dut.mepc =  dut_reg[33];
-  dut.mstatus =  dut_reg[34];
-  dut.mtvec =  dut_reg[35];
+  dut.mcause = dut_reg[17];
+  dut.mepc =  dut_reg[18];
+  dut.mstatus =  dut_reg[19];
+  dut.mtvec =  dut_reg[20];
   dut.pc = pc;
 
   return dut;
@@ -31,7 +31,7 @@ void (*ref_difftest_exec)(uint32_t n) = NULL;
 void (*ref_difftest_raise_intr)(uint32_t NO) = NULL;
 
 void init_difftest(char *ref_so_file, long img_size) {
-  for(int i = 0; i < 36; i++){
+  for(int i = 0; i < 16; i++){
     cpu_gpr[i] = 0;
   }
   assert(ref_so_file != NULL);

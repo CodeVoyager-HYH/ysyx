@@ -22,6 +22,7 @@
 #define CONFIG_HAS_SERIAL 1
 #define CONFIG_ISA_riscv 1
 #define CONFIG_HAS_DISK 1
+#define CONFIG_WAVE_TRACE 1
 #define CONFIG_FB_ADDR 0xa1000000
 #define CONFIG_HAS_VGA 1
 #define CONFIG_HAS_TIMER 1

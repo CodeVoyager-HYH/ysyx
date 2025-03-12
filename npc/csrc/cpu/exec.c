@@ -158,7 +158,7 @@ extern "C" void difftest(int exec){
   else{ diff_run = 0;}
 }
 
-static void execute(uint64_t n,Decode *s) {
+ void execute(uint64_t n,Decode *s) {
   int j = n;
   int ready = 0;
  for (;n > 0; n --) {
@@ -189,6 +189,7 @@ static void execute(uint64_t n,Decode *s) {
           dut.eval();
           contextp->timeInc(1); 
           m_trace->dump(contextp->time());
+
           dut.clk = 0;
           dut.eval();
           contextp->timeInc(1); 
@@ -201,7 +202,6 @@ static void execute(uint64_t n,Decode *s) {
 
       dut.clk = 1;
       dut.rst = 1;  // 解除复位
-      //if(diff_skip) i ;
 
       dut.eval();  // 评估电路状态
         
@@ -212,14 +212,12 @@ static void execute(uint64_t n,Decode *s) {
         trace();
         IFDEF(CONFIG_DEVICE, device_update());
         IFDEF(CONFIG_DIFFTEST,trace_and_difftest(s, dut_npc,logbuf));
-        if(diff_run){ 
+        if(diff_run){ IFDEF(CONFIG_DIFFTEST,difftest_step());
           if(ready == 1){
             IFDEF(CONFIG_DIFFTEST,difftest_step());
             ready = 0;
-            ready++;
           }
-          
-          //else ready ++;
+           else ready ++;
         }
         
       }

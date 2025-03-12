@@ -42,18 +42,11 @@ module delay_cycle (
             read_pending <= 1'b0;
         end
         else if (start && !running) begin
-            //count   <= times;    // 设定计数上限
             running <= 1;    // 开始计数
         end 
-        if(running) begin
+        if(!start&&running) begin
             running <= 1'b0;
-            // if (!read_pending) begin
-            //     read_pending <= 1'b1;             // 设置标志，表示已经发出请求
-            // end
-            // else begin
-            //     read_pending <= 1'b0;             // 读取完成，重置标志
-            //     running <= 0;
-            // end
+
         end
     end
 

@@ -3,6 +3,8 @@
 #include "Vysyx_24080014_cpu.h" 
 #include "../include/addr.h"
 extern Vysyx_24080014_cpu dut;
+extern VerilatedContext* contextp; 
+extern VerilatedVcdC *m_trace;
 
 extern uint32_t dut_npc;
 extern uint32_t dut_pc;
@@ -62,17 +64,53 @@ uint32_t _pmem_read(uint32_t addr, int len) {
   assert(0);
 }
 
-extern "C" int rtl_pmem_read(int raddr){//,int *rdata){
-  extern uint32_t inst;
-  //raddr = raddr & ~0x3u;  //字节对齐
+void delay_cycle(int n) {
+  int j = n;
+for (;n > 0; n --) {
+//----------------------------------------------
+    if(n!=1){
+      if(j == n){
+        dut.eval();  // 评估当前状态
+        contextp->timeInc(1);  // 增加仿真时间
+        IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 写入波形数据
+  
+        //IFDEF(CONFIG_DIFFTEST, difftest_step());
+      }
+      int cirle = 0;
+      dut.clk = 0;
+      dut.eval();  // 评估当前状态
+      contextp->timeInc(1);  // 增加仿真时间
+      IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 写入波形数据
 
-  IFDEF(CONFIG_MTRACE,Log("[mtrace](npc csrc)read data = %x , read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = 4\n",*rdata,raddr, dut_pc));	
+      dut.clk = 1;
+      dut.rst = 1;  // 解除复位
+      dut.eval();  // 评估电路状态
+        
+      if(n>1){
+        contextp->timeInc(1);  // 增加仿真时间
+        IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 写入波形数据
+
+      }
+    }  
+  }
+}
+
+
+
+extern "C" int rtl_pmem_read(int raddr){//,int *rdata){
+  //延迟
+  delay_cycle(1);
+  extern uint32_t inst;
   int rdata;  
+  //raddr = raddr & ~0x3u;  //字节对齐
+uint32_t tem = pmem_read(0x80000418,4);
+  //Log("=npc  0x800189c4 = 0x%x",tem);  
+  
   if (raddr >= PMEM_START && raddr <= PMEM_END){
     rdata = _pmem_read(raddr,4);
     
     IFDEF(DEBUG,Log("radrr = %x,rdata=%x\n",raddr,rdata));
-    
+    IFDEF(CONFIG_MTRACE,Log("[mtrace](npc csrc)read data = %x , read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = 4\n",rdata,raddr, dut_pc));	
     return rdata;
   }
   else if(raddr == RTC_ADDR){
@@ -92,7 +130,8 @@ extern "C" void rtl_pmem_write(int waddr, int wdata, char wmask) {//waddr写入�
   // 总是往地址为`waddr & ~0x3u`的4字节按写掩码`wmask`写入`wdata`
   // `wmask`中每比特表示`wdata`中1个字节的掩码,
   // 如`wmask = 0x3`代表只写入最低2个字节, 内存中的其它字节保持不变
-
+  
+  delay_cycle(1);
   //waddr = waddr & ~0x3u;//地址对齐
   int i = 0;
 	int j = 0;

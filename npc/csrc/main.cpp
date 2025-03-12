@@ -75,7 +75,7 @@ int main(int argc, char** argv, char** env) {
         IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));   // 写入波形数据
 
         //ebreak退出---------------------------------
-          if(global_judge == OK){
+        if(global_judge == OK){
             set_npc_state(NPC_END, dut_pc, cpu_gpr[10]);
             state_judge();
             IFDEF(CONFIG_WAVE_TRACE,m_trace->close()); 

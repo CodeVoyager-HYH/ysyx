@@ -56,9 +56,9 @@ word_t paddr_read(paddr_t addr, int len) {
   Log("(nemu)read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = %d",addr, cpu.pc, len);	
   Log("(nemu)read data = %x \n",pmem_read(addr, len));
 #endif  
-//addr = addr & ~0x3u;  //difftest地址对齐  
-// //printf("raddr = %x\n",addr);
-// uint32_t tem = pmem_read(0x800189c4,4);
+addr = addr & ~0x3u;  //difftest地址对齐  
+//printf("raddr = %x\n",addr);
+// uint32_t tem = pmem_read(0x80000418,4);
 //   Log("++++++++++++++++++++++++++++=nemu  0x800189c4 = 0x%x",tem);  
   if (likely(in_pmem(addr))) return pmem_read(addr, len);
   IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
@@ -67,7 +67,7 @@ word_t paddr_read(paddr_t addr, int len) {
 }
 
 void paddr_write(paddr_t addr, int len, word_t data) {
-//addr = addr & ~0x3u;//difftest地址对齐  
+addr = addr & ~0x3u;//difftest地址对齐  
 #ifdef CONFIG_MTRACE	
 
   printf("(nemu)write address = " FMT_PADDR " at pc = " FMT_WORD " with byte = %d and data =" FMT_WORD "\n",addr, cpu.pc, len, data);

@@ -213,6 +213,7 @@ ysyx_24080014_rdin rdin (
 
 ysyx_24080014_gpr gpr (
     .ready                  (ready)                 ,
+    .StoreWr                (StoreWr)               ,
     .load                   (load)                  ,
     .mem_ready              (mem_ready)             ,
     .valid                  (valid)                 ,

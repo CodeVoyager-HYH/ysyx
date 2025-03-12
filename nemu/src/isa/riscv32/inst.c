@@ -139,7 +139,7 @@ extern void isa_reg_display();
 int isa_exec_once(Decode *s) {
   s->isa.inst.val = inst_fetch(&s->snpc, 4);
   //isa_reg_display();
-  printf("\n%d nemu_inst:0x%x\n",i++,s->isa.inst.val);
+  //printf("\n%d nemu_inst:0x%x\n",i++,s->isa.inst.val);
   return decode_exec(s);
 }
  

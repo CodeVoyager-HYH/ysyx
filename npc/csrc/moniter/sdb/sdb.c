@@ -203,7 +203,7 @@ static char* rl_gets() {
 
   return line_read;
 }
-extern uint32_t cpu_gpr[36] ;
+extern uint32_t cpu_gpr[20] ;
 void init_sdb() {
   /* Compile the regular expressions. */
   init_regex();

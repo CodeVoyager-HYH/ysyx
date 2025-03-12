@@ -8,7 +8,7 @@ extern uint32_t inst;
 extern Vysyx_24080014_cpu dut;
 extern int no_img;
 extern uint64_t g_nr_guest_inst;
-uint32_t cpu_gpr[36] ;//32+4 32个寄存器 4个csrs寄存器 顺序mcause mepc mstatus mtvec
+uint32_t cpu_gpr[20] ;//16+4 32个寄存器 4个csrs寄存器 顺序mcause mepc mstatus mtvec
 uint32_t* snpc;
 uint32_t ins_val;
 extern uint8_t *pmem;//物理内存
@@ -80,7 +80,7 @@ uint32_t fetch_ins(){//uint32_t pc){
 extern "C" void set_gpr_ptr(const svOpenArrayHandle r) {
 
    uint32_t* gpr = (uint32_t *)(((VerilatedDpiOpenVar*)r)->datap());
-   for(int i = 0; i < 36; i++){
+   for(int i = 0; i < 20; i++){
     cpu_gpr[i] = gpr[i];
    }
    
@@ -118,7 +118,7 @@ bool checkregs(regfile *ref, regfile *dut) {
     return false;
   }
 
-  for (int i = 0; i < 32; i++) {
+  for (int i = 0; i < 16; i++) {
     if(ref->x[i] != dut->x[i]){
       printf("difftest error at nextpc = 0x%x, ",dut->pc);
       printf("reg %s is diff: ref = 0x%x, dut = 0x%x\n",regs[i],ref->x[i],dut->x[i]);
@@ -152,7 +152,7 @@ bool checkregs(regfile *ref, regfile *dut) {
 void print_regs(regfile *ref, regfile *dut){
   printf("---------------DUT REGS---------------\n");
   printf("$pc = 0x%x\n",dut->pc);
-  for (int i = 0; i < 32; i++) {
+  for (int i = 0; i < 16; i++) {
     printf("%-7s = 0x%08x\t",regs[i],dut->x[i]);
     if(i % 4==3) {
       printf("\n");
@@ -165,7 +165,7 @@ void print_regs(regfile *ref, regfile *dut){
 
   printf("\n---------------REF REGS---------------\n");
   printf("$pc = 0x%x\n",ref->pc);
-  for (int i = 0; i < 32; i++) {
+  for (int i = 0; i < 16; i++) {
     printf("%-7s = 0x%08x\t",regs[i],ref->x[i]);
     if(i % 4==3) {
       printf("\n");
@@ -180,7 +180,7 @@ void print_regs(regfile *ref, regfile *dut){
 
 extern "C" void isa_reg_display() {
   printf("-------------------------------NPC------------------\n");
-  for (int i = 0; i < 32; i++){
+  for (int i = 0; i < 16; i++){
     printf("%-10s\t0x%-10x\t0x%x\n", regs[i], cpu_gpr[i], cpu_gpr[i]);    
   }
   printf("%-10s\t0x%-10x\t0x%x\n", "pc", dut_pc, dut_pc);
@@ -194,7 +194,7 @@ extern "C" void isa_reg_display() {
 word_t isa_reg_str2val(const char *s, bool *success) {
   int i;
   *success = true;
-  for (i = 0; i < 32; i ++) {
+  for (i = 0; i < 16; i ++) {
     if (strcmp(regs[i], s) == 0) return cpu_gpr[i];
   }
 
@@ -208,7 +208,7 @@ word_t isa_reg_str2val(const char *s, bool *success) {
 bool isa_difftest_checkregs(CPU_state *ref_r, vaddr_t pc) {
   bool flag = true;
     // printf("ref_r.pc : %#x,pc : %#x\n",ref_r->pc,pc);
-    for(int i = 0;i < 32;i++){
+    for(int i = 0;i < 16;i++){
         // nemu的gpr与npc的gpr相比
         if(ref_r -> gpr[i] != cpu_gpr[i]){
             Log("PC = 0x%x, Difftest Reg Compare failed at %s, Difftest reg Get " FMT_WORD ", NPC reg Get " FMT_WORD, pc, regs[i], ref_r->gpr[i], cpu_gpr[i]);
