@@ -745,12 +745,6 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                           == 
                                                           (0x7fU 
                                                            & vlSelf->ysyx_24080014_cpu__DOT__inst))))));
-    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__clock 
-        = (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
-            & (0x23U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
-            ? 1U : (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
-                     & (3U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
-                     ? 2U : 0U));
     if ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
         vlSelf->ysyx_24080014_cpu__DOT__npc_ctr = 3U;
         vlSelf->ysyx_24080014_cpu__DOT__eq_ctl = ((0U 

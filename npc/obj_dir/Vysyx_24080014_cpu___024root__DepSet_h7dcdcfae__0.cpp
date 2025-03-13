@@ -381,6 +381,9 @@ VL_INLINE_OPT void Vysyx_24080014_cpu___024root___nba_sequent__TOP__1(Vysyx_2408
                                                                                  ? 3U
                                                                                  : 0U)))
                                                                                  : 0U));
+            vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__i 
+                = (3U & ((IData)(1U) + (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__i)));
+            vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__write = 1U;
         }
         vlSelf->ysyx_24080014_cpu__DOT__mem_ready = 1U;
         vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem = 0U;
@@ -405,6 +408,12 @@ VL_INLINE_OPT void Vysyx_24080014_cpu___024root___nba_sequent__TOP__1(Vysyx_2408
         vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem = 0U;
         vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__write = 0U;
     }
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__clock 
+        = (((0x23U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)) 
+            & (~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)))
+            ? 1U : (((3U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)) 
+                     & (~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)))
+                     ? 2U : 0U));
 }
 
 void Vysyx_24080014_cpu___024unit____Vdpiimwrap_npctrap_TOP____024unit();
@@ -726,12 +735,6 @@ VL_INLINE_OPT void Vysyx_24080014_cpu___024root___nba_sequent__TOP__2(Vysyx_2408
                                                                   == 
                                                                   (0x7fU 
                                                                    & vlSelf->ysyx_24080014_cpu__DOT__inst)))))))));
-    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__clock 
-        = (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
-            & (0x23U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
-            ? 1U : (((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
-                     & (3U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst)))
-                     ? 2U : 0U));
     if ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
         vlSelf->ysyx_24080014_cpu__DOT__npc_ctr = 3U;
         vlSelf->ysyx_24080014_cpu__DOT__eq_ctl = ((0U 

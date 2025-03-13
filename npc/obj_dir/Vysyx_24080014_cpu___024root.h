@@ -48,6 +48,7 @@ class Vysyx_24080014_cpu___024root final : public VerilatedModule {
         CData/*0:0*/ ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__write;
         CData/*0:0*/ ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__done;
         CData/*0:0*/ ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__start;
+        CData/*1:0*/ ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__i;
         CData/*0:0*/ ysyx_24080014_cpu__DOT__alu__DOT__Compare;
         CData/*0:0*/ ysyx_24080014_cpu__DOT__alu__DOT__Equal;
         CData/*0:0*/ ysyx_24080014_cpu__DOT__gpr__DOT__tem_ready;
@@ -82,9 +83,9 @@ class Vysyx_24080014_cpu___024root final : public VerilatedModule {
         IData/*31:0*/ ysyx_24080014_cpu__DOT__gpr__DOT____Vlvbound_h6bbed7fa__1;
         IData/*31:0*/ __Vdly__ysyx_24080014_cpu__DOT__pc;
         IData/*31:0*/ __VstlIterCount;
-        IData/*31:0*/ __VicoIterCount;
     };
     struct {
+        IData/*31:0*/ __VicoIterCount;
         IData/*31:0*/ __VactIterCount;
         VlUnpacked<IData/*31:0*/, 21> ysyx_24080014_cpu__DOT__gpr__DOT__general_register;
         VlUnpacked<CData/*0:0*/, 4> __Vm_traceActivity;

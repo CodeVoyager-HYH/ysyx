@@ -27,6 +27,7 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_static__TOP(Vysyx_24080014
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_24080014_cpu___024root___eval_static__TOP\n"); );
     // Body
     vlSelf->ysyx_24080014_cpu__DOT__IF__DOT__ifu__DOT__state = 0U;
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__i = 0U;
 }
 
 VL_ATTR_COLD void Vysyx_24080014_cpu___024root___eval_initial__TOP(Vysyx_24080014_cpu___024root* vlSelf);
@@ -213,6 +214,7 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___ctor_var_reset(Vysyx_24080014_c
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__write = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__done = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__start = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__i = VL_RAND_RESET_I(2);
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__Add = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__And = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__Xor = VL_RAND_RESET_I(32);

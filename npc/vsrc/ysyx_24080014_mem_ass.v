@@ -22,13 +22,22 @@ module ysyx_24080014_mem_ass(
     reg write;
     wire done           ;
     reg  start          ;
-    assign clock = (wen && !valid)? 2'b01:
-                    ((ren && !valid)? 2'b10: 2'b0);
-
+    // assign clock = (wen && !valid)? 2'b01:
+    //                 ((ren && !valid)? 2'b10: 2'b0);
+reg [1:0]i =0;
     //assign write = (mem_ready)?1'b1:1'b0;
     always @(posedge clk) begin
+        if(wen && !valid) clock <= 2'b01;    
+        else if(ren && !valid) clock <= 2'b10;
+        else clock <= 2'b00;
+
+
         if(clock == 2'b01) begin //写
-            if(!write) rtl_pmem_write(waddr, din, wmask);
+            if(!write) begin
+                rtl_pmem_write(waddr, din, wmask);
+                i=i+1;
+                write <= 1;
+            end    
             mem_ready <= 1'b1  ;
             dout      <= 32'b0 ;
             write     <= 1;
@@ -39,7 +48,7 @@ module ysyx_24080014_mem_ass(
         end
         else begin
             mem_ready <= 1'b0  ;
-            dout      <= 32'b0 ;
+            dout      <= 32'b0 ;        
             write     <= 0;
         end
     end

@@ -102,11 +102,11 @@ extern "C" int rtl_pmem_read(int raddr){//,int *rdata){
   delay_cycle(1);
   extern uint32_t inst;
   int rdata;  
-  //raddr = raddr & ~0x3u;  //字节对齐
-uint32_t tem = pmem_read(0x80000418,4);
+  //if(alignment) raddr = raddr & ~0x3u;  //字节对齐
+// uint32_t tem = pmem_read(0x80000418,4);
   //Log("=npc  0x800189c4 = 0x%x",tem);  
   
-  if (raddr >= PMEM_START && raddr <= PMEM_END){
+  if (raddr >= PMEM_START && raddr <= PMEM_END){//raddr = raddr & ~0x3u;
     rdata = _pmem_read(raddr,4);
     
     IFDEF(DEBUG,Log("radrr = %x,rdata=%x\n",raddr,rdata));
