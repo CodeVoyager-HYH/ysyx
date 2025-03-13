@@ -88,22 +88,6 @@ ysyx_24080014_if IF(
     .inst   (inst)
 );
 
-// ysyx_24080014_memory mem(
-//     .rst        (rst)        ,
-//     .mem_ready  (mem_ready)  ,  
-//     .valid      (valid)      ,
-//     .sign       (sign)       ,
-//     .clk        (clk)        ,
-//     .rs1_data   (rs1_data)   ,
-//     .rmask      (rmask)      ,
-//     .ReadWr     (ReadWr)     ,
-//     .StoreWr    (StoreWr)    ,
-//     .wmask      (wmask)      ,
-//     .read_addr  (read_addr)  ,
-//     .mem_rd     (mem_rd)     ,
-//     .store_data (store_data) ,
-//     .read_data  (read_data)
-// );
 ysyx_24080014_memory mem(
     .rst        (rst)        ,   
     .mem_ready  (mem_ready)  ,  

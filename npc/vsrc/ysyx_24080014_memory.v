@@ -16,20 +16,63 @@ module ysyx_24080014_memory(
 );
 
     wire [31:0] read_tem;
+    wire        awready ;
+    wire        wready  ;
+    wire        arready ;
+    wire        bvalid  ;
+    wire        bready = 1'b1  ;
+    wire        rvalid  ;
+    wire [1:0]  rresp;
+    wire [1:0]  bresp;
+
+    assign mem_ready = (bresp == 2'b00)?1'b1:
+                            (rresp == 2'b00)?1'b1:1'b0;
+    // ysyx_24080014_mem_ass mem_ass_storage(
+    //     .rst        (rst)           ,
+    //     .ren        (ReadWr)        ,
+    //     .clk        (clk)           ,
+    //     .valid      (valid)         ,
+    //     .wen        (StoreWr)       ,
+    //     .wmask      (wmask)         ,
+    //     .mem_ready  (mem_ready)     ,
+    //     .waddr      (mem_rd)        ,
+    //     .raddr      (read_addr)     ,
+    //     .din        (store_data)    ,
+    //     .dout       (read_tem)
+    // );
 
     ysyx_24080014_mem_ass mem_ass_storage(
-        .rst        (rst)           ,
-        .ren        (ReadWr)        ,
-        .clk        (clk)           ,
-        .valid      (valid)         ,
-        .wen        (StoreWr)       ,
-        .wmask      (wmask)         ,
-        .mem_ready  (mem_ready)     ,
-        .waddr      (mem_rd)        ,
-        .raddr      (read_addr)     ,
-        .din        (store_data)    ,
-        .dout       (read_tem)
-    );
+        //AXI4-lite 全局变量
+        .aclk       (clk)           ,
+        .aresetn    (rst)           ,
+        
+        //AXI4-lite 写地址通道
+        .awvalid    (StoreWr)       ,
+        .awready    (awready)       ,
+        .awaddr     (mem_rd)        ,   
+
+        //AXI4-lite 写数据通道
+        .wdata      (store_data)    ,
+        .wstrb      (wmask)         ,
+        .wready     (wready)        ,
+        .wvalid     (!valid)        ,
+
+        //AXI4-lite 读地址通道
+        .araddr     (read_addr)     ,
+        .arvalid    (ReadWr)        ,
+        .arready    (arready)       ,
+
+        //AXI4-lite 读数据通道
+        .rdata      (read_tem)      ,
+        .rresp      (rresp)         ,
+        .rready     (!valid)        ,
+        .rvalid     (rvalid)        ,
+
+        //AXI4-lite 写响应通道
+        .bready     (bready)        ,
+        .bresp      (bresp)         ,
+        .bvalid     (bvalid)
+    );    
     
     assign read_data = (ReadWr == 1)?
                             ((sign == 0)?

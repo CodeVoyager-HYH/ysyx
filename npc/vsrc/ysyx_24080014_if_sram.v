@@ -14,7 +14,7 @@ module ysyx_24080014_if_sram (
     input  wire [31:0] araddr,  //    要读的数据
 
     // AXI4-Lite 读数据通道
-    output reg        rvalid,  //    表示传出的数据有效
+    output reg         rvalid,  //    表示传出的数据有效
     input  wire        rready,  //    准备好接收数据
     output reg [31:0]  rdata    //    读出的数据  
 );
