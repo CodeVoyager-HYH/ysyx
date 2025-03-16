@@ -194,6 +194,8 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___ctor_var_reset(Vysyx_24080014_c
     vlSelf->ysyx_24080014_cpu__DOT__alu_rs1 = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__alu_ctl = VL_RAND_RESET_I(4);
     vlSelf->ysyx_24080014_cpu__DOT__alu_rs2 = VL_RAND_RESET_I(32);
+    vlSelf->ysyx_24080014_cpu__DOT__mem_rd = VL_RAND_RESET_I(32);
+    vlSelf->ysyx_24080014_cpu__DOT__store_data = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__rs1_addr = VL_RAND_RESET_I(5);
     vlSelf->ysyx_24080014_cpu__DOT__rs2_addr = VL_RAND_RESET_I(5);
     vlSelf->ysyx_24080014_cpu__DOT__csrs_rs1_read_add = VL_RAND_RESET_I(12);
@@ -205,6 +207,7 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___ctor_var_reset(Vysyx_24080014_c
     vlSelf->ysyx_24080014_cpu__DOT__rd = VL_RAND_RESET_I(5);
     vlSelf->ysyx_24080014_cpu__DOT__rd_data = VL_RAND_RESET_I(32);
     vlSelf->ysyx_24080014_cpu__DOT__compare_ctl = VL_RAND_RESET_I(3);
+    vlSelf->ysyx_24080014_cpu__DOT__wmask = VL_RAND_RESET_I(8);
     vlSelf->ysyx_24080014_cpu__DOT__shamt_ctl = VL_RAND_RESET_I(3);
     vlSelf->ysyx_24080014_cpu__DOT__csrs_ctl = VL_RAND_RESET_I(2);
     vlSelf->ysyx_24080014_cpu__DOT__csr_rs1_data = VL_RAND_RESET_I(32);
@@ -224,6 +227,19 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___ctor_var_reset(Vysyx_24080014_c
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__arready = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__rresp = VL_RAND_RESET_I(2);
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__bresp = VL_RAND_RESET_I(2);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart_valid = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_valid = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__awready_u = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__bresp_u = VL_RAND_RESET_I(2);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__wready_u = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__rresp_u = VL_RAND_RESET_I(2);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart__DOT__araddr = VL_RAND_RESET_I(32);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart__DOT__arvalid = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart__DOT__arready = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart__DOT__rdata = VL_RAND_RESET_I(32);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart__DOT__rready = VL_RAND_RESET_I(1);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart__DOT__clock = VL_RAND_RESET_I(2);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart__DOT__write = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__clock = VL_RAND_RESET_I(2);
     vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_ass_storage__DOT__write = VL_RAND_RESET_I(1);
     vlSelf->ysyx_24080014_cpu__DOT__alu__DOT__Add = VL_RAND_RESET_I(32);

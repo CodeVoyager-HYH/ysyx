@@ -1,3 +1,4 @@
+`define SERIAL_PORT 32'ha00003f8
 module ysyx_24080014_memory(
     input  ReadWr               ,//读入使能
     input  StoreWr              ,//内存写入使能
@@ -24,9 +25,14 @@ module ysyx_24080014_memory(
     wire        rvalid  ;
     wire [1:0]  rresp;
     wire [1:0]  bresp;
+    wire        mem_r;
+    wire        uart_r;
 
-    assign mem_ready = (bresp == 2'b00)?1'b1:
+
+    assign mem_r = (bresp == 2'b00)?1'b1:
                             (rresp == 2'b00)?1'b1:1'b0;
+    assign uart_r = (bresp_u == 2'b00)?1'b1:1'b0;                        
+    assign mem_ready = (mem_r || uart_r)?1'b1:1'b0;
     // ysyx_24080014_mem_ass mem_ass_storage(
     //     .rst        (rst)           ,
     //     .ren        (ReadWr)        ,
@@ -40,7 +46,46 @@ module ysyx_24080014_memory(
     //     .din        (store_data)    ,
     //     .dout       (read_tem)
     // );
+//=================================================
+    wire  uart_valid; 
+    wire  mem_valid;
+    wire  awready_u  ;
+    //wire        bready_u;
+    wire [1:0]  bresp_u;  
+    wire        bvalid_u;
+    wire        wready_u;
+    wire [1:0]  rresp_u;
+    
+    assign  uart_valid = (mem_rd == `SERIAL_PORT)?
+                            ((!valid)?1'b1:1'b0):1'b0;
+    assign  mem_valid = (mem_rd != `SERIAL_PORT&&(!valid))?1'b1:1'b0;                      
+    
+    axi4lite_uart_slave uart(
+        .aclk       (clk)           ,
+        .aresetn    (rst)           ,
 
+        .awaddr     (mem_rd)        ,
+        .awvalid    (uart_valid)    ,
+        .awready    (awready_u)     ,
+
+        .wdata      (store_data)    ,
+        .wstrb      (wmask)         ,
+        .wready     (wready_u)      ,
+        .wvalid     (uart_valid)    ,
+
+        .bready     (bready)      ,
+        .bresp      (bresp_u)       ,
+        .bvalid     (bvalid_u)      ,
+
+        .araddr     ()              ,
+        .arvalid    ()              ,
+        .arready    ()              ,
+        
+        .rdata      ()              ,
+        .rresp      (rresp_u)       ,
+        .rvalid     ()              ,
+        .rready     ()              
+    );
     ysyx_24080014_mem_ass mem_ass_storage(
         //AXI4-lite 全局变量
         .aclk       (clk)           ,
@@ -55,7 +100,7 @@ module ysyx_24080014_memory(
         .wdata      (store_data)    ,
         .wstrb      (wmask)         ,
         .wready     (wready)        ,
-        .wvalid     (!valid)        ,
+        .wvalid     (mem_valid)        ,
 
         //AXI4-lite 读地址通道
         .araddr     (read_addr)     ,
@@ -73,7 +118,24 @@ module ysyx_24080014_memory(
         .bresp      (bresp)         ,
         .bvalid     (bvalid)
     );    
-    
+//========================================================
+    // Xbar xbar(
+    //     .clk            (clk)           ,
+    //     .rst            (rst)           ,
+    //     .valid          (valid)         ,
+
+    //     .read_addr      (read_addr)     ,
+    //     .ReadWr         (ReadWr)        ,
+    //     .read_data      (read_data)     ,
+
+    //     .mem_rd         (mem_rd)        ,
+    //     .wmask          (wmask)         ,
+    //     .store_data     (store_data)    ,
+    //     .StoreWr        (StoreWr)
+    // );
+
+
+
     assign read_data = (ReadWr == 1)?
                             ((sign == 0)?
                                 ((rmask == 3'b001)?{{24{1'b0}},read_tem[7:0]}:

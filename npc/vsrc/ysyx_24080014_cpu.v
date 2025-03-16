@@ -5,9 +5,9 @@ module ysyx_24080014_cpu(
 
 //声明
 reg  [31:0] pc ;
-wire  [31:0] csr_next_pc;
+wire [31:0] csr_next_pc;
 wire [ 2:0] rmask;
-wire  [31:0] inst ;
+wire [31:0] inst ;
 wire [31:0] next_pc ;
 wire [31:0] imm ;
 wire [ 2:0] eq_ctl;

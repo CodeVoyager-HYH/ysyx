@@ -1,10 +1,4 @@
-import "DPI-C" function void rtl_pmem_write(
-    input int  waddr , 
-    input int  wdata ,
-    input byte wmask
-);
-
-module ysyx_24080014_mem_ass(
+module axi4lite_uart_slave (
     //AXI4-lite 全局变量
     input   wire        aclk        ,
     input   wire        aresetn     ,

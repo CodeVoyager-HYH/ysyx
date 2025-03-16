@@ -66,7 +66,8 @@ uint32_t _pmem_read(uint32_t addr, int len) {
 
 void delay_cycle(int n) {
   int j = n;
-for (;n > 0; n --) {
+  //int i = 0;
+for (int i = 0;i < n; i ++) {
 //----------------------------------------------
     if(n!=1){
       if(j == n){
@@ -76,13 +77,13 @@ for (;n > 0; n --) {
   
         //IFDEF(CONFIG_DIFFTEST, difftest_step());
       }
-      int cirle = 0;
-      dut.clk = 0;
+
+      dut.clk ^= 1;
       dut.eval();  // 评估当前状态
       contextp->timeInc(1);  // 增加仿真时间
       IFDEF(CONFIG_WAVE_TRACE,m_trace->dump(contextp->time()));  // 写入波形数据
 
-      dut.clk = 1;
+      dut.clk ^= 1;
       dut.rst = 1;  // 解除复位
       dut.eval();  // 评估电路状态
         
