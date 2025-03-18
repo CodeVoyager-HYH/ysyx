@@ -1,5 +1,5 @@
 /***************************************************************************************
-* Copyright (c) 2014-2024 Zihao Yu, Nanjing University
+* Copyright (c) 2014-2022 Zihao Yu, Nanjing University
 *
 * NEMU is licensed under Mulan PSL v2.
 * You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -91,15 +91,18 @@ void init_difftest(char *ref_so_file, long img_size, int port) {
   ref_difftest_regcpy(&cpu, DIFFTEST_TO_REF);
 }
 
+extern void print_regs(CPU_state *ref, vaddr_t pc);
+
 static void checkregs(CPU_state *ref, vaddr_t pc) {
   if (!isa_difftest_checkregs(ref, pc)) {
     nemu_state.state = NEMU_ABORT;
     nemu_state.halt_pc = pc;
     isa_reg_display();
+    print_regs(ref,pc);
   }
 }
 
-void difftest_step(vaddr_t pc, vaddr_t npc) {
+void difftest_step(vaddr_t pc, vaddr_t npc) {//逐条指令进行比对
   CPU_state ref_r;
 
   if (skip_dut_nr_inst > 0) {

@@ -1,5 +1,5 @@
 /***************************************************************************************
-* Copyright (c) 2014-2024 Zihao Yu, Nanjing University
+* Copyright (c) 2014-2022 Zihao Yu, Nanjing University
 *
 * NEMU is licensed under Mulan PSL v2.
 * You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -12,7 +12,7 @@
 *
 * See the Mulan PSL v2 for more details.
 ***************************************************************************************/
-
+#include <stdlib.h>
 #include <cpu/cpu.h>
 #include <cpu/decode.h>
 #include <cpu/difftest.h>
@@ -24,11 +24,25 @@
  * You can modify this value as you want.
  */
 #define MAX_INST_TO_PRINT 10
-
+void checkWatchPoint();
 CPU_state cpu = {};
 uint64_t g_nr_guest_inst = 0;
 static uint64_t g_timer = 0; // unit: us
 static bool g_print_step = false;
+
+#define BUF 16
+#define inside 1024
+char iringbuf[BUF][inside];
+int a = 0;
+
+void printIB(){
+    for(int i = 0; i<=15; i++){
+        if(i == a-1){
+		printf("-->%d:%s\n",i,iringbuf[i]);
+	}
+	else printf("   %d:%s\n",i,iringbuf[i]);
+    }
+}
 
 void device_update();
 
@@ -38,9 +52,12 @@ static void trace_and_difftest(Decode *_this, vaddr_t dnpc) {
 #endif
   if (g_print_step) { IFDEF(CONFIG_ITRACE, puts(_this->logbuf)); }
   IFDEF(CONFIG_DIFFTEST, difftest_step(_this->pc, dnpc));
+  checkWatchPoint();
+     
 }
 
 static void exec_once(Decode *s, vaddr_t pc) {
+
   s->pc = pc;
   s->snpc = pc;
   isa_exec_once(s);
@@ -50,12 +67,9 @@ static void exec_once(Decode *s, vaddr_t pc) {
   p += snprintf(p, sizeof(s->logbuf), FMT_WORD ":", s->pc);
   int ilen = s->snpc - s->pc;
   int i;
-  uint8_t *inst = (uint8_t *)&s->isa.inst;
-#ifdef CONFIG_ISA_x86
-  for (i = 0; i < ilen; i ++) {
-#else
+  uint8_t *inst = (uint8_t *)&s->isa.inst.val;
+  //printf("inst: %u, isa.inst.val:%u  \n",*inst,s->isa.inst.val);
   for (i = ilen - 1; i >= 0; i --) {
-#endif
     p += snprintf(p, 4, " %02x", inst[i]);
   }
   int ilen_max = MUXDEF(CONFIG_ISA_x86, 8, 4);
@@ -65,12 +79,25 @@ static void exec_once(Decode *s, vaddr_t pc) {
   memset(p, ' ', space_len);
   p += space_len;
 
+#ifndef CONFIG_ISA_loongarch32r
   void disassemble(char *str, int size, uint64_t pc, uint8_t *code, int nbyte);
+  //Log("p = %d,logbuf = %s,pc = %d,code = %u \n",*p,s->logbuf,s->pc,*inst);
   disassemble(p, s->logbuf + sizeof(s->logbuf) - p,
-      MUXDEF(CONFIG_ISA_x86, s->snpc, s->pc), (uint8_t *)&s->isa.inst, ilen);
+      MUXDEF(CONFIG_ISA_x86, s->snpc, s->pc), (uint8_t *)&s->isa.inst.val, ilen);
+#else
+  p[0] = '\0'; // the upstream llvm does not support loongarch32r
+#endif
+  if(a==16){
+	  a = 0;
+  }
+  
+  strcpy(iringbuf[a], s->logbuf);
+  a++;
+
 #endif
 }
 
+//extern void isa_reg_display();
 static void execute(uint64_t n) {
   Decode s;
   for (;n > 0; n --) {
@@ -87,29 +114,31 @@ static void statistic() {
 #define NUMBERIC_FMT MUXDEF(CONFIG_TARGET_AM, "%", "%'") PRIu64
   Log("host time spent = " NUMBERIC_FMT " us", g_timer);
   Log("total guest instructions = " NUMBERIC_FMT, g_nr_guest_inst);
+  Log("a0 = %x\n",cpu.gpr[10]);
   if (g_timer > 0) Log("simulation frequency = " NUMBERIC_FMT " inst/s", g_nr_guest_inst * 1000000 / g_timer);
   else Log("Finish running in less than 1 us and can not calculate the simulation frequency");
 }
 
-void assert_fail_msg() {
+void assert_fail_msg() {//输出错误信息
   isa_reg_display();
+  Log("-------------");
+  printIB();
   statistic();
+  
 }
 
 /* Simulate how the CPU works. */
 void cpu_exec(uint64_t n) {
   g_print_step = (n < MAX_INST_TO_PRINT);
   switch (nemu_state.state) {
-    case NEMU_END: case NEMU_ABORT: case NEMU_QUIT:
+    case NEMU_END: case NEMU_ABORT:
       printf("Program execution has ended. To restart the program, exit NEMU and run again.\n");
       return;
     default: nemu_state.state = NEMU_RUNNING;
   }
 
   uint64_t timer_start = get_time();
-
   execute(n);
-
   uint64_t timer_end = get_time();
   g_timer += timer_end - timer_start;
 

@@ -38,6 +38,8 @@
 extern char _pmem_start;
 #define PMEM_SIZE (128 * 1024 * 1024)
 #define PMEM_END  ((uintptr_t)&_pmem_start + PMEM_SIZE)
+
+//_pmem_start是makfile中传入的，rct:[0xa1000000,0xa1200000]
 #define NEMU_PADDR_SPACE \
   RANGE(&_pmem_start, PMEM_END), \
   RANGE(FB_ADDR, FB_ADDR + 0x200000), \

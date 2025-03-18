@@ -15,22 +15,22 @@
 
 -include $(NEMU_HOME)/../Makefile
 include $(NEMU_HOME)/scripts/build.mk
-
+#build.mk就是有关编译的内容
 include $(NEMU_HOME)/tools/difftest.mk
 
 compile_git:
 	$(call git_commit, "compile NEMU")
 $(BINARY):: compile_git
-
+#BINARY = $(WORK_DIR)/build/riscv32-nemu-interprete -so
 # Some convenient rules
 
 override ARGS ?= --log=$(BUILD_DIR)/nemu-log.txt
 override ARGS += $(ARGS_DIFF)
-
-# Command to execute NEMU
+#ARGS = --log=$(WORK_DIR)/build/nemu-log.txt --diff=riscv32-nemu-interprete/tools/spike-diff/build/riscv32-spike-so
+# Command to execute NEMU 执行nemu的命令
 IMG ?=
 NEMU_EXEC := $(BINARY) $(ARGS) $(IMG)
-
+#NEMU_EXEC = build/riscv32-nemu-interprete -so /build/nemu-log.txt --diff=riscv32-nemu-interprete/tools/spike-diff/build/riscv32-spike-so
 run-env: $(BINARY) $(DIFF_REF_SO)
 
 run: run-env

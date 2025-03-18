@@ -25,5 +25,9 @@ word_t vaddr_read(vaddr_t addr, int len) {
 }
 
 void vaddr_write(vaddr_t addr, int len, word_t data) {
+  // printf("write addr = 0x%x,len = %d, data = %x\n",addr,len,data);
   paddr_write(addr, len, data);
+  // uint8_t *vaddr = guest_to_host(addr);
+  //  *(uint8_t  *)vaddr = data;
+
 }

@@ -47,7 +47,7 @@ static void init_keymap() {
 
 #define KEY_QUEUE_LEN 1024
 static int key_queue[KEY_QUEUE_LEN] = {};
-static int key_f = 0, key_r = 0;
+static int key_f = 0, key_r = 0;//key_f栈顶，key_r栈底
 
 static void key_enqueue(uint32_t am_scancode) {
   key_queue[key_r] = am_scancode;
@@ -66,8 +66,8 @@ static uint32_t key_dequeue() {
 
 void send_key(uint8_t scancode, bool is_keydown) {
   if (nemu_state.state == NEMU_RUNNING && keymap[scancode] != NEMU_KEY_NONE) {
-    uint32_t am_scancode = keymap[scancode] | (is_keydown ? KEYDOWN_MASK : 0);
-    key_enqueue(am_scancode);
+    uint32_t am_scancode = keymap[scancode] | (is_keydown ? KEYDOWN_MASK : 0);//第十六位判断是不是1从而判断是否按下
+    key_enqueue(am_scancode);//进栈
   }
 }
 #else // !CONFIG_TARGET_AM

@@ -1,5 +1,5 @@
 /***************************************************************************************
-* Copyright (c) 2014-2024 Zihao Yu, Nanjing University
+* Copyright (c) 2014-2022 Zihao Yu, Nanjing University
 *
 * NEMU is licensed under Mulan PSL v2.
 * You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -30,7 +30,7 @@ static inline word_t host_read(void *addr, int len) {
 
 static inline void host_write(void *addr, int len, word_t data) {
   switch (len) {
-    case 1: *(uint8_t  *)addr = data; return;
+    case 1: *(uint8_t  *)addr = data;  return;
     case 2: *(uint16_t *)addr = data; return;
     case 4: *(uint32_t *)addr = data; return;
     IFDEF(CONFIG_ISA64, case 8: *(uint64_t *)addr = data; return);

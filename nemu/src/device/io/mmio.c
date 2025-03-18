@@ -33,10 +33,10 @@ static void report_mmio_overlap(const char *name1, paddr_t l1, paddr_t r1,
 }
 
 /* device interface */
-void add_mmio_map(const char *name, paddr_t addr, void *space, uint32_t len, io_callback_t callback) {
+void add_mmio_map(const char *name, paddr_t addr, void *space, uint32_t len, io_callback_t callback) {//mmio的名字，起始物理区域，指向物理空间的指针，长度，回调函数
   assert(nr_map < NR_MAP);
   paddr_t left = addr, right = addr + len - 1;
-  if (in_pmem(left) || in_pmem(right)) {
+  if (in_pmem(left) || in_pmem(right)) {//判断地址是否溢出
     report_mmio_overlap(name, left, right, "pmem", PMEM_LEFT, PMEM_RIGHT);
   }
   for (int i = 0; i < nr_map; i++) {

@@ -1,5 +1,5 @@
 /***************************************************************************************
-* Copyright (c) 2014-2024 Zihao Yu, Nanjing University
+* Copyright (c) 2014-2022 Zihao Yu, Nanjing University
 *
 * NEMU is licensed under Mulan PSL v2.
 * You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -36,10 +36,10 @@ static void pmem_write(paddr_t addr, int len, word_t data) {
   host_write(guest_to_host(addr), len, data);
 }
 
-static void out_of_bound(paddr_t addr) {
-  panic("address = " FMT_PADDR " is out of bound of pmem [" FMT_PADDR ", " FMT_PADDR "] at pc = " FMT_WORD,
-      addr, PMEM_LEFT, PMEM_RIGHT, cpu.pc);
-}
+// static void out_of_bound(paddr_t addr) {
+//   panic("address = " FMT_PADDR " is out of bound of pmem [" FMT_PADDR ", " FMT_PADDR "] at pc = " FMT_WORD,
+//       addr, PMEM_LEFT, PMEM_RIGHT, cpu.pc);
+// }
 
 void init_mem() {
 #if   defined(CONFIG_PMEM_MALLOC)
@@ -48,17 +48,30 @@ void init_mem() {
 #endif
   IFDEF(CONFIG_MEM_RANDOM, memset(pmem, rand(), CONFIG_MSIZE));
   Log("physical memory area [" FMT_PADDR ", " FMT_PADDR "]", PMEM_LEFT, PMEM_RIGHT);
+  printf("physical memory area [" FMT_PADDR ", " FMT_PADDR "]\n", PMEM_LEFT, PMEM_RIGHT);
 }
 
 word_t paddr_read(paddr_t addr, int len) {
+#ifdef CONFIG_MTRACE	
+  Log("(nemu)read address = " FMT_PADDR " at pc = " FMT_WORD " with byte = %d",addr, cpu.pc, len);	
+  Log("(nemu)read data = %x \n",pmem_read(addr, len));
+#endif  
+//printf("raddr = %x\n",addr);
+// uint32_t tem = pmem_read(0x80000418,4);
+//   Log("++++++++++++++++++++++++++++=nemu  0x800189c4 = 0x%x",tem);  
   if (likely(in_pmem(addr))) return pmem_read(addr, len);
   IFDEF(CONFIG_DEVICE, return mmio_read(addr, len));
-  out_of_bound(addr);
+  //out_of_bound(addr);
   return 0;
 }
 
 void paddr_write(paddr_t addr, int len, word_t data) {
+
+#ifdef CONFIG_MTRACE	
+
+  printf("(nemu)write address = " FMT_PADDR " at pc = " FMT_WORD " with byte = %d and data =" FMT_WORD "\n",addr, cpu.pc, len, data);
+#endif  
   if (likely(in_pmem(addr))) { pmem_write(addr, len, data); return; }
   IFDEF(CONFIG_DEVICE, mmio_write(addr, len, data); return);
-  out_of_bound(addr);
+  //out_of_bound(addr);
 }

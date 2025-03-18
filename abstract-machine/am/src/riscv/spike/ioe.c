@@ -3,7 +3,7 @@
 
 void __am_timer_init();
 void __am_timer_rtc(AM_TIMER_RTC_T *);
-void __am_timer_uptime(AM_TIMER_UPTIME_T *);
+void (AM_TIMER_UPTIME_T *);
 
 static void __am_timer_config(AM_TIMER_CONFIG_T *cfg) { cfg->present = true; cfg->has_rtc = true; }
 

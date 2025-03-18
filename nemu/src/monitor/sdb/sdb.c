@@ -1,5 +1,5 @@
 /***************************************************************************************
-* Copyright (c) 2014-2024 Zihao Yu, Nanjing University
+* Copyright (c) 2014-2022 Zihao Yu, Nanjing University
 *
 * NEMU is licensed under Mulan PSL v2.
 * You can use this software according to the terms and conditions of the Mulan PSL v2.
@@ -18,12 +18,14 @@
 #include <readline/readline.h>
 #include <readline/history.h>
 #include "sdb.h"
+#include <memory/paddr.h>
 
 static int is_batch_mode = false;
-
 void init_regex();
 void init_wp_pool();
-
+void watchpoint_create(char *args, int32_t res);
+void free_wp(int no);
+void watchpoint_print();
 /* We use the `readline' library to provide more flexibility to read from stdin. */
 static char* rl_gets() {
   static char *line_read = NULL;
@@ -47,12 +49,110 @@ static int cmd_c(char *args) {
   return 0;
 }
 
-
+//-------------------------------退出
 static int cmd_q(char *args) {
+  nemu_state.state = NEMU_QUIT;
   return -1;
 }
 
 static int cmd_help(char *args);
+static int cmd_si (char *args);
+//*******************************打印寄存器/监视点
+static int cmd_info(char *args){
+  char *arg = strtok(args," ");
+  if(arg == NULL){
+    printf("PLEASR ENTER AN ARGUMNET\n");
+    return 1;}
+  else if (*arg == 'r'){
+    isa_reg_display();
+    return 0;
+  }
+  else if (*arg == 'w'){
+    watchpoint_print();
+    return 0;
+  }
+  else {
+    printf("Don't have this argument\n");
+    return 1;
+  }
+  Log("ERROR in cmd_info");
+  return 0;
+}
+//******************************扫描内存
+static int cmd_x(char *args){
+  //parse argument 
+  char* var1 = strtok(args," ");
+  char* var2 = strtok(NULL," ");
+  int len = 0;
+  //判断是否有输入
+  if(var1 == NULL){printf("Please enter an argument!\n"); return 1;}
+  if(var2 == NULL){printf("Please enter an argument!\n"); return 1;}
+  paddr_t addr = 0;
+  sscanf(var1, "%d", &len);
+  sscanf(var2,"%x", &addr);
+  
+  for(int i = 0 ; i < len ; i ++)
+  {
+      printf("0x%08x = 0x%08x\n",addr,paddr_read(addr,4));
+      addr = addr + 4;
+  }
+  return 0;
+}
+//-----------------------------------------------------表达式求值
+static int cmd_p(char *args){
+  bool success=true;
+  int32_t res = expr(args, &success);
+  if(!success){
+    printf("Invalid expression.Please enter a right expression.\n");
+    return 1;
+  }
+  else {
+    printf("%d\n", res);
+    return 0;
+  }
+  Log("ERROR in cmd_p");
+  return 0; 
+}
+//----------------------------------------------------删除监视点
+static int cmd_d(char *args){
+  int no = -1;
+  sscanf(args,"%d",&no);
+   //bool success = true;
+  if(no <= -1){
+    printf("Please enter a right argument!\n");
+    return 1;
+  }
+  else{
+    free_wp(no);
+    return 0;
+  }
+  Log("ERROR in cmd_d");
+  return 0;
+}
+//--------------------------------------------------设置监视点
+static int cmd_w(char *args){
+  bool success = true;
+  word_t exprAns;
+  char express[65536];
+
+  if (strlen(args) <= 0){
+    printf("Please enter the argument!\n");
+    return 1;
+  }
+  /*检查表达式是否正确是必要的*/
+  exprAns = expr(args, &success);
+  if (success == false){
+    printf("express is error\n");
+    return 1;
+  }
+  Assert(strlen(args) < 65536, "express is too long in cmd_w");
+  strncpy(express, args, strlen(args));
+  express[strlen(args)] = '\0';
+  //这里直接传递args会有奇怪的错误
+  watchpoint_create(express, exprAns);
+
+  return 0;
+}
 
 static struct {
   const char *name;
@@ -62,12 +162,33 @@ static struct {
   { "help", "Display information about all supported commands", cmd_help },
   { "c", "Continue the execution of the program", cmd_c },
   { "q", "Exit NEMU", cmd_q },
+  {"si","Pause the program after stepping through N instructions,When N is not given, it defaults to 1", cmd_si },
+  {"info","Print register status", cmd_info },
+  {"x","Find the value of the expression EXPR as the starting memory address, and output N consecutive 4-byte outputs in hexadecimal",cmd_x},
+  {"p","Calculate the value of the expression after calculating p", cmd_p },
+  {"d","Delete monitoring point with serial number N",cmd_d},
+  {"w","Pause program execution when the value of expression EXPR changes",cmd_w},	
 
   /* TODO: Add more commands */
 
 };
 
 #define NR_CMD ARRLEN(cmd_table)
+//---------------------------------单步执行
+static int cmd_si(char *args){
+  char *arg = strtok(NULL, " ");
+  int i;
+
+  if (arg == NULL) {
+    i = 1;
+  }
+  else {
+    sscanf (arg, "%d", &i);
+  }
+  cpu_exec(i);
+  return 0;
+}
+
 
 static int cmd_help(char *args) {
   /* extract the first argument */
@@ -87,7 +208,7 @@ static int cmd_help(char *args) {
         return 0;
       }
     }
-    printf("Unknown command '%s'\n", arg);
+    printf("Unknown command %s\n", arg);
   }
   return 0;
 }

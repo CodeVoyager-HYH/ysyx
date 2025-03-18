@@ -7,7 +7,9 @@ static Context* (*user_handler)(Event, Context*) = NULL;
 Context* __am_irq_handle(Context *c) {
   if (user_handler) {
     Event ev = {0};
-    switch (c->mcause) {
+    uint32_t ex_code = c->mcause;  
+    switch (ex_code) {
+      case -1: ev.event = EVENT_YIELD; break;
       default: ev.event = EVENT_ERROR; break;
     }
 
@@ -17,6 +19,7 @@ Context* __am_irq_handle(Context *c) {
 
   return c;
 }
+
 
 extern void __am_asm_trap(void);
 
@@ -31,7 +34,13 @@ bool cte_init(Context*(*handler)(Event, Context*)) {
 }
 
 Context *kcontext(Area kstack, void (*entry)(void *), void *arg) {
-  return NULL;
+  //创建上下文结构然后返回
+  Context *Kcontext  = (Context*)(kstack.end - sizeof(Context));
+  Kcontext->mepc = (uintptr_t)entry;
+  Kcontext->mstatus = 0x1800;
+  Kcontext->gpr[10] = (uintptr_t)arg;
+
+  return Kcontext;
 }
 
 void yield() {
