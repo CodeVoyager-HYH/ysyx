@@ -546,6 +546,8 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                     ? 3U
                                                     : 0U)))
                                               : 0U);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__time_trap__DOT__mtime_next 
+        = (1ULL + vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__time_trap__DOT__mtime_reg);
     if ((0x33U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
         vlSelf->ysyx_24080014_cpu__DOT__rd = (0x1fU 
                                               & (vlSelf->ysyx_24080014_cpu__DOT__inst 
@@ -764,8 +766,10 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                    == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__bresp)) 
                                                   | (0U 
                                                      == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__rresp))) 
-                                                 | (0U 
-                                                    == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__bresp_u)));
+                                                 | ((0U 
+                                                     == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__bresp_u)) 
+                                                    | (0U 
+                                                       == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__rresp_t))));
     if ((0x63U == (0x7fU & vlSelf->ysyx_24080014_cpu__DOT__inst))) {
         vlSelf->ysyx_24080014_cpu__DOT__npc_ctr = 3U;
         vlSelf->ysyx_24080014_cpu__DOT__eq_ctl = ((0U 
@@ -1777,6 +1781,66 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                      : 
                                                     ((IData)(4U) 
                                                      + vlSelf->ysyx_24080014_cpu__DOT__pc))));
+    vlSelf->ysyx_24080014_cpu__DOT__mem_rd = ((1U == 
+                                               ((0x23U 
+                                                 == 
+                                                 (0x7fU 
+                                                  & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                 ? 
+                                                ((2U 
+                                                  == 
+                                                  (7U 
+                                                   & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                      >> 0xcU)))
+                                                  ? 1U
+                                                  : 
+                                                 ((0U 
+                                                   == 
+                                                   (7U 
+                                                    & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                       >> 0xcU)))
+                                                   ? 1U
+                                                   : 
+                                                  ((1U 
+                                                    == 
+                                                    (7U 
+                                                     & (vlSelf->ysyx_24080014_cpu__DOT__inst 
+                                                        >> 0xcU)))
+                                                    ? 1U
+                                                    : 7U)))
+                                                 : 7U))
+                                               ? vlSelf->ysyx_24080014_cpu__DOT__alu_out
+                                               : 0U);
+    vlSelf->ysyx_24080014_cpu__DOT__read_addr = ((1U 
+                                                  == 
+                                                  ((3U 
+                                                    == 
+                                                    (0x7fU 
+                                                     & vlSelf->ysyx_24080014_cpu__DOT__inst))
+                                                    ? 1U
+                                                    : 7U))
+                                                  ? vlSelf->ysyx_24080014_cpu__DOT__alu_out
+                                                  : 0U);
+    Vysyx_24080014_cpu___024unit____Vdpiimwrap_get_npc_TOP____024unit(vlSelf->ysyx_24080014_cpu__DOT__next_pc);
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart_valid 
+        = ((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
+           & (0xa00003f8U == vlSelf->ysyx_24080014_cpu__DOT__mem_rd));
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_w_valid 
+        = ((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
+           & (0xa00003f8U != vlSelf->ysyx_24080014_cpu__DOT__mem_rd));
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__clint_time 
+        = ((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
+           & ((0xa0000048U == vlSelf->ysyx_24080014_cpu__DOT__read_addr) 
+              | (0xa000004cU == vlSelf->ysyx_24080014_cpu__DOT__read_addr)));
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_r_valid 
+        = ((0xa0000048U != vlSelf->ysyx_24080014_cpu__DOT__read_addr) 
+           & ((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
+              & (0xa000004cU != vlSelf->ysyx_24080014_cpu__DOT__read_addr)));
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem 
+        = (((0xa0000048U == vlSelf->ysyx_24080014_cpu__DOT__read_addr) 
+            | (0xa000004cU == vlSelf->ysyx_24080014_cpu__DOT__read_addr))
+            ? vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_t
+            : vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_m);
     vlSelf->ysyx_24080014_cpu__DOT__rd_data = ((2U 
                                                 == (IData)(vlSelf->ysyx_24080014_cpu__DOT__rd_ctl))
                                                 ? vlSelf->ysyx_24080014_cpu__DOT__alu_out
@@ -1864,41 +1928,4 @@ VL_ATTR_COLD void Vysyx_24080014_cpu___024root___stl_sequent__TOP__0(Vysyx_24080
                                                         ((IData)(4U) 
                                                          + vlSelf->ysyx_24080014_cpu__DOT__pc)
                                                          : 0U)))))));
-    vlSelf->ysyx_24080014_cpu__DOT__mem_rd = ((1U == 
-                                               ((0x23U 
-                                                 == 
-                                                 (0x7fU 
-                                                  & vlSelf->ysyx_24080014_cpu__DOT__inst))
-                                                 ? 
-                                                ((2U 
-                                                  == 
-                                                  (7U 
-                                                   & (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                      >> 0xcU)))
-                                                  ? 1U
-                                                  : 
-                                                 ((0U 
-                                                   == 
-                                                   (7U 
-                                                    & (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                       >> 0xcU)))
-                                                   ? 1U
-                                                   : 
-                                                  ((1U 
-                                                    == 
-                                                    (7U 
-                                                     & (vlSelf->ysyx_24080014_cpu__DOT__inst 
-                                                        >> 0xcU)))
-                                                    ? 1U
-                                                    : 7U)))
-                                                 : 7U))
-                                               ? vlSelf->ysyx_24080014_cpu__DOT__alu_out
-                                               : 0U);
-    Vysyx_24080014_cpu___024unit____Vdpiimwrap_get_npc_TOP____024unit(vlSelf->ysyx_24080014_cpu__DOT__next_pc);
-    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__uart_valid 
-        = ((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
-           & (0xa00003f8U == vlSelf->ysyx_24080014_cpu__DOT__mem_rd));
-    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__mem_valid 
-        = ((~ (IData)(vlSelf->ysyx_24080014_cpu__DOT__valid)) 
-           & (0xa00003f8U != vlSelf->ysyx_24080014_cpu__DOT__mem_rd));
 }

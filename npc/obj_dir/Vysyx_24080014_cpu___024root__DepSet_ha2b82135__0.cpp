@@ -49,8 +49,10 @@ VL_INLINE_OPT void Vysyx_24080014_cpu___024root___nba_sequent__TOP__3(Vysyx_2408
                                                    == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__bresp)) 
                                                   | (0U 
                                                      == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__rresp))) 
-                                                 | (0U 
-                                                    == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__bresp_u)));
+                                                 | ((0U 
+                                                     == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__bresp_u)) 
+                                                    | (0U 
+                                                       == (IData)(vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__rresp_t))));
 }
 
 VL_INLINE_OPT void Vysyx_24080014_cpu___024root___nba_comb__TOP__0(Vysyx_24080014_cpu___024root* vlSelf) {
@@ -75,6 +77,11 @@ VL_INLINE_OPT void Vysyx_24080014_cpu___024root___nba_comb__TOP__2(Vysyx_2408001
     Vysyx_24080014_cpu__Syms* const __restrict vlSymsp VL_ATTR_UNUSED = vlSelf->vlSymsp;
     VL_DEBUG_IF(VL_DBG_MSGF("+    Vysyx_24080014_cpu___024root___nba_comb__TOP__2\n"); );
     // Body
+    vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_tem 
+        = (((0xa0000048U == vlSelf->ysyx_24080014_cpu__DOT__read_addr) 
+            | (0xa000004cU == vlSelf->ysyx_24080014_cpu__DOT__read_addr))
+            ? vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_t
+            : vlSelf->ysyx_24080014_cpu__DOT__mem__DOT__read_m);
     vlSelf->ysyx_24080014_cpu__DOT__rd_data = ((2U 
                                                 == (IData)(vlSelf->ysyx_24080014_cpu__DOT__rd_ctl))
                                                 ? vlSelf->ysyx_24080014_cpu__DOT__alu_out
