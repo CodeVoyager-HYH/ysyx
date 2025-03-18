@@ -3,7 +3,7 @@ ifeq ($(wildcard $(NPC_HOME)/csrc/main.cpp),)
 endif
 -include $(NPC_HOME)/csrc/config/auto.conf
 -include $(NPC_HOME)/csrc/config/auto.conf.cmd
-
+-include ../Makefile
 remove_quote = $(patsubst "%",%,$(1))
 #删除$(1)所有的的%
 # Extract variabls from menuconfig
